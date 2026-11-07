@@ -1,0 +1,33 @@
+# Reproduce the package versions of the Aire environment that computed the paper's results (Python 3.14.3,
+# PETSc and petsc4py 3.25.6, numpy 2.4.2, Netgen/NGSolve 6.2.2606).
+# Use on macOS or Linux; platform-specific build hashes are intentionally omitted.
+# Create: conda env create -f environment.yml --solver libmamba
+# Activate: conda activate ngsolve-petsc
+name: ngsolve-petsc
+channels:
+  - conda-forge
+  - nodefaults
+dependencies:
+  - python=3.14.3
+  - pip
+  - numpy=2.4.2
+  - scipy=1.17.1
+  - joblib=1.5.3
+  - matplotlib=3.10.9
+  - pandas=3.0.5
+  - threadpoolctl=3.6.0
+  - h5py=3.16.0
+  # Memory monitoring in verification/combined/run.py
+  - psutil=7.2.2
+  # Keep PETSc, its Python bindings, MPI and MUMPS on the same binary stack.
+  - "petsc=3.25.6=real_*"
+  - petsc4py=3.25.6
+  - openmpi=5.0.11
+  - mpi4py=4.1.2
+  - mumps-mpi=5.8.2
+  - pip:
+      # These wheels bring the matching Netgen OCC dependencies.
+      - ngsolve==6.2.2606
+      - netgen-mesher==6.2.2606
+      # 3-D renders (plot_paper_geometry.py); brings VTK
+      - pyvista==0.48.1

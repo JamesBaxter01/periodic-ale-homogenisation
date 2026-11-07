@@ -1,0 +1,169 @@
+Host node014.aire.lee.alces.network, job 9097042, 8 CPUs, commit 8bb1c2f
+Run /users/hpcuser/periodic-ale-homogenisation/results/consolidation/refinement_20261026_201037/mesh: status walltime
+Resolved consolidation: 10 cells, 114520 elements, 758502 DOFs (580086 after the platen elimination), 8 threads
+resumed at t = 1774.52 s
+t = 1823.2 s (dt = 48.68 s)
+    Newton 0: residual 1.217e-04 (target 1.0e-09)
+    Newton 1: residual 4.531e-09 (target 1.0e-09)
+    Newton 2: residual 3.263e-16 (target 1.0e-09)
+  accepted: 2 Newton, settlement 7.4007e-02 m, max pressure 2.9275e-01 Pa, 577.9 s
+t = 1874.31 s (dt = 51.11 s)
+    Newton 0: residual 1.180e-04 (target 1.0e-09)
+    Newton 1: residual 4.480e-09 (target 1.0e-09)
+    Newton 2: residual 3.169e-16 (target 1.0e-09)
+  accepted: 2 Newton, settlement 7.4110e-02 m, max pressure 2.6939e-01 Pa, 518.1 s
+t = 1927.98 s (dt = 53.67 s)
+    Newton 0: residual 1.140e-04 (target 1.0e-09)
+    Newton 1: residual 4.397e-09 (target 1.0e-09)
+    Newton 2: residual 3.059e-16 (target 1.0e-09)
+  accepted: 2 Newton, settlement 7.4209e-02 m, max pressure 2.4691e-01 Pa, 555.2 s
+t = 1984.33 s (dt = 56.35 s)
+    Newton 0: residual 1.096e-04 (target 1.0e-09)
+    Newton 1: residual 4.284e-09 (target 1.0e-09)
+    Newton 2: residual 3.140e-16 (target 1.0e-09)
+  accepted: 2 Newton, settlement 7.4304e-02 m, max pressure 2.2537e-01 Pa, 523.2 s
+t = 2043.5 s (dt = 59.17 s)
+    Newton 0: residual 1.050e-04 (target 1.0e-09)
+    Newton 1: residual 4.140e-09 (target 1.0e-09)
+    Newton 2: residual 2.783e-16 (target 1.0e-09)
+  accepted: 2 Newton, settlement 7.4394e-02 m, max pressure 2.0482e-01 Pa, 516.7 s
+t = 2105.63 s (dt = 62.13 s)
+    Newton 0: residual 1.002e-04 (target 1.0e-09)
+    Newton 1: residual 3.968e-09 (target 1.0e-09)
+    Newton 2: residual 2.622e-16 (target 1.0e-09)
+  accepted: 2 Newton, settlement 7.4480e-02 m, max pressure 1.8529e-01 Pa, 504.0 s
+t = 2170.86 s (dt = 65.23 s)
+    Newton 0: residual 9.513e-05 (target 1.0e-09)
+    Newton 1: residual 3.771e-09 (target 1.0e-09)
+    Newton 2: residual 2.418e-16 (target 1.0e-09)
+  accepted: 2 Newton, settlement 7.4561e-02 m, max pressure 1.6684e-01 Pa, 507.9 s
+t = 2239.36 s (dt = 68.5 s)
+    Newton 0: residual 8.991e-05 (target 1.0e-09)
+    Newton 1: residual 3.551e-09 (target 1.0e-09)
+    Newton 2: residual 2.285e-16 (target 1.0e-09)
+  accepted: 2 Newton, settlement 7.4638e-02 m, max pressure 1.4948e-01 Pa, 539.9 s
+t = 2311.28 s (dt = 71.92 s)
+    Newton 0: residual 8.455e-05 (target 1.0e-09)
+    Newton 1: residual 3.313e-09 (target 1.0e-09)
+    Newton 2: residual 2.136e-16 (target 1.0e-09)
+  accepted: 2 Newton, settlement 7.4709e-02 m, max pressure 1.3323e-01 Pa, 518.2 s
+t = 2386.79 s (dt = 75.52 s)
+    Newton 0: residual 7.910e-05 (target 1.0e-09)
+    Newton 1: residual 3.060e-09 (target 1.0e-09)
+    Newton 2: residual 2.097e-16 (target 1.0e-09)
+  accepted: 2 Newton, settlement 7.4775e-02 m, max pressure 1.1811e-01 Pa, 523.9 s
+t = 2426.44 s (dt = 39.65 s)
+    Newton 0: residual 3.680e-05 (target 1.0e-09)
+    Newton 1: residual 3.405e-10 (target 1.0e-09)
+  accepted: 1 Newton, settlement 7.4808e-02 m, max pressure 1.1068e-01 Pa, 257.9 s
+t = 2468.07 s (dt = 41.63 s)
+    Newton 0: residual 3.620e-05 (target 1.0e-09)
+    Newton 1: residual 3.465e-10 (target 1.0e-09)
+  accepted: 1 Newton, settlement 7.4840e-02 m, max pressure 1.0338e-01 Pa, 270.8 s
+t = 2511.78 s (dt = 43.71 s)
+    Newton 0: residual 3.550e-05 (target 1.0e-09)
+    Newton 1: residual 3.499e-10 (target 1.0e-09)
+  accepted: 1 Newton, settlement 7.4871e-02 m, max pressure 9.6250e-02 Pa, 266.0 s
+t = 2557.67 s (dt = 45.9 s)
+    Newton 0: residual 3.470e-05 (target 1.0e-09)
+    Newton 1: residual 3.511e-10 (target 1.0e-09)
+  accepted: 1 Newton, settlement 7.4902e-02 m, max pressure 8.9303e-02 Pa, 262.8 s
+t = 2605.86 s (dt = 48.19 s)
+    Newton 0: residual 3.380e-05 (target 1.0e-09)
+    Newton 1: residual 3.500e-10 (target 1.0e-09)
+  accepted: 1 Newton, settlement 7.4931e-02 m, max pressure 8.2560e-02 Pa, 251.4 s
+t = 2656.46 s (dt = 50.6 s)
+    Newton 0: residual 3.281e-05 (target 1.0e-09)
+    Newton 1: residual 3.465e-10 (target 1.0e-09)
+  accepted: 1 Newton, settlement 7.4960e-02 m, max pressure 7.6039e-02 Pa, 252.3 s
+t = 2709.59 s (dt = 53.13 s)
+    Newton 0: residual 3.172e-05 (target 1.0e-09)
+    Newton 1: residual 3.405e-10 (target 1.0e-09)
+  accepted: 1 Newton, settlement 7.4988e-02 m, max pressure 6.9757e-02 Pa, 261.8 s
+t = 2765.38 s (dt = 55.79 s)
+    Newton 0: residual 3.055e-05 (target 1.0e-09)
+    Newton 1: residual 3.322e-10 (target 1.0e-09)
+  accepted: 1 Newton, settlement 7.5014e-02 m, max pressure 6.3732e-02 Pa, 283.0 s
+t = 2823.95 s (dt = 58.58 s)
+    Newton 0: residual 2.931e-05 (target 1.0e-09)
+    Newton 1: residual 3.216e-10 (target 1.0e-09)
+  accepted: 1 Newton, settlement 7.5039e-02 m, max pressure 5.7977e-02 Pa, 242.6 s
+t = 2885.46 s (dt = 61.5 s)
+    Newton 0: residual 2.799e-05 (target 1.0e-09)
+    Newton 1: residual 3.087e-10 (target 1.0e-09)
+  accepted: 1 Newton, settlement 7.5063e-02 m, max pressure 5.2505e-02 Pa, 234.0 s
+t = 2950.03 s (dt = 64.58 s)
+    Newton 0: residual 2.661e-05 (target 1.0e-09)
+    Newton 1: residual 2.938e-10 (target 1.0e-09)
+  accepted: 1 Newton, settlement 7.5086e-02 m, max pressure 4.7326e-02 Pa, 242.8 s
+t = 3017.84 s (dt = 67.81 s)
+    Newton 0: residual 2.518e-05 (target 1.0e-09)
+    Newton 1: residual 2.772e-10 (target 1.0e-09)
+  accepted: 1 Newton, settlement 7.5107e-02 m, max pressure 4.2448e-02 Pa, 248.1 s
+t = 3089.04 s (dt = 71.2 s)
+    Newton 0: residual 2.372e-05 (target 1.0e-09)
+    Newton 1: residual 2.591e-10 (target 1.0e-09)
+  accepted: 1 Newton, settlement 7.5127e-02 m, max pressure 3.7878e-02 Pa, 246.6 s
+t = 3163.8 s (dt = 74.76 s)
+    Newton 0: residual 2.222e-05 (target 1.0e-09)
+    Newton 1: residual 2.398e-10 (target 1.0e-09)
+  accepted: 1 Newton, settlement 7.5146e-02 m, max pressure 3.3620e-02 Pa, 253.8 s
+t = 3203.05 s (dt = 39.25 s)
+    Newton 0: residual 1.035e-05 (target 1.0e-09)
+    Newton 1: residual 2.684e-11 (target 1.0e-09)
+  accepted: 1 Newton, settlement 7.5155e-02 m, max pressure 3.1523e-02 Pa, 246.1 s
+t = 3244.26 s (dt = 41.21 s)
+    Newton 0: residual 1.019e-05 (target 1.0e-09)
+    Newton 1: residual 2.730e-11 (target 1.0e-09)
+  accepted: 1 Newton, settlement 7.5164e-02 m, max pressure 2.9466e-02 Pa, 247.7 s
+t = 3287.53 s (dt = 43.27 s)
+    Newton 0: residual 1.000e-05 (target 1.0e-09)
+    Newton 1: residual 2.760e-11 (target 1.0e-09)
+  accepted: 1 Newton, settlement 7.5173e-02 m, max pressure 2.7453e-02 Pa, 315.5 s
+t = 3332.96 s (dt = 45.43 s)
+    Newton 0: residual 9.785e-06 (target 1.0e-09)
+    Newton 1: residual 2.773e-11 (target 1.0e-09)
+  accepted: 1 Newton, settlement 7.5182e-02 m, max pressure 2.5491e-02 Pa, 301.1 s
+t = 3380.67 s (dt = 47.71 s)
+    Newton 0: residual 9.539e-06 (target 1.0e-09)
+    Newton 1: residual 2.768e-11 (target 1.0e-09)
+  accepted: 1 Newton, settlement 7.5190e-02 m, max pressure 2.3584e-02 Pa, 312.8 s
+t = 3430.76 s (dt = 50.09 s)
+    Newton 0: residual 9.267e-06 (target 1.0e-09)
+    Newton 1: residual 2.744e-11 (target 1.0e-09)
+  accepted: 1 Newton, settlement 7.5198e-02 m, max pressure 2.1739e-02 Pa, 267.0 s
+t = 3483.36 s (dt = 52.6 s)
+    Newton 0: residual 8.969e-06 (target 1.0e-09)
+    Newton 1: residual 2.701e-11 (target 1.0e-09)
+  accepted: 1 Newton, settlement 7.5206e-02 m, max pressure 1.9960e-02 Pa, 291.3 s
+t = 3538.58 s (dt = 55.23 s)
+    Newton 0: residual 8.646e-06 (target 1.0e-09)
+    Newton 1: residual 2.639e-11 (target 1.0e-09)
+  accepted: 1 Newton, settlement 7.5213e-02 m, max pressure 1.8253e-02 Pa, 303.0 s
+t = 3596.57 s (dt = 57.99 s)
+    Newton 0: residual 8.302e-06 (target 1.0e-09)
+    Newton 1: residual 2.559e-11 (target 1.0e-09)
+  accepted: 1 Newton, settlement 7.5220e-02 m, max pressure 1.6620e-02 Pa, 297.2 s
+t = 3657.46 s (dt = 60.89 s)
+    Newton 0: residual 7.937e-06 (target 1.0e-09)
+    Newton 1: residual 2.461e-11 (target 1.0e-09)
+  accepted: 1 Newton, settlement 7.5227e-02 m, max pressure 1.5066e-02 Pa, 263.3 s
+t = 3721.39 s (dt = 63.93 s)
+    Newton 0: residual 7.554e-06 (target 1.0e-09)
+    Newton 1: residual 2.346e-11 (target 1.0e-09)
+  accepted: 1 Newton, settlement 7.5234e-02 m, max pressure 1.3593e-02 Pa, 274.8 s
+t = 3788.52 s (dt = 67.13 s)
+    Newton 0: residual 7.156e-06 (target 1.0e-09)
+    Newton 1: residual 2.218e-11 (target 1.0e-09)
+  accepted: 1 Newton, settlement 7.5240e-02 m, max pressure 1.2205e-02 Pa, 282.3 s
+t = 3859 s (dt = 70.48 s)
+    Newton 0: residual 6.747e-06 (target 1.0e-09)
+    Newton 1: residual 2.077e-11 (target 1.0e-09)
+  accepted: 1 Newton, settlement 7.5245e-02 m, max pressure 1.0903e-02 Pa, 314.2 s
+t = 3933.01 s (dt = 74.01 s)
+    Newton 0: residual 6.328e-06 (target 1.0e-09)
+    Newton 1: residual 1.926e-11 (target 1.0e-09)
+  accepted: 1 Newton, settlement 7.5251e-02 m, max pressure 9.6883e-03 Pa, 263.2 s
+finished (complete) at t = 3933.01 s, 415 steps, 12949 s
+Saved /users/hpcuser/periodic-ale-homogenisation/results/consolidation/refinement_20261026_201037/mesh/resolved.npz
+Run /users/hpcuser/periodic-ale-homogenisation/results/consolidation/refinement_20261026_201037/mesh: status complete

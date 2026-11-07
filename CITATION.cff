@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "Please cite the accompanying paper when using this code or data. The publication DOI will be added when available."
+type: software
+title: "Code for: Transient pore-resolved computational homogenisation of visco-hyperelastic porous materials"
+authors:
+  - family-names: Baxter Chapman
+    given-names: James
+  - family-names: Walkley
+    given-names: Mark
+  - family-names: Head
+    given-names: David
+  - family-names: Yang
+    given-names: Shufan
+  - family-names: de Boer
+    given-names: Gregory
+keywords:
+  - computational homogenisation
+  - fluid-structure interaction
+  - poromechanics
+  - arbitrary Lagrangian-Eulerian
+  - finite elements
+repository-code: "https://github.com/JamesBaxter01/periodic-ale-homogenisation"
+license:
+  - MIT
+  - CC-BY-4.0

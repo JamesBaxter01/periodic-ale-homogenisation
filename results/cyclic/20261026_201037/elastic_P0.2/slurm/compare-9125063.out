@@ -1,0 +1,26 @@
+Host node048.aire.lee.alces.network, job 9125063, commit 8bb1c2f
+## elastic_P0.2: elastic skeleton, period 0.2 s, 5 cycles
+
+| Model | Cycle | Amplitude (mm) | Mean (mm) | Phase lag (deg) | Energy per cycle (mJ/m^2) |
+|---|---|---|---|---|---|
+| FE², history | 1 | 37.7422 | 19.7883 | 11.77 | 29.1319 |
+| FE², history | 2 | 35.6482 | 20.6016 | 10.50 | 25.3761 |
+| FE², history | 3 | 35.5584 | 20.8402 | 10.41 | 25.1192 |
+| FE², history | 4 | 35.5192 | 21.0087 | 10.36 | 25.0020 |
+| FE², history | 5 | 35.4934 | 21.1388 | 10.33 | 24.9248 |
+| FE², stationary cells | 1 | 41.2381 | 20.8990 | 0.18 | 0.4976 |
+| FE², stationary cells | 2 | 41.2169 | 21.0020 | 0.15 | 0.4089 |
+| FE², stationary cells | 3 | 41.2082 | 21.0810 | 0.13 | 0.3662 |
+| FE², stationary cells | 4 | 41.2037 | 21.1473 | 0.12 | 0.3403 |
+| FE², stationary cells | 5 | 41.2010 | 21.2055 | 0.11 | 0.3225 |
+| Resolved | 1 | 37.4411 | 19.5962 | 11.44 | 28.1304 |
+| Resolved | 2 | 35.4295 | 20.3128 | 10.23 | 24.6005 |
+| Resolved | 3 | 35.3507 | 20.4945 | 10.15 | 24.3845 |
+| Resolved | 4 | 35.3168 | 20.6167 | 10.12 | 24.2895 |
+| Resolved | 5 | 35.2946 | 20.7067 | 10.10 | 24.2280 |
+
+| Model | Max settlement difference / resolved amplitude | Cells 1 to n-1, max |p - p_res| / traction | Top cell |
+|---|---|---|---|
+| FE², history | 1.43 % | 0.0047 | 0.0554 |
+| FE², stationary cells | 14.67 % | 0.0432 | 0.0606 |
+

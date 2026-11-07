@@ -1,0 +1,27 @@
+# Makes the solver importable from other projects:
+#   python -m pip install -e /path/to/periodic-ale-homogenisation --no-deps
+# NGSolve/Netgen and PETSc/petsc4py are not declared here: install them from
+# environment.yml (conda), where PETSc, MPI and MUMPS share one binary stack.
+# Scripts in this repository keep working without installation.
+
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "periodic-ale-homogenisation"
+version = "0.1.0"
+description = "Periodic ALE-FSI computational homogenisation cell solver"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { file = "LICENSE" }
+dependencies = ["numpy", "scipy"]
+
+[tool.setuptools]
+# The entry module and the cell geometry stay top-level, as the scripts here
+# import them; the solver digest (verification/state_io.solver_sha256) covers
+# homogenisation_microscale.py and periodic_fsi/*.py.
+py-modules = ["homogenisation_microscale", "geometry"]
+
+[tool.setuptools.packages.find]
+include = ["periodic_fsi", "multiscale", "resolved"]

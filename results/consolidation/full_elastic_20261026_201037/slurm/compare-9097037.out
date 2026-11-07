@@ -1,0 +1,23 @@
+Host node047.aire.lee.alces.network, job 9097037, 1 CPUs, commit 0fc05e3, compare (full)
+{
+  "common_end_time": 4390.570573236455,
+  "fe2": "/users/hpcuser/periodic-ale-homogenisation/results/consolidation/full_elastic_20261026_201037/fe2.npz",
+  "resolved": "/users/hpcuser/periodic-ale-homogenisation/results/consolidation/full_elastic_20261026_201037/resolved.npz",
+  "settlement": {
+    "max_abs_difference": 0.0005375619766831985,
+    "relative_to_resolved_max": 0.007177285256364738
+  },
+  "cumulative_outflow": {
+    "max_abs_difference": 4.816192614875719e-06,
+    "relative_to_resolved_max": 0.013672520768091941
+  },
+  "cell_pressure": {
+    "max_abs_difference": 0.3761561331729739,
+    "relative_to_resolved_max": 0.07834282709463175
+  },
+  "cell_pressure_after_twice_ramp": 0.025633670936110197
+}
+  /users/hpcuser/periodic-ale-homogenisation/results/consolidation/full_elastic_20261026_201037/comparison/comparison_settlement.{pdf}
+  /users/hpcuser/periodic-ale-homogenisation/results/consolidation/full_elastic_20261026_201037/comparison/comparison_outflow.{pdf}
+  /users/hpcuser/periodic-ale-homogenisation/results/consolidation/full_elastic_20261026_201037/comparison/comparison_cell_pressure.{pdf}
+  /users/hpcuser/periodic-ale-homogenisation/results/consolidation/full_elastic_20261026_201037/comparison/comparison_profiles.{pdf}

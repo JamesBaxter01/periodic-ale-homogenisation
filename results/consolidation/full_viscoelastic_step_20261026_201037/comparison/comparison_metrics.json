@@ -1,0 +1,18 @@
+{
+  "common_end_time": 4361.438816179957,
+  "fe2": "/users/hpcuser/periodic-ale-homogenisation/results/consolidation/full_viscoelastic_step_20261026_201037/fe2.npz",
+  "resolved": "/users/hpcuser/periodic-ale-homogenisation/results/consolidation/full_viscoelastic_step_20261026_201037/resolved.npz",
+  "settlement": {
+    "max_abs_difference": 0.0006424107398028331,
+    "relative_to_resolved_max": 0.008577279299934291
+  },
+  "cumulative_outflow": {
+    "max_abs_difference": 5.711920463388344e-06,
+    "relative_to_resolved_max": 0.01621579418916952
+  },
+  "cell_pressure": {
+    "max_abs_difference": 0.49004053442589957,
+    "relative_to_resolved_max": 0.10207817194523089
+  },
+  "cell_pressure_after_twice_ramp": 0.10207817194523089
+}

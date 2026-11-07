@@ -1,0 +1,42 @@
+Host node004.aire.lee.alces.network, job 9097038, 4 CPUs, commit 107e3a4: examples/multiscale/consolidation_parameter_table.py /users/hpcuser/periodic-ale-homogenisation/results/consolidation/full_viscoelastic_step_20261026_201037/fe2.npz --output /users/hpcuser/periodic-ale-homogenisation/results/consolidation/full_viscoelastic_step_20261026_201037/table_5
+Rest                 t =        0 s, Z = 0.511 m: F_zz = 1.0000, p = 0.000 Pa
+t = 10 s bottom      t =    10.02 s, Z = 0.054 m: F_zz = 0.9591, p = 4.796 Pa
+t = 10 s top         t =    10.02 s, Z = 0.949 m: F_zz = 0.9365, p = 1.668 Pa
+Drained all cells    t =     4361 s, Z = 0.949 m: F_zz = 0.9250, p = 0.000 Pa
+
+                               Rest        t = 10 s bottom          t = 10 s top     Drained all cells
+k_axial         4.874e-06 (  +0.0 %)  5.978e-06 ( +22.6 %)  5.265e-06 (  +8.0 %)  4.906e-06 (  +0.7 %)
+k_lateral       4.875e-06 (  +0.0 %)  4.854e-06 (  -0.4 %)   3.71e-06 ( -23.9 %)  3.179e-06 ( -34.8 %)
+alpha_axial         0.471 (  +0.0 %)     0.4995 (  +6.1 %)     0.4806 (  +2.0 %)     0.4722 (  +0.3 %)
+alpha_lateral      0.4709 (  +0.0 %)     0.4723 (  +0.3 %)     0.4375 (  -7.1 %)     0.4204 ( -10.7 %)
+inverse_M        0.004322 (  +0.0 %)   0.003975 (  -8.0 %)   0.003907 (  -9.6 %)     0.0039 (  -9.8 %)
+C_3333              63.81 (  +0.0 %)      66.74 (  +4.6 %)      68.71 (  +7.7 %)      69.67 (  +9.2 %)
+C_1313              19.94 (  +0.0 %)      20.49 (  +2.7 %)      18.31 (  -8.2 %)      16.89 ( -15.3 %)
+
+% Equilibrated cell parameters (consolidation_parameter_table.py): the rest values, then the change
+% from rest at each state. Needs \usepackage{booktabs}.
+\begin{table}
+\centering
+\caption{Response derivatives of the periodic cell at four states of the FE$^2$ consolidation run of Figure~\ref{fig:consolidation} (viscoelastic skeleton, step load): at rest; $10\,\mathrm{s}$ after loading in the bottom cell (nearly undrained) and in the top cell (draining), sampled at the integration points at $Z=0.054$ and $0.949\,\mathrm m$; and fully drained, when every cell is in the same state. Each state is the axial stretch $F_{33}$ and pore pressure $\overline p$ of that material point; a fresh cell is brought there from rest by five increments of $1000\,\mathrm{s}$ with zero pressure gradient, and the entries are derivatives of the last increment at fixed other inputs: $\kappa_{ii}=-\mu_f\,\partial Q_{0,i}/\partial G_{p,i}$ (referential, in $\mathrm m^2$), $\alpha_{ii}=-\partial\overline P_{ii}/\partial\overline p$, $1/M=\partial m_f/\partial\overline p$ and $C^{\mathrm{dr}}=\partial\overline{\bm P}/\partial\overline{\bm F}$ (drained, at fixed $\overline p$). They are long-step approximations to equilibrium response derivatives, distinct from the inherited step tangents of the transient FE$^2$ solve; setting $\eta_s=\zeta_s=0$, using $3000\,\mathrm s$ increments or adding a final increment at fixed inputs changes every entry by less than $5\times10^{-4}$ (relative). Index 3 is along the column and 1 across it. The first row gives the values at rest, the others the change from rest.}
+\label{tab:consolidation_parameters}
+\small
+\renewcommand{\arraystretch}{1.2}
+\setlength{\tabcolsep}{5pt}
+\begin{tabular}{lccccccccc}
+\toprule
+ & & & \multicolumn{2}{c}{Permeability} & \multicolumn{3}{c}{Biot coupling} & \multicolumn{2}{c}{Stiffness} \\
+\cmidrule(lr){4-5} \cmidrule(lr){6-8} \cmidrule(lr){9-10}
+State & $F_{33}$ & $\overline p$ & $\kappa_{33}$ & $\kappa_{11}$ & $\alpha_{33}$ & $\alpha_{11}$ & $1/M$ & $C^{\mathrm{dr}}_{3333}$ & $C^{\mathrm{dr}}_{1313}$ \\
+ & & (Pa) & \multicolumn{2}{c}{$10^{-6}\,\mathrm{m^2}$} &  &  & $10^{-3}\,\mathrm{Pa^{-1}}$ & Pa & Pa \\
+\midrule
+Rest & $1.000$ & $0.00$ & $4.87$ & $4.88$ & $0.47$ & $0.47$ & $4.32$ & $63.81$ & $19.94$ \\
+\addlinespace
+\multicolumn{10}{l}{\textit{Change from rest}} \\
+$t=10\,\mathrm s$, bottom & $0.959$ & $4.80$ & $+22.6\%$ & $-0.4\%$ & $+6.1\%$ & $+0.3\%$ & $-8.0\%$ & $+4.6\%$ & $+2.7\%$ \\
+$t=10\,\mathrm s$, top & $0.937$ & $1.67$ & $+8.0\%$ & $-23.9\%$ & $+2.0\%$ & $-7.1\%$ & $-9.6\%$ & $+7.7\%$ & $-8.2\%$ \\
+Drained, all cells & $0.925$ & $0.00$ & $+0.7\%$ & $-34.8\%$ & $+0.3\%$ & $-10.7\%$ & $-9.8\%$ & $+9.2\%$ & $-15.3\%$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+Saved /users/hpcuser/periodic-ale-homogenisation/results/consolidation/full_viscoelastic_step_20261026_201037/table_5/table_5_consolidation_parameters.tex and .csv
+(9.2 min)

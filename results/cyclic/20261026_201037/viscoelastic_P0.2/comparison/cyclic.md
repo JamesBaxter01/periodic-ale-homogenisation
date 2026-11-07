@@ -1,0 +1,24 @@
+## viscoelastic_P0.2: viscoelastic skeleton, period 0.2 s, 5 cycles
+
+| Model | Cycle | Amplitude (mm) | Mean (mm) | Phase lag (deg) | Energy per cycle (mJ/m^2) |
+|---|---|---|---|---|---|
+| FE², history | 1 | 32.4807 | 18.0693 | 46.52 | 88.3109 |
+| FE², history | 2 | 25.5261 | 20.6637 | 45.44 | 71.2370 |
+| FE², history | 3 | 25.4030 | 20.9307 | 45.31 | 70.7491 |
+| FE², history | 4 | 25.3696 | 21.0982 | 45.26 | 70.5977 |
+| FE², history | 5 | 25.3497 | 21.2265 | 45.22 | 70.5053 |
+| FE², stationary cells | 1 | 41.2381 | 20.8990 | 0.18 | 0.4976 |
+| FE², stationary cells | 2 | 41.2169 | 21.0020 | 0.15 | 0.4089 |
+| FE², stationary cells | 3 | 41.2082 | 21.0810 | 0.13 | 0.3662 |
+| FE², stationary cells | 4 | 41.2037 | 21.1473 | 0.12 | 0.3403 |
+| FE², stationary cells | 5 | 41.2010 | 21.2055 | 0.11 | 0.3225 |
+| Resolved | 1 | 32.2208 | 17.9114 | 46.31 | 87.3078 |
+| Resolved | 2 | 25.3603 | 20.3994 | 45.26 | 70.5619 |
+| Resolved | 3 | 25.2502 | 20.6184 | 45.15 | 70.1286 |
+| Resolved | 4 | 25.2220 | 20.7510 | 45.10 | 70.0007 |
+| Resolved | 5 | 25.2055 | 20.8508 | 45.07 | 69.9231 |
+
+| Model | Max settlement difference / resolved amplitude | Cells 1 to n-1, max |p - p_res| / traction | Top cell |
+|---|---|---|---|
+| FE², history | 1.35 % | 0.0035 | 0.0584 |
+| FE², stationary cells | 50.89 % | 0.0239 | 0.0539 |

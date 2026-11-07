@@ -1,0 +1,22 @@
+Host node012.aire.lee.alces.network, job 9097039, 4 CPUs, commit 107e3a4: examples/multiscale/consolidation_cell_replay.py bottom --run /users/hpcuser/periodic-ale-homogenisation/results/consolidation/full_viscoelastic_step_20261026_201037 --threads 4
+bottom: point 0 at Z = 0.0113 m, 424 steps
+  bottom: step 0/424, t = 0 s, mismatch so far 0.0e+00, about 29 min left
+  bottom: step 25/424, t = 4.77e-05 s, mismatch so far 2.0e-12, about 56 min left
+  bottom: step 50/424, t = 0.000209 s, mismatch so far 3.6e-12, about 53 min left
+  bottom: step 75/424, t = 0.000757 s, mismatch so far 8.6e-12, about 50 min left
+  bottom: step 100/424, t = 0.00261 s, mismatch so far 9.0e-12, about 47 min left
+  bottom: step 125/424, t = 0.00889 s, mismatch so far 1.0e-11, about 43 min left
+  bottom: step 150/424, t = 0.0301 s, mismatch so far 1.1e-11, about 40 min left
+  bottom: step 175/424, t = 0.102 s, mismatch so far 5.3e-11, about 36 min left
+  bottom: step 200/424, t = 0.346 s, mismatch so far 5.3e-11, about 33 min left
+  bottom: step 225/424, t = 1.17 s, mismatch so far 8.3e-11, about 29 min left
+  bottom: step 250/424, t = 3.97 s, mismatch so far 8.3e-11, about 25 min left
+  bottom: step 275/424, t = 13.4 s, mismatch so far 8.3e-11, about 22 min left
+  bottom: step 300/424, t = 45.5 s, mismatch so far 8.3e-11, about 18 min left
+  bottom: step 325/424, t = 154 s, mismatch so far 8.3e-11, about 14 min left
+  bottom: step 350/424, t = 522 s, mismatch so far 8.3e-11, about 11 min left
+  bottom: step 375/424, t = 1.68e+03 s, mismatch so far 8.3e-11, about 7 min left
+  bottom: step 400/424, t = 3.09e+03 s, mismatch so far 8.3e-11, about 4 min left
+  bottom: step 424/424, t = 4.36e+03 s, mismatch so far 8.3e-11, about 0 min left
+bottom: replayed outputs differ from the run's by at most 8.33e-11 (relative to each output's largest value)
+Saved /users/hpcuser/periodic-ale-homogenisation/results/consolidation/full_viscoelastic_step_20261026_201037/cell_replay_bottom.npz (64.8 min)

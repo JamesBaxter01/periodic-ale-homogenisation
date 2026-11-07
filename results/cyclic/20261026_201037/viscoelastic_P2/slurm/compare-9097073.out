@@ -1,0 +1,26 @@
+Host node048.aire.lee.alces.network, job 9097073, 1 CPUs, commit 8bb1c2f: examples/multiscale/compare_cyclic.py /users/hpcuser/periodic-ale-homogenisation/results/cyclic/20261026_201037/viscoelastic_P2
+## viscoelastic_P2: viscoelastic skeleton, period 2 s, 5 cycles
+
+| Model | Cycle | Amplitude (mm) | Mean (mm) | Phase lag (deg) | Energy per cycle (mJ/m^2) |
+|---|---|---|---|---|---|
+| FE², history | 1 | 40.7307 | 21.0309 | 8.66 | 23.5669 |
+| FE², history | 2 | 39.7124 | 21.6276 | 8.07 | 21.7859 |
+| FE², history | 3 | 39.6506 | 21.8988 | 7.99 | 21.5591 |
+| FE², history | 4 | 39.6316 | 22.1108 | 7.96 | 21.4703 |
+| FE², history | 5 | 39.6213 | 22.2935 | 7.94 | 21.4168 |
+| FE², stationary cells | 1 | 41.6549 | 21.2214 | 0.88 | 2.4981 |
+| FE², stationary cells | 2 | 41.4890 | 21.6119 | 0.69 | 1.9366 |
+| FE², stationary cells | 3 | 41.4538 | 21.8757 | 0.62 | 1.7597 |
+| FE², stationary cells | 4 | 41.4386 | 22.0897 | 0.59 | 1.6655 |
+| FE², stationary cells | 5 | 41.4305 | 22.2746 | 0.57 | 1.6047 |
+| Resolved | 1 | 40.1756 | 20.7051 | 8.34 | 22.4092 |
+| Resolved | 2 | 39.2773 | 21.2402 | 7.84 | 20.9310 |
+| Resolved | 3 | 39.2241 | 21.5022 | 7.76 | 20.7221 |
+| Resolved | 4 | 39.2027 | 21.7050 | 7.73 | 20.6168 |
+| Resolved | 5 | 39.1885 | 21.8721 | 7.70 | 20.5439 |
+
+| Model | Max settlement difference / resolved amplitude | Cells 1 to n-1, max |p - p_res| / traction | Top cell |
+|---|---|---|---|
+| FE², history | 1.56 % | 0.0164 | 0.0692 |
+| FE², stationary cells | 7.83 % | 0.0293 | 0.0954 |
+

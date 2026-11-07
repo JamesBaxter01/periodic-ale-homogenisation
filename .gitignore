@@ -1,0 +1,24 @@
+__pycache__/
+*.pyc
+.DS_Store
+.ipynb_checkpoints/
+*.h5
+*.vtu
+*.vtk
+# Results are tracked, except run locks and restart checkpoints
+results/**/.lock
+results/**/states/
+# FE² and resolved restart checkpoints: every cell's pickled restart state, or the resolved fields (large;
+# only for resuming a run).
+results/**/*_checkpoint/
+results/**/resolved_checkpoint.npz
+results/**/*_checkpoint.old/
+results/**/*_checkpoint.tmp/
+# LaTeX floats, rebuilt by python run.py paper
+results/paper/**/*.tex
+# Resolved field snapshots (consolidation_resolved.py --snapshots): large
+results/**/*_snapshot_*.npz
+# Job logs of the paper scripts
+results/paper/slurm/
+# Figures are kept as PDF only
+results/**/*.png

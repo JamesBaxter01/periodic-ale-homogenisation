@@ -1,0 +1,151 @@
+{
+ "K": 10.0,
+ "G": 50.0,
+ "pressure": 30.0,
+ "threshold": 0.5,
+ "boundaries": {
+  "fixed": {
+   "status": "failed in the hold: NonlinearConvergenceFailure",
+   "records": [
+    {
+     "stage": "ramp",
+     "time": 1.0,
+     "fraction_below": 0.011942344946460704,
+     "smallest_J": 0.36605641285959534,
+     "alpha": 0.36845976908820594
+    },
+    {
+     "stage": "hold",
+     "time": 1.2,
+     "fraction_below": 0.01770882480611838,
+     "smallest_J": 0.30175781203374324,
+     "alpha": 0.37275301036398295
+    },
+    {
+     "stage": "hold",
+     "time": 1.4,
+     "fraction_below": 0.01971277304467827,
+     "smallest_J": 0.2610170518730713,
+     "alpha": 0.37337995327675483
+    },
+    {
+     "stage": "hold",
+     "time": 1.5999999999999999,
+     "fraction_below": 0.020370544623824077,
+     "smallest_J": 0.23319196730164113,
+     "alpha": 0.37350017041261924
+    },
+    {
+     "stage": "hold",
+     "time": 1.7999999999999998,
+     "fraction_below": 0.020599079986281285,
+     "smallest_J": 0.21209092738526258,
+     "alpha": 0.37352531136497397
+    },
+    {
+     "stage": "hold",
+     "time": 1.9999999999999998,
+     "fraction_below": 0.02072833151375926,
+     "smallest_J": 0.19397812040573856,
+     "alpha": 0.3735273678701581
+    },
+    {
+     "stage": "hold",
+     "time": 2.1999999999999997,
+     "fraction_below": 0.02078312891252519,
+     "smallest_J": 0.17566111470252008,
+     "alpha": 0.3735224881775092
+    },
+    {
+     "stage": "hold",
+     "time": 2.4,
+     "fraction_below": 0.020793100076891294,
+     "smallest_J": 0.15001151922847672,
+     "alpha": 0.3735140824018383
+    }
+   ]
+  },
+  "periodic": {
+   "status": "equilibrated",
+   "records": [
+    {
+     "stage": "ramp",
+     "time": 1.0,
+     "fraction_below": 0.004896191480741589,
+     "smallest_J": 0.40583936483072275,
+     "alpha": 0.4221598886584968
+    },
+    {
+     "stage": "hold",
+     "time": 1.2,
+     "fraction_below": 0.009395937113633344,
+     "smallest_J": 0.34942088801619037,
+     "alpha": 0.4288885926100205
+    },
+    {
+     "stage": "hold",
+     "time": 1.4,
+     "fraction_below": 0.011075654488280906,
+     "smallest_J": 0.31706535145414977,
+     "alpha": 0.4298717501579503
+    },
+    {
+     "stage": "hold",
+     "time": 1.5999999999999999,
+     "fraction_below": 0.011824970540897465,
+     "smallest_J": 0.2984635061707915,
+     "alpha": 0.4300634993954499
+    },
+    {
+     "stage": "hold",
+     "time": 1.7999999999999998,
+     "fraction_below": 0.012097205627094982,
+     "smallest_J": 0.2874895045031172,
+     "alpha": 0.43011312118712774
+    },
+    {
+     "stage": "hold",
+     "time": 1.9999999999999998,
+     "fraction_below": 0.012223323893564461,
+     "smallest_J": 0.2808496666175499,
+     "alpha": 0.4301288340747663
+    },
+    {
+     "stage": "hold",
+     "time": 2.1999999999999997,
+     "fraction_below": 0.01227796858575666,
+     "smallest_J": 0.27674931980009043,
+     "alpha": 0.43013440652361445
+    },
+    {
+     "stage": "hold",
+     "time": 2.4,
+     "fraction_below": 0.01230902197015068,
+     "smallest_J": 0.27417632292285926,
+     "alpha": 0.43013648083968764
+    },
+    {
+     "stage": "hold",
+     "time": 2.6,
+     "fraction_below": 0.012340873890988218,
+     "smallest_J": 0.2725410809064761,
+     "alpha": 0.43013724958704264
+    },
+    {
+     "stage": "hold",
+     "time": 2.8000000000000003,
+     "fraction_below": 0.012350401140330682,
+     "smallest_J": 0.2714910014040247,
+     "alpha": 0.4301375140533523
+    },
+    {
+     "stage": "hold",
+     "time": 3.0000000000000004,
+     "fraction_below": 0.012361439860339865,
+     "smallest_J": 0.2708108232066529,
+     "alpha": 0.43013758458647844
+    }
+   ]
+  }
+ }
+}

@@ -1,0 +1,67 @@
+Host node011.aire.lee.alces.network, job 9097050, 40 CPUs, commit 8bb1c2f
+Run /users/hpcuser/periodic-ale-homogenisation/results/cyclic/20261026_201037/stationary_P0.2/fe2_stationary.npz: status wall limit
+stationary_fe model, consolidation: 10 elements x 4 cells = 40 cells, maxh 0.09, 40 workers x 1 threads
+resumed from /users/hpcuser/periodic-ale-homogenisation/results/cyclic/20261026_201037/stationary_P0.2/fe2_stationary_checkpoint at t = 0.79 s after 158 steps
+t = 0.795 s (dt = 0.005 s)
+    Newton 0: scaled residual 1.832e-02
+    Newton 1: scaled residual 1.124e-05
+    Newton 2: scaled residual 9.562e-10
+  accepted: 2 Newton, error 3.31e-02, settlement 0.0006137, max_pressure 1.288, base_pressure 0.02913, cell calls 120, 164291 s
+t = 0.8 s (dt = 0.005 s)
+    Newton 0: scaled residual 6.156e-03
+    Newton 1: scaled residual 2.033e-06
+    Newton 2: scaled residual 1.547e-10
+  accepted: 2 Newton, error 3.37e-02, settlement 0.0003428, max_pressure 1.304, base_pressure -4.787e-06, cell calls 240, 164802 s
+t = 0.805 s (dt = 0.005 s)
+    Newton 0: scaled residual 6.156e-03
+    Newton 1: scaled residual 1.898e-06
+    Newton 2: scaled residual 2.008e-10
+  accepted: 2 Newton, error 3.38e-02, settlement 0.0006094, max_pressure 1.255, base_pressure 0.02913, cell calls 360, 165316 s
+t = 0.81 s (dt = 0.005 s)
+    Newton 0: scaled residual 1.832e-02
+    Newton 1: scaled residual 5.700e-06
+    Newton 2: scaled residual 8.143e-10
+  accepted: 2 Newton, error 3.32e-02, settlement 0.001406, max_pressure 1.141, base_pressure 0.1158, cell calls 480, 165826 s
+  checkpoint at t = 0.81 s
+t = 0.815 s (dt = 0.005 s)
+    Newton 0: scaled residual 3.002e-02
+    Newton 1: scaled residual 1.586e-05
+    Newton 2: scaled residual 1.732e-09
+  accepted: 2 Newton, error 3.21e-02, settlement 0.002708, max_pressure 0.9646, base_pressure 0.2581, cell calls 600, 166388 s
+t = 0.82 s (dt = 0.005 s)
+    Newton 0: scaled residual 4.099e-02
+    Newton 1: scaled residual 3.289e-05
+    Newton 2: scaled residual 3.024e-09
+  accepted: 2 Newton, error 3.02e-02, settlement 0.00448, max_pressure 0.731, base_pressure 0.4526, cell calls 720, 166955 s
+t = 0.825 s (dt = 0.005 s)
+    Newton 0: scaled residual 5.096e-02
+    Newton 1: scaled residual 5.406e-05
+    Newton 2: scaled residual 4.961e-09
+  accepted: 2 Newton, error 2.77e-02, settlement 0.006671, max_pressure 0.6947, base_pressure 0.6946, cell calls 840, 167536 s
+t = 0.83 s (dt = 0.005 s)
+    Newton 0: scaled residual 5.966e-02
+    Newton 1: scaled residual 7.750e-05
+    Newton 2: scaled residual 7.222e-09
+  accepted: 2 Newton, error 2.45e-02, settlement 0.00922, max_pressure 0.9788, base_pressure 0.9784, cell calls 960, 168106 s
+  checkpoint at t = 0.83 s
+t = 0.835 s (dt = 0.005 s)
+    Newton 0: scaled residual 6.690e-02
+    Newton 1: scaled residual 1.011e-04
+    Newton 2: scaled residual 9.705e-09
+  accepted: 2 Newton, error 2.07e-02, settlement 0.01206, max_pressure 1.299, base_pressure 1.297, cell calls 1080, 168664 s
+t = 0.84 s (dt = 0.005 s)
+    Newton 0: scaled residual 7.249e-02
+    Newton 1: scaled residual 1.227e-04
+    Newton 2: scaled residual 1.227e-08
+  accepted: 2 Newton, error 1.61e-02, settlement 0.01511, max_pressure 1.646, base_pressure 1.643, cell calls 1200, 169211 s
+t = 0.845 s (dt = 0.005 s)
+    Newton 0: scaled residual 7.629e-02
+    Newton 1: scaled residual 1.401e-04
+    Newton 2: scaled residual 1.472e-08
+  accepted: 2 Newton, error 1.10e-02, settlement 0.01829, max_pressure 2.012, base_pressure 2.008, cell calls 1320, 169759 s
+  checkpoint at t = 0.845 s
+finished (wall limit) at t = 0.845 s after 169 steps, 169761 s
+1320 cell solves, 155.55 s each
+Saved /users/hpcuser/periodic-ale-homogenisation/results/cyclic/20261026_201037/stationary_P0.2/fe2_stationary.npz
+Run /users/hpcuser/periodic-ale-homogenisation/results/cyclic/20261026_201037/stationary_P0.2/fe2_stationary.npz: status wall limit
+Stopped at the wall limit with a checkpoint; the next segment resumes it.

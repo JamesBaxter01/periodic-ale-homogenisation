@@ -1,0 +1,24 @@
+## elastic_P2: elastic skeleton, period 2 s, 5 cycles
+
+| Model | Cycle | Amplitude (mm) | Mean (mm) | Phase lag (deg) | Energy per cycle (mJ/m^2) |
+|---|---|---|---|---|---|
+| FE², history | 1 | 40.8842 | 21.0520 | 3.94 | 10.8428 |
+| FE², history | 2 | 40.0645 | 21.6267 | 3.34 | 9.1162 |
+| FE², history | 3 | 40.0040 | 21.8950 | 3.26 | 8.8969 |
+| FE², history | 4 | 39.9855 | 22.1062 | 3.22 | 8.8065 |
+| FE², history | 5 | 39.9754 | 22.2884 | 3.20 | 8.7505 |
+| FE², stationary cells | 1 | 41.6549 | 21.2214 | 0.88 | 2.4981 |
+| FE², stationary cells | 2 | 41.4890 | 21.6119 | 0.69 | 1.9366 |
+| FE², stationary cells | 3 | 41.4538 | 21.8757 | 0.62 | 1.7597 |
+| FE², stationary cells | 4 | 41.4386 | 22.0897 | 0.59 | 1.6655 |
+| FE², stationary cells | 5 | 41.4305 | 22.2746 | 0.57 | 1.6047 |
+| Resolved | 1 | 40.3312 | 20.7220 | 3.61 | 9.8014 |
+| Resolved | 2 | 39.6368 | 21.2371 | 3.10 | 8.3715 |
+| Resolved | 3 | 39.5848 | 21.4965 | 3.02 | 8.1677 |
+| Resolved | 4 | 39.5637 | 21.6980 | 2.98 | 8.0599 |
+| Resolved | 5 | 39.5496 | 21.8639 | 2.96 | 7.9845 |
+
+| Model | Max settlement difference / resolved amplitude | Cells 1 to n-1, max |p - p_res| / traction | Top cell |
+|---|---|---|---|
+| FE², history | 1.57 % | 0.0166 | 0.0685 |
+| FE², stationary cells | 4.06 % | 0.0303 | 0.0941 |

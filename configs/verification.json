@@ -1,0 +1,89 @@
+{
+  "description": "Verification campaign: one loading, studies A (mesh), B (time step), C (Newton tolerance), D (FD tangent); E (Hill-Mandel balance) is recorded in every run.",
+  "material": {
+    "K": 50.0,
+    "G": 50.0,
+    "mu_f": 1.0,
+    "eta_s": 2.0,
+    "zeta_s": 1.0,
+    "rve_length": 1.0,
+    "channel_width": 0.33
+  },
+  "discretisation": {
+    "order": 2,
+    "mesh_mu": 0.01,
+    "mesh_lame_lambda": 0.05,
+    "quadrature_order": null
+  },
+  "loading": {
+    "durations": [0.2, 2.0],
+    "compression": 0.2,
+    "shear": 0.02,
+    "pressure": 20.0,
+    "gradient": 10.0,
+    "gradient_direction": [1.0, 0.5, 0.25]
+  },
+  "report_fractions": [0.25, 0.5, 0.75, 1.0],
+  "tangent_fractions": [0.5, 1.0],
+  "production": {
+    "maxh": 0.09,
+    "steps": 100,
+    "newton_tolerance": 1e-08
+  },
+  "checkpoint_every": 10,
+  "local_threads": 4,
+  "studies": {
+    "A": {
+      "name": "mesh",
+      "varied": "maxh",
+      "levels": [0.15, 0.12, 0.09, 0.06, 0.045, 0.03],
+      "steps": 100,
+      "newton_tolerance": 1e-10,
+      "cross_check": [{"maxh": 0.045, "steps": 200}],
+      "expected_order": 2
+    },
+    "B": {
+      "name": "time step",
+      "varied": "steps",
+      "levels": [25, 50, 100, 200, 400, 800],
+      "maxh": 0.09,
+      "newton_tolerance": 1e-10,
+      "expected_order": 1
+    },
+    "C": {
+      "name": "Newton tolerance",
+      "varied": "newton_tolerance",
+      "levels": [1e-06, 1e-08, 1e-10, 1e-12],
+      "maxh": 0.09,
+      "steps": 100
+    },
+    "D": {
+      "name": "tangent",
+      "varied": "fd_step",
+      "levels": [1e-01, 2.78e-02, 7.74e-03, 2.15e-03, 5.99e-04, 1.67e-04, 4.64e-05, 1.29e-05, 3.59e-06, 1e-06],
+      "source": {"study": "C", "newton_tolerance": 1e-12},
+      "newton_tolerance": 1e-12
+    },
+    "F": {
+      "name": "mesh law",
+      "varied": "mesh_lame_ratio",
+      "levels": [1.0, 5.0, 25.0],
+      "reference": 5.0,
+      "maxh": 0.09,
+      "steps": 100,
+      "newton_tolerance": 1e-10
+    }
+  },
+  "smoke": {
+    "description": "Coarse functionality check of the whole pipeline; not verification data.",
+    "production": {"maxh": 0.7, "steps": 4, "newton_tolerance": 1e-08},
+    "checkpoint_every": 2,
+    "studies": {
+      "A": {"levels": [0.7, 0.2, 0.15], "steps": 4, "cross_check": [{"maxh": 0.15, "steps": 8}]},
+      "B": {"levels": [4, 8, 16], "maxh": 0.7},
+      "C": {"maxh": 0.7, "steps": 4},
+      "D": {"levels": [1e-02, 1e-04]},
+      "F": {"maxh": 0.7, "steps": 4}
+    }
+  }
+}

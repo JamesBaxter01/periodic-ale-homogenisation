@@ -1,0 +1,1063 @@
+Host node023.aire.lee.alces.network, job 9097069, 40 CPUs, commit 107e3a4
+Run /users/hpcuser/periodic-ale-homogenisation/results/cyclic/20261026_201037/viscoelastic_P2/fe2.npz: status new
+fe model, consolidation: 10 elements x 4 cells = 40 cells, maxh 0.09, 40 workers x 1 threads
+rest state: scaled residual 3.92e-16, fluid volume 0.00254826 m^3
+t = 0.05 s (dt = 0.05 s)
+    Newton 0: scaled residual 6.156e-03
+    Newton 1: scaled residual 9.699e-07
+    Newton 2: scaled residual 1.417e-12
+  accepted: 2 Newton, error nan, settlement 0.0001489, max_pressure 0.0287, base_pressure 0.0287, cell calls 160, 142 s
+t = 0.1 s (dt = 0.05 s)
+    Newton 0: scaled residual 2.104e-02
+    Newton 1: scaled residual 1.175e-05
+    Newton 2: scaled residual 1.969e-11
+  accepted: 2 Newton, error 1.88e-02, settlement 0.0006544, max_pressure 0.1139, base_pressure 0.1139, cell calls 280, 281 s
+t = 0.15 s (dt = 0.05 s)
+    Newton 0: scaled residual 3.949e-02
+    Newton 1: scaled residual 4.268e-05
+    Newton 2: scaled residual 6.387e-11
+  accepted: 2 Newton, error 1.21e-02, settlement 0.001593, max_pressure 0.2532, base_pressure 0.2532, cell calls 400, 421 s
+t = 0.2 s (dt = 0.05 s)
+    Newton 0: scaled residual 5.909e-02
+    Newton 1: scaled residual 9.736e-05
+    Newton 2: scaled residual 2.890e-10
+  accepted: 2 Newton, error 8.03e-03, settlement 0.002979, max_pressure 0.4432, base_pressure 0.4432, cell calls 520, 561 s
+t = 0.25 s (dt = 0.05 s)
+    Newton 0: scaled residual 7.840e-02
+    Newton 1: scaled residual 1.737e-04
+    Newton 2: scaled residual 9.211e-10
+  accepted: 2 Newton, error 5.06e-03, settlement 0.004793, max_pressure 0.6794, base_pressure 0.6794, cell calls 640, 702 s
+t = 0.3 s (dt = 0.05 s)
+    Newton 0: scaled residual 9.651e-02
+    Newton 1: scaled residual 2.659e-04
+    Newton 2: scaled residual 2.137e-09
+  accepted: 2 Newton, error 4.36e-03, settlement 0.006993, max_pressure 0.9563, base_pressure 0.9563, cell calls 760, 848 s
+t = 0.35 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.127e-01
+    Newton 1: scaled residual 3.657e-04
+    Newton 2: scaled residual 3.972e-09
+  accepted: 2 Newton, error 3.63e-03, settlement 0.009526, max_pressure 1.267, base_pressure 1.267, cell calls 880, 995 s
+t = 0.4 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.264e-01
+    Newton 1: scaled residual 4.639e-04
+    Newton 2: scaled residual 6.551e-09
+  accepted: 2 Newton, error 2.80e-03, settlement 0.01233, max_pressure 1.605, base_pressure 1.605, cell calls 1000, 1142 s
+t = 0.45 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.373e-01
+    Newton 1: scaled residual 5.510e-04
+    Newton 2: scaled residual 9.051e-09
+  accepted: 2 Newton, error 3.21e-03, settlement 0.01532, max_pressure 1.961, base_pressure 1.961, cell calls 1120, 1290 s
+t = 0.5 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.450e-01
+    Newton 1: scaled residual 6.185e-04
+    Newton 2: scaled residual 1.146e-08
+    Newton 3: scaled residual 5.889e-11
+  accepted: 3 Newton, error 4.79e-03, settlement 0.01843, max_pressure 2.327, base_pressure 2.327, cell calls 1280, 1488 s
+t = 0.55 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.493e-01
+    Newton 1: scaled residual 6.598e-04
+    Newton 2: scaled residual 1.291e-08
+    Newton 3: scaled residual 1.584e-10
+  accepted: 3 Newton, error 6.17e-03, settlement 0.02159, max_pressure 2.694, base_pressure 2.694, cell calls 1440, 1683 s
+t = 0.6 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.500e-01
+    Newton 1: scaled residual 6.706e-04
+    Newton 2: scaled residual 1.340e-08
+    Newton 3: scaled residual 2.458e-11
+  accepted: 3 Newton, error 7.34e-03, settlement 0.0247, max_pressure 3.054, base_pressure 3.054, cell calls 1600, 1877 s
+  checkpoint at t = 0.6 s
+t = 0.65 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.471e-01
+    Newton 1: scaled residual 6.498e-04
+    Newton 2: scaled residual 1.254e-08
+    Newton 3: scaled residual 1.486e-12
+  accepted: 3 Newton, error 8.28e-03, settlement 0.02771, max_pressure 3.396, base_pressure 3.396, cell calls 1760, 2075 s
+t = 0.7 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.408e-01
+    Newton 1: scaled residual 5.990e-04
+    Newton 2: scaled residual 1.060e-08
+    Newton 3: scaled residual 4.268e-11
+  accepted: 3 Newton, error 8.97e-03, settlement 0.03053, max_pressure 3.713, base_pressure 3.713, cell calls 1920, 2271 s
+t = 0.75 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.310e-01
+    Newton 1: scaled residual 5.231e-04
+    Newton 2: scaled residual 8.047e-09
+  accepted: 2 Newton, error 9.43e-03, settlement 0.0331, max_pressure 3.998, base_pressure 3.998, cell calls 2040, 2420 s
+t = 0.8 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.181e-01
+    Newton 1: scaled residual 4.293e-04
+    Newton 2: scaled residual 5.363e-09
+  accepted: 2 Newton, error 9.64e-03, settlement 0.03537, max_pressure 4.242, base_pressure 4.242, cell calls 2160, 2572 s
+t = 0.85 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.024e-01
+    Newton 1: scaled residual 3.265e-04
+    Newton 2: scaled residual 3.073e-09
+  accepted: 2 Newton, error 9.63e-03, settlement 0.03729, max_pressure 4.439, base_pressure 4.439, cell calls 2280, 2720 s
+t = 0.9 s (dt = 0.05 s)
+    Newton 0: scaled residual 8.418e-02
+    Newton 1: scaled residual 2.247e-04
+    Newton 2: scaled residual 1.424e-09
+  accepted: 2 Newton, error 9.41e-03, settlement 0.03881, max_pressure 4.586, base_pressure 4.586, cell calls 2400, 2871 s
+t = 0.95 s (dt = 0.05 s)
+    Newton 0: scaled residual 6.400e-02
+    Newton 1: scaled residual 1.333e-04
+    Newton 2: scaled residual 4.864e-10
+  accepted: 2 Newton, error 8.98e-03, settlement 0.0399, max_pressure 4.677, base_pressure 4.677, cell calls 2520, 3009 s
+t = 1 s (dt = 0.05 s)
+    Newton 0: scaled residual 4.231e-02
+    Newton 1: scaled residual 6.118e-05
+    Newton 2: scaled residual 9.052e-11
+  accepted: 2 Newton, error 8.37e-03, settlement 0.04055, max_pressure 4.712, base_pressure 4.711, cell calls 2640, 3148 s
+t = 1.05 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.965e-02
+    Newton 1: scaled residual 1.494e-05
+    Newton 2: scaled residual 1.906e-11
+  accepted: 2 Newton, error 7.59e-03, settlement 0.04073, max_pressure 4.688, base_pressure 4.688, cell calls 2760, 3287 s
+t = 1.1 s (dt = 0.05 s)
+    Newton 0: scaled residual 4.987e-03
+    Newton 1: scaled residual 1.002e-05
+    Newton 2: scaled residual 5.732e-11
+  accepted: 2 Newton, error 6.66e-03, settlement 0.04045, max_pressure 4.606, base_pressure 4.606, cell calls 2880, 3426 s
+t = 1.15 s (dt = 0.05 s)
+    Newton 0: scaled residual 2.635e-02
+    Newton 1: scaled residual 1.368e-05
+    Newton 2: scaled residual 3.829e-12
+  accepted: 2 Newton, error 5.87e-03, settlement 0.03971, max_pressure 4.47, base_pressure 4.469, cell calls 3000, 3566 s
+t = 1.2 s (dt = 0.05 s)
+    Newton 0: scaled residual 4.857e-02
+    Newton 1: scaled residual 5.799e-05
+    Newton 2: scaled residual 1.046e-10
+  accepted: 2 Newton, error 5.49e-03, settlement 0.03853, max_pressure 4.281, base_pressure 4.28, cell calls 3120, 3706 s
+  checkpoint at t = 1.2 s
+t = 1.25 s (dt = 0.05 s)
+    Newton 0: scaled residual 6.954e-02
+    Newton 1: scaled residual 1.269e-04
+    Newton 2: scaled residual 5.072e-10
+  accepted: 2 Newton, error 4.98e-03, settlement 0.03693, max_pressure 4.045, base_pressure 4.044, cell calls 3240, 3848 s
+t = 1.3 s (dt = 0.05 s)
+    Newton 0: scaled residual 8.876e-02
+    Newton 1: scaled residual 2.135e-04
+    Newton 2: scaled residual 1.487e-09
+  accepted: 2 Newton, error 4.35e-03, settlement 0.03496, max_pressure 3.768, base_pressure 3.767, cell calls 3360, 3987 s
+t = 1.35 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.058e-01
+    Newton 1: scaled residual 3.089e-04
+    Newton 2: scaled residual 2.989e-09
+  accepted: 2 Newton, error 3.62e-03, settlement 0.03265, max_pressure 3.456, base_pressure 3.455, cell calls 3480, 4133 s
+t = 1.4 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.201e-01
+    Newton 1: scaled residual 4.037e-04
+    Newton 2: scaled residual 5.057e-09
+  accepted: 2 Newton, error 2.80e-03, settlement 0.03006, max_pressure 3.118, base_pressure 3.118, cell calls 3600, 4280 s
+t = 1.45 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.315e-01
+    Newton 1: scaled residual 4.886e-04
+    Newton 2: scaled residual 7.369e-09
+  accepted: 2 Newton, error 2.70e-03, settlement 0.02724, max_pressure 2.762, base_pressure 2.762, cell calls 3720, 4430 s
+t = 1.5 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.396e-01
+    Newton 1: scaled residual 5.552e-04
+    Newton 2: scaled residual 9.460e-09
+  accepted: 2 Newton, error 4.20e-03, settlement 0.02427, max_pressure 2.398, base_pressure 2.397, cell calls 3840, 4579 s
+t = 1.55 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.442e-01
+    Newton 1: scaled residual 5.971e-04
+    Newton 2: scaled residual 1.089e-08
+    Newton 3: scaled residual 4.809e-14
+  accepted: 3 Newton, error 5.64e-03, settlement 0.0212, max_pressure 2.033, base_pressure 2.032, cell calls 4000, 4775 s
+t = 1.6 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.453e-01
+    Newton 1: scaled residual 6.100e-04
+    Newton 2: scaled residual 1.132e-08
+    Newton 3: scaled residual 3.921e-12
+  accepted: 3 Newton, error 6.99e-03, settlement 0.01813, max_pressure 1.677, base_pressure 1.676, cell calls 4160, 4971 s
+t = 1.65 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.428e-01
+    Newton 1: scaled residual 5.929e-04
+    Newton 2: scaled residual 1.055e-08
+    Newton 3: scaled residual 1.682e-10
+  accepted: 3 Newton, error 8.20e-03, settlement 0.01511, max_pressure 1.339, base_pressure 1.339, cell calls 4320, 5173 s
+t = 1.7 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.367e-01
+    Newton 1: scaled residual 5.474e-04
+    Newton 2: scaled residual 9.012e-09
+  accepted: 2 Newton, error 9.22e-03, settlement 0.01224, max_pressure 1.028, base_pressure 1.027, cell calls 4440, 5326 s
+t = 1.75 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.273e-01
+    Newton 1: scaled residual 4.780e-04
+    Newton 2: scaled residual 6.822e-09
+  accepted: 2 Newton, error 1.00e-02, settlement 0.009579, max_pressure 0.7497, base_pressure 0.7489, cell calls 4560, 5481 s
+t = 1.8 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.147e-01
+    Newton 1: scaled residual 3.915e-04
+    Newton 2: scaled residual 4.540e-09
+  accepted: 2 Newton, error 1.06e-02, settlement 0.007202, max_pressure 0.6474, base_pressure 0.5112, cell calls 4680, 5627 s
+  checkpoint at t = 1.8 s
+t = 1.85 s (dt = 0.05 s)
+    Newton 0: scaled residual 9.921e-02
+    Newton 1: scaled residual 2.964e-04
+    Newton 2: scaled residual 2.576e-09
+  accepted: 2 Newton, error 1.08e-02, settlement 0.005173, max_pressure 0.7717, base_pressure 0.3196, cell calls 4800, 5775 s
+t = 1.9 s (dt = 0.05 s)
+    Newton 0: scaled residual 8.128e-02
+    Newton 1: scaled residual 2.021e-04
+    Newton 2: scaled residual 1.177e-09
+  accepted: 2 Newton, error 1.08e-02, settlement 0.003549, max_pressure 0.8514, base_pressure 0.1787, cell calls 4920, 5919 s
+t = 1.95 s (dt = 0.05 s)
+    Newton 0: scaled residual 6.132e-02
+    Newton 1: scaled residual 1.179e-04
+    Newton 2: scaled residual 3.905e-10
+  accepted: 2 Newton, error 1.04e-02, settlement 0.002375, max_pressure 0.8851, base_pressure 0.09171, cell calls 5040, 6063 s
+t = 2 s (dt = 0.05 s)
+    Newton 0: scaled residual 3.983e-02
+    Newton 1: scaled residual 5.209e-05
+    Newton 2: scaled residual 7.190e-11
+  accepted: 2 Newton, error 9.78e-03, settlement 0.001685, max_pressure 0.8723, base_pressure 0.06074, cell calls 5160, 6214 s
+t = 2.05 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.733e-02
+    Newton 1: scaled residual 1.130e-05
+    Newton 2: scaled residual 1.054e-11
+  accepted: 2 Newton, error 8.85e-03, settlement 0.0015, max_pressure 0.8136, base_pressure 0.08647, cell calls 5280, 6354 s
+t = 2.1 s (dt = 0.05 s)
+    Newton 0: scaled residual 5.625e-03
+    Newton 1: scaled residual 4.185e-06
+    Newton 2: scaled residual 7.565e-12
+  accepted: 2 Newton, error 7.67e-03, settlement 0.001826, max_pressure 0.7108, base_pressure 0.1682, cell calls 5400, 6505 s
+t = 2.15 s (dt = 0.05 s)
+    Newton 0: scaled residual 2.846e-02
+    Newton 1: scaled residual 1.854e-05
+    Newton 2: scaled residual 2.492e-11
+  accepted: 2 Newton, error 6.28e-03, settlement 0.002654, max_pressure 0.5666, base_pressure 0.3041, cell calls 5520, 6656 s
+t = 2.2 s (dt = 0.05 s)
+    Newton 0: scaled residual 5.062e-02
+    Newton 1: scaled residual 6.627e-05
+    Newton 2: scaled residual 1.352e-10
+  accepted: 2 Newton, error 5.49e-03, settlement 0.003962, max_pressure 0.4914, base_pressure 0.4908, cell calls 5640, 6802 s
+t = 2.25 s (dt = 0.05 s)
+    Newton 0: scaled residual 7.156e-02
+    Newton 1: scaled residual 1.384e-04
+    Newton 2: scaled residual 5.946e-10
+  accepted: 2 Newton, error 4.98e-03, settlement 0.005716, max_pressure 0.7245, base_pressure 0.7239, cell calls 5760, 6952 s
+t = 2.3 s (dt = 0.05 s)
+    Newton 0: scaled residual 9.075e-02
+    Newton 1: scaled residual 2.280e-04
+    Newton 2: scaled residual 1.596e-09
+  accepted: 2 Newton, error 4.36e-03, settlement 0.007866, max_pressure 0.9984, base_pressure 0.9979, cell calls 5880, 7104 s
+t = 2.35 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.077e-01
+    Newton 1: scaled residual 3.266e-04
+    Newton 2: scaled residual 3.265e-09
+  accepted: 2 Newton, error 3.62e-03, settlement 0.01035, max_pressure 1.307, base_pressure 1.306, cell calls 6000, 7253 s
+t = 2.4 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.221e-01
+    Newton 1: scaled residual 4.244e-04
+    Newton 2: scaled residual 5.519e-09
+  accepted: 2 Newton, error 2.80e-03, settlement 0.01311, max_pressure 1.641, base_pressure 1.641, cell calls 6120, 7404 s
+t = 2.45 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.334e-01
+    Newton 1: scaled residual 5.121e-04
+    Newton 2: scaled residual 7.900e-09
+  accepted: 2 Newton, error 3.81e-03, settlement 0.01607, max_pressure 1.995, base_pressure 1.995, cell calls 6240, 7549 s
+  checkpoint at t = 2.45 s
+t = 2.5 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.415e-01
+    Newton 1: scaled residual 5.810e-04
+    Newton 2: scaled residual 1.020e-08
+    Newton 3: scaled residual 1.804e-14
+  accepted: 3 Newton, error 5.30e-03, settlement 0.01915, max_pressure 2.359, base_pressure 2.359, cell calls 6400, 7763 s
+t = 2.55 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.461e-01
+    Newton 1: scaled residual 6.243e-04
+    Newton 2: scaled residual 1.174e-08
+    Newton 3: scaled residual 4.587e-14
+  accepted: 3 Newton, error 6.62e-03, settlement 0.02227, max_pressure 2.724, base_pressure 2.724, cell calls 6560, 7964 s
+t = 2.6 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.471e-01
+    Newton 1: scaled residual 6.377e-04
+    Newton 2: scaled residual 1.221e-08
+    Newton 3: scaled residual 9.577e-13
+  accepted: 3 Newton, error 7.73e-03, settlement 0.02536, max_pressure 3.081, base_pressure 3.081, cell calls 6720, 8179 s
+t = 2.65 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.444e-01
+    Newton 1: scaled residual 6.199e-04
+    Newton 2: scaled residual 1.150e-08
+    Newton 3: scaled residual 5.727e-11
+  accepted: 3 Newton, error 8.63e-03, settlement 0.02834, max_pressure 3.422, base_pressure 3.422, cell calls 6880, 8389 s
+t = 2.7 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.383e-01
+    Newton 1: scaled residual 5.725e-04
+    Newton 2: scaled residual 9.768e-09
+  accepted: 2 Newton, error 9.29e-03, settlement 0.03114, max_pressure 3.738, base_pressure 3.738, cell calls 7000, 8533 s
+t = 2.75 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.287e-01
+    Newton 1: scaled residual 5.002e-04
+    Newton 2: scaled residual 7.420e-09
+  accepted: 2 Newton, error 9.72e-03, settlement 0.03369, max_pressure 4.02, base_pressure 4.02, cell calls 7120, 8683 s
+t = 2.8 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.160e-01
+    Newton 1: scaled residual 4.102e-04
+    Newton 2: scaled residual 4.970e-09
+  accepted: 2 Newton, error 9.91e-03, settlement 0.03594, max_pressure 4.263, base_pressure 4.263, cell calls 7240, 8826 s
+t = 2.85 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.004e-01
+    Newton 1: scaled residual 3.111e-04
+    Newton 2: scaled residual 2.845e-09
+  accepted: 2 Newton, error 9.87e-03, settlement 0.03784, max_pressure 4.459, base_pressure 4.459, cell calls 7360, 8969 s
+t = 2.9 s (dt = 0.05 s)
+    Newton 0: scaled residual 8.238e-02
+    Newton 1: scaled residual 2.128e-04
+    Newton 2: scaled residual 1.302e-09
+  accepted: 2 Newton, error 9.62e-03, settlement 0.03934, max_pressure 4.604, base_pressure 4.604, cell calls 7480, 9118 s
+t = 2.95 s (dt = 0.05 s)
+    Newton 0: scaled residual 6.233e-02
+    Newton 1: scaled residual 1.249e-04
+    Newton 2: scaled residual 4.332e-10
+  accepted: 2 Newton, error 9.17e-03, settlement 0.04042, max_pressure 4.695, base_pressure 4.695, cell calls 7600, 9263 s
+t = 3 s (dt = 0.05 s)
+    Newton 0: scaled residual 4.077e-02
+    Newton 1: scaled residual 5.601e-05
+    Newton 2: scaled residual 7.890e-11
+  accepted: 2 Newton, error 8.54e-03, settlement 0.04104, max_pressure 4.728, base_pressure 4.728, cell calls 7720, 9397 s
+  checkpoint at t = 3 s
+t = 3.05 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.822e-02
+    Newton 1: scaled residual 1.269e-05
+    Newton 2: scaled residual 1.402e-11
+  accepted: 2 Newton, error 7.75e-03, settlement 0.04121, max_pressure 4.703, base_pressure 4.703, cell calls 7840, 9541 s
+t = 3.1 s (dt = 0.05 s)
+    Newton 0: scaled residual 4.753e-03
+    Newton 1: scaled residual 6.821e-06
+    Newton 2: scaled residual 2.779e-12
+  accepted: 2 Newton, error 6.80e-03, settlement 0.04092, max_pressure 4.62, base_pressure 4.62, cell calls 7960, 9681 s
+t = 3.15 s (dt = 0.05 s)
+    Newton 0: scaled residual 2.759e-02
+    Newton 1: scaled residual 1.633e-05
+    Newton 2: scaled residual 5.117e-12
+  accepted: 2 Newton, error 5.86e-03, settlement 0.04017, max_pressure 4.483, base_pressure 4.482, cell calls 8080, 9825 s
+t = 3.2 s (dt = 0.05 s)
+    Newton 0: scaled residual 4.974e-02
+    Newton 1: scaled residual 6.258e-05
+    Newton 2: scaled residual 1.155e-10
+  accepted: 2 Newton, error 5.49e-03, settlement 0.03897, max_pressure 4.293, base_pressure 4.292, cell calls 8200, 9978 s
+t = 3.25 s (dt = 0.05 s)
+    Newton 0: scaled residual 7.064e-02
+    Newton 1: scaled residual 1.331e-04
+    Newton 2: scaled residual 5.571e-10
+  accepted: 2 Newton, error 4.98e-03, settlement 0.03737, max_pressure 4.056, base_pressure 4.055, cell calls 8320, 10129 s
+t = 3.3 s (dt = 0.05 s)
+    Newton 0: scaled residual 8.980e-02
+    Newton 1: scaled residual 2.210e-04
+    Newton 2: scaled residual 1.539e-09
+  accepted: 2 Newton, error 4.35e-03, settlement 0.03538, max_pressure 3.778, base_pressure 3.777, cell calls 8440, 10275 s
+t = 3.35 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.067e-01
+    Newton 1: scaled residual 3.174e-04
+    Newton 2: scaled residual 3.174e-09
+  accepted: 2 Newton, error 3.62e-03, settlement 0.03307, max_pressure 3.466, base_pressure 3.465, cell calls 8560, 10438 s
+t = 3.4 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.210e-01
+    Newton 1: scaled residual 4.130e-04
+    Newton 2: scaled residual 5.269e-09
+  accepted: 2 Newton, error 2.80e-03, settlement 0.03047, max_pressure 3.127, base_pressure 3.127, cell calls 8680, 10602 s
+t = 3.45 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.324e-01
+    Newton 1: scaled residual 4.983e-04
+    Newton 2: scaled residual 7.635e-09
+  accepted: 2 Newton, error 2.65e-03, settlement 0.02764, max_pressure 2.771, base_pressure 2.77, cell calls 8800, 10766 s
+t = 3.5 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.404e-01
+    Newton 1: scaled residual 5.651e-04
+    Newton 2: scaled residual 9.807e-09
+  accepted: 2 Newton, error 4.16e-03, settlement 0.02466, max_pressure 2.405, base_pressure 2.405, cell calls 8920, 10929 s
+t = 3.55 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.451e-01
+    Newton 1: scaled residual 6.069e-04
+    Newton 2: scaled residual 1.121e-08
+    Newton 3: scaled residual 1.072e-12
+  accepted: 3 Newton, error 5.61e-03, settlement 0.02159, max_pressure 2.04, base_pressure 2.039, cell calls 9080, 11148 s
+t = 3.6 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.461e-01
+    Newton 1: scaled residual 6.196e-04
+    Newton 2: scaled residual 1.165e-08
+    Newton 3: scaled residual 7.630e-11
+  accepted: 3 Newton, error 6.96e-03, settlement 0.01851, max_pressure 1.684, base_pressure 1.683, cell calls 9240, 11360 s
+  checkpoint at t = 3.6 s
+t = 3.65 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.436e-01
+    Newton 1: scaled residual 6.020e-04
+    Newton 2: scaled residual 1.085e-08
+    Newton 3: scaled residual 5.066e-11
+  accepted: 3 Newton, error 8.17e-03, settlement 0.01549, max_pressure 1.346, base_pressure 1.345, cell calls 9400, 11580 s
+t = 3.7 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.375e-01
+    Newton 1: scaled residual 5.558e-04
+    Newton 2: scaled residual 9.243e-09
+  accepted: 2 Newton, error 9.19e-03, settlement 0.0126, max_pressure 1.033, base_pressure 1.033, cell calls 9520, 11753 s
+t = 3.75 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.280e-01
+    Newton 1: scaled residual 4.855e-04
+    Newton 2: scaled residual 7.004e-09
+  accepted: 2 Newton, error 9.99e-03, settlement 0.009937, max_pressure 0.7832, base_pressure 0.7542, cell calls 9640, 11918 s
+t = 3.8 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.154e-01
+    Newton 1: scaled residual 3.981e-04
+    Newton 2: scaled residual 4.668e-09
+  accepted: 2 Newton, error 1.05e-02, settlement 0.007554, max_pressure 0.9417, base_pressure 0.5162, cell calls 9760, 12092 s
+t = 3.85 s (dt = 0.05 s)
+    Newton 0: scaled residual 9.988e-02
+    Newton 1: scaled residual 3.019e-04
+    Newton 2: scaled residual 2.655e-09
+  accepted: 2 Newton, error 1.08e-02, settlement 0.00552, max_pressure 1.059, base_pressure 0.3242, cell calls 9880, 12254 s
+t = 3.9 s (dt = 0.05 s)
+    Newton 0: scaled residual 8.193e-02
+    Newton 1: scaled residual 2.065e-04
+    Newton 2: scaled residual 1.233e-09
+  accepted: 2 Newton, error 1.07e-02, settlement 0.00389, max_pressure 1.131, base_pressure 0.1829, cell calls 10000, 12416 s
+t = 3.95 s (dt = 0.05 s)
+    Newton 0: scaled residual 6.195e-02
+    Newton 1: scaled residual 1.211e-04
+    Newton 2: scaled residual 4.079e-10
+  accepted: 2 Newton, error 1.04e-02, settlement 0.002711, max_pressure 1.159, base_pressure 0.09567, cell calls 10120, 12592 s
+t = 4 s (dt = 0.05 s)
+    Newton 0: scaled residual 4.043e-02
+    Newton 1: scaled residual 5.411e-05
+    Newton 2: scaled residual 7.546e-11
+  accepted: 2 Newton, error 9.75e-03, settlement 0.002016, max_pressure 1.14, base_pressure 0.06441, cell calls 10240, 12759 s
+t = 4.05 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.791e-02
+    Newton 1: scaled residual 1.218e-05
+    Newton 2: scaled residual 5.559e-12
+  accepted: 2 Newton, error 8.82e-03, settlement 0.001826, max_pressure 1.075, base_pressure 0.08988, cell calls 10360, 12913 s
+t = 4.1 s (dt = 0.05 s)
+    Newton 0: scaled residual 5.067e-03
+    Newton 1: scaled residual 4.921e-06
+    Newton 2: scaled residual 2.063e-11
+  accepted: 2 Newton, error 7.64e-03, settlement 0.002147, max_pressure 0.9666, base_pressure 0.1714, cell calls 10480, 13062 s
+t = 4.15 s (dt = 0.05 s)
+    Newton 0: scaled residual 2.793e-02
+    Newton 1: scaled residual 1.738e-05
+    Newton 2: scaled residual 1.550e-11
+  accepted: 2 Newton, error 6.25e-03, settlement 0.002971, max_pressure 0.8171, base_pressure 0.3071, cell calls 10600, 13223 s
+  checkpoint at t = 4.15 s
+t = 4.2 s (dt = 0.05 s)
+    Newton 0: scaled residual 5.011e-02
+    Newton 1: scaled residual 6.423e-05
+    Newton 2: scaled residual 1.332e-10
+  accepted: 2 Newton, error 5.49e-03, settlement 0.004276, max_pressure 0.6302, base_pressure 0.4936, cell calls 10720, 13394 s
+t = 4.25 s (dt = 0.05 s)
+    Newton 0: scaled residual 7.107e-02
+    Newton 1: scaled residual 1.356e-04
+    Newton 2: scaled residual 5.654e-10
+  accepted: 2 Newton, error 4.98e-03, settlement 0.006025, max_pressure 0.7269, base_pressure 0.7265, cell calls 10840, 13567 s
+t = 4.3 s (dt = 0.05 s)
+    Newton 0: scaled residual 9.028e-02
+    Newton 1: scaled residual 2.246e-04
+    Newton 2: scaled residual 1.546e-09
+  accepted: 2 Newton, error 4.36e-03, settlement 0.008171, max_pressure 1.001, base_pressure 1, cell calls 10960, 13744 s
+t = 4.35 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.073e-01
+    Newton 1: scaled residual 3.227e-04
+    Newton 2: scaled residual 3.187e-09
+  accepted: 2 Newton, error 3.62e-03, settlement 0.01066, max_pressure 1.309, base_pressure 1.308, cell calls 11080, 13913 s
+t = 4.4 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.216e-01
+    Newton 1: scaled residual 4.203e-04
+    Newton 2: scaled residual 5.395e-09
+  accepted: 2 Newton, error 2.80e-03, settlement 0.01341, max_pressure 1.643, base_pressure 1.643, cell calls 11200, 14087 s
+t = 4.45 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.330e-01
+    Newton 1: scaled residual 5.078e-04
+    Newton 2: scaled residual 7.856e-09
+  accepted: 2 Newton, error 3.82e-03, settlement 0.01637, max_pressure 1.997, base_pressure 1.997, cell calls 11320, 14256 s
+t = 4.5 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.411e-01
+    Newton 1: scaled residual 5.766e-04
+    Newton 2: scaled residual 1.006e-08
+    Newton 3: scaled residual 3.636e-14
+  accepted: 3 Newton, error 5.31e-03, settlement 0.01944, max_pressure 2.361, base_pressure 2.361, cell calls 11480, 14490 s
+t = 4.55 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.457e-01
+    Newton 1: scaled residual 6.200e-04
+    Newton 2: scaled residual 1.159e-08
+    Newton 3: scaled residual 4.052e-14
+  accepted: 3 Newton, error 6.63e-03, settlement 0.02256, max_pressure 2.726, base_pressure 2.726, cell calls 11640, 14734 s
+t = 4.6 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.467e-01
+    Newton 1: scaled residual 6.336e-04
+    Newton 2: scaled residual 1.207e-08
+    Newton 3: scaled residual 6.623e-13
+  accepted: 3 Newton, error 7.74e-03, settlement 0.02565, max_pressure 3.083, base_pressure 3.083, cell calls 11800, 14973 s
+t = 4.65 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.441e-01
+    Newton 1: scaled residual 6.160e-04
+    Newton 2: scaled residual 1.135e-08
+    Newton 3: scaled residual 4.315e-11
+  accepted: 3 Newton, error 8.64e-03, settlement 0.02862, max_pressure 3.424, base_pressure 3.423, cell calls 11960, 15223 s
+  checkpoint at t = 4.65 s
+t = 4.7 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.380e-01
+    Newton 1: scaled residual 5.690e-04
+    Newton 2: scaled residual 9.664e-09
+  accepted: 2 Newton, error 9.30e-03, settlement 0.03142, max_pressure 3.739, base_pressure 3.739, cell calls 12080, 15401 s
+t = 4.75 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.284e-01
+    Newton 1: scaled residual 4.972e-04
+    Newton 2: scaled residual 7.342e-09
+  accepted: 2 Newton, error 9.72e-03, settlement 0.03397, max_pressure 4.022, base_pressure 4.022, cell calls 12200, 15577 s
+t = 4.8 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.157e-01
+    Newton 1: scaled residual 4.076e-04
+    Newton 2: scaled residual 4.901e-09
+  accepted: 2 Newton, error 9.91e-03, settlement 0.03621, max_pressure 4.264, base_pressure 4.264, cell calls 12320, 15752 s
+t = 4.85 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.002e-01
+    Newton 1: scaled residual 3.090e-04
+    Newton 2: scaled residual 2.783e-09
+  accepted: 2 Newton, error 9.88e-03, settlement 0.03811, max_pressure 4.46, base_pressure 4.46, cell calls 12440, 15928 s
+t = 4.9 s (dt = 0.05 s)
+    Newton 0: scaled residual 8.216e-02
+    Newton 1: scaled residual 2.112e-04
+    Newton 2: scaled residual 1.281e-09
+  accepted: 2 Newton, error 9.63e-03, settlement 0.03961, max_pressure 4.605, base_pressure 4.605, cell calls 12560, 16109 s
+t = 4.95 s (dt = 0.05 s)
+    Newton 0: scaled residual 6.213e-02
+    Newton 1: scaled residual 1.238e-04
+    Newton 2: scaled residual 4.285e-10
+  accepted: 2 Newton, error 9.18e-03, settlement 0.04068, max_pressure 4.696, base_pressure 4.696, cell calls 12680, 16295 s
+t = 5 s (dt = 0.05 s)
+    Newton 0: scaled residual 4.058e-02
+    Newton 1: scaled residual 5.533e-05
+    Newton 2: scaled residual 7.904e-11
+  accepted: 2 Newton, error 8.55e-03, settlement 0.04131, max_pressure 4.729, base_pressure 4.729, cell calls 12800, 16478 s
+t = 5.05 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.805e-02
+    Newton 1: scaled residual 1.242e-05
+    Newton 2: scaled residual 2.139e-11
+  accepted: 2 Newton, error 7.76e-03, settlement 0.04148, max_pressure 4.704, base_pressure 4.703, cell calls 12920, 16656 s
+t = 5.1 s (dt = 0.05 s)
+    Newton 0: scaled residual 4.913e-03
+    Newton 1: scaled residual 6.184e-06
+    Newton 2: scaled residual 2.171e-11
+  accepted: 2 Newton, error 6.81e-03, settlement 0.04118, max_pressure 4.621, base_pressure 4.621, cell calls 13040, 16832 s
+t = 5.15 s (dt = 0.05 s)
+    Newton 0: scaled residual 2.774e-02
+    Newton 1: scaled residual 1.676e-05
+    Newton 2: scaled residual 5.243e-12
+  accepted: 2 Newton, error 5.86e-03, settlement 0.04043, max_pressure 4.483, base_pressure 4.483, cell calls 13160, 17000 s
+t = 5.2 s (dt = 0.05 s)
+    Newton 0: scaled residual 4.987e-02
+    Newton 1: scaled residual 6.329e-05
+    Newton 2: scaled residual 1.275e-10
+  accepted: 2 Newton, error 5.49e-03, settlement 0.03923, max_pressure 4.293, base_pressure 4.293, cell calls 13280, 17168 s
+  checkpoint at t = 5.2 s
+t = 5.25 s (dt = 0.05 s)
+    Newton 0: scaled residual 7.077e-02
+    Newton 1: scaled residual 1.341e-04
+    Newton 2: scaled residual 5.648e-10
+  accepted: 2 Newton, error 4.98e-03, settlement 0.03763, max_pressure 4.056, base_pressure 4.056, cell calls 13400, 17342 s
+t = 5.3 s (dt = 0.05 s)
+    Newton 0: scaled residual 8.991e-02
+    Newton 1: scaled residual 2.221e-04
+    Newton 2: scaled residual 1.469e-09
+  accepted: 2 Newton, error 4.35e-03, settlement 0.03564, max_pressure 3.778, base_pressure 3.778, cell calls 13520, 17507 s
+t = 5.35 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.068e-01
+    Newton 1: scaled residual 3.187e-04
+    Newton 2: scaled residual 3.152e-09
+  accepted: 2 Newton, error 3.62e-03, settlement 0.03332, max_pressure 3.466, base_pressure 3.466, cell calls 13640, 17680 s
+t = 5.4 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.211e-01
+    Newton 1: scaled residual 4.144e-04
+    Newton 2: scaled residual 5.299e-09
+  accepted: 2 Newton, error 2.80e-03, settlement 0.03072, max_pressure 3.128, base_pressure 3.127, cell calls 13760, 17856 s
+t = 5.45 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.325e-01
+    Newton 1: scaled residual 4.998e-04
+    Newton 2: scaled residual 7.670e-09
+  accepted: 2 Newton, error 2.64e-03, settlement 0.02789, max_pressure 2.771, base_pressure 2.771, cell calls 13880, 18037 s
+t = 5.5 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.405e-01
+    Newton 1: scaled residual 5.667e-04
+    Newton 2: scaled residual 9.810e-09
+  accepted: 2 Newton, error 4.14e-03, settlement 0.02491, max_pressure 2.406, base_pressure 2.405, cell calls 14000, 18221 s
+t = 5.55 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.452e-01
+    Newton 1: scaled residual 6.085e-04
+    Newton 2: scaled residual 1.122e-08
+    Newton 3: scaled residual 5.256e-11
+  accepted: 3 Newton, error 5.59e-03, settlement 0.02183, max_pressure 2.04, base_pressure 2.04, cell calls 14160, 18457 s
+t = 5.6 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.462e-01
+    Newton 1: scaled residual 6.212e-04
+    Newton 2: scaled residual 1.172e-08
+    Newton 3: scaled residual 1.090e-10
+  accepted: 3 Newton, error 6.94e-03, settlement 0.01875, max_pressure 1.684, base_pressure 1.684, cell calls 14320, 18698 s
+t = 5.65 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.436e-01
+    Newton 1: scaled residual 6.035e-04
+    Newton 2: scaled residual 1.098e-08
+    Newton 3: scaled residual 1.276e-10
+  accepted: 3 Newton, error 8.15e-03, settlement 0.01573, max_pressure 1.346, base_pressure 1.345, cell calls 14480, 18932 s
+t = 5.7 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.376e-01
+    Newton 1: scaled residual 5.572e-04
+    Newton 2: scaled residual 9.276e-09
+  accepted: 2 Newton, error 9.18e-03, settlement 0.01285, max_pressure 1.034, base_pressure 1.033, cell calls 14600, 19110 s
+  checkpoint at t = 5.7 s
+t = 5.75 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.281e-01
+    Newton 1: scaled residual 4.869e-04
+    Newton 2: scaled residual 7.030e-09
+  accepted: 2 Newton, error 9.98e-03, settlement 0.01018, max_pressure 0.9237, base_pressure 0.7546, cell calls 14720, 19291 s
+t = 5.8 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.155e-01
+    Newton 1: scaled residual 3.993e-04
+    Newton 2: scaled residual 4.687e-09
+  accepted: 2 Newton, error 1.05e-02, settlement 0.007792, max_pressure 1.08, base_pressure 0.5165, cell calls 14840, 19487 s
+t = 5.85 s (dt = 0.05 s)
+    Newton 0: scaled residual 9.998e-02
+    Newton 1: scaled residual 3.029e-04
+    Newton 2: scaled residual 2.667e-09
+  accepted: 2 Newton, error 1.08e-02, settlement 0.005756, max_pressure 1.194, base_pressure 0.3245, cell calls 14960, 19661 s
+t = 5.9 s (dt = 0.05 s)
+    Newton 0: scaled residual 8.203e-02
+    Newton 1: scaled residual 2.073e-04
+    Newton 2: scaled residual 1.228e-09
+  accepted: 2 Newton, error 1.07e-02, settlement 0.004125, max_pressure 1.265, base_pressure 0.1832, cell calls 15080, 19832 s
+t = 5.95 s (dt = 0.05 s)
+    Newton 0: scaled residual 6.205e-02
+    Newton 1: scaled residual 1.217e-04
+    Newton 2: scaled residual 4.119e-10
+  accepted: 2 Newton, error 1.04e-02, settlement 0.002944, max_pressure 1.29, base_pressure 0.09595, cell calls 15200, 20002 s
+t = 6 s (dt = 0.05 s)
+    Newton 0: scaled residual 4.054e-02
+    Newton 1: scaled residual 5.452e-05
+    Newton 2: scaled residual 7.769e-11
+  accepted: 2 Newton, error 9.73e-03, settlement 0.002248, max_pressure 1.268, base_pressure 0.06468, cell calls 15320, 20174 s
+t = 6.05 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.801e-02
+    Newton 1: scaled residual 1.236e-05
+    Newton 2: scaled residual 9.721e-12
+  accepted: 2 Newton, error 8.80e-03, settlement 0.002057, max_pressure 1.202, base_pressure 0.09013, cell calls 15440, 20355 s
+t = 6.1 s (dt = 0.05 s)
+    Newton 0: scaled residual 4.964e-03
+    Newton 1: scaled residual 5.184e-06
+    Newton 2: scaled residual 3.061e-11
+  accepted: 2 Newton, error 7.62e-03, settlement 0.002376, max_pressure 1.092, base_pressure 0.1717, cell calls 15560, 20527 s
+t = 6.15 s (dt = 0.05 s)
+    Newton 0: scaled residual 2.783e-02
+    Newton 1: scaled residual 1.711e-05
+    Newton 2: scaled residual 2.637e-11
+  accepted: 2 Newton, error 6.23e-03, settlement 0.003199, max_pressure 0.9404, base_pressure 0.3073, cell calls 15680, 20685 s
+t = 6.2 s (dt = 0.05 s)
+    Newton 0: scaled residual 5.001e-02
+    Newton 1: scaled residual 6.377e-05
+    Newton 2: scaled residual 1.204e-10
+  accepted: 2 Newton, error 5.49e-03, settlement 0.004502, max_pressure 0.7519, base_pressure 0.4938, cell calls 15800, 20848 s
+t = 6.25 s (dt = 0.05 s)
+    Newton 0: scaled residual 7.097e-02
+    Newton 1: scaled residual 1.350e-04
+    Newton 2: scaled residual 5.630e-10
+  accepted: 2 Newton, error 4.98e-03, settlement 0.00625, max_pressure 0.727, base_pressure 0.7267, cell calls 15920, 21015 s
+  checkpoint at t = 6.25 s
+t = 6.3 s (dt = 0.05 s)
+    Newton 0: scaled residual 9.018e-02
+    Newton 1: scaled residual 2.238e-04
+    Newton 2: scaled residual 1.550e-09
+  accepted: 2 Newton, error 4.36e-03, settlement 0.008395, max_pressure 1.001, base_pressure 1, cell calls 16040, 21201 s
+t = 6.35 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.072e-01
+    Newton 1: scaled residual 3.218e-04
+    Newton 2: scaled residual 3.171e-09
+  accepted: 2 Newton, error 3.62e-03, settlement 0.01088, max_pressure 1.309, base_pressure 1.308, cell calls 16160, 21389 s
+t = 6.4 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.215e-01
+    Newton 1: scaled residual 4.192e-04
+    Newton 2: scaled residual 5.406e-09
+  accepted: 2 Newton, error 2.80e-03, settlement 0.01363, max_pressure 1.643, base_pressure 1.643, cell calls 16280, 21572 s
+t = 6.45 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.329e-01
+    Newton 1: scaled residual 5.067e-04
+    Newton 2: scaled residual 7.721e-09
+  accepted: 2 Newton, error 3.82e-03, settlement 0.01659, max_pressure 1.997, base_pressure 1.997, cell calls 16400, 21757 s
+t = 6.5 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.410e-01
+    Newton 1: scaled residual 5.755e-04
+    Newton 2: scaled residual 1.002e-08
+    Newton 3: scaled residual 5.107e-14
+  accepted: 3 Newton, error 5.31e-03, settlement 0.01966, max_pressure 2.361, base_pressure 2.361, cell calls 16560, 21996 s
+t = 6.55 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.456e-01
+    Newton 1: scaled residual 6.189e-04
+    Newton 2: scaled residual 1.155e-08
+    Newton 3: scaled residual 1.354e-13
+  accepted: 3 Newton, error 6.62e-03, settlement 0.02278, max_pressure 2.726, base_pressure 2.726, cell calls 16720, 22234 s
+t = 6.6 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.466e-01
+    Newton 1: scaled residual 6.325e-04
+    Newton 2: scaled residual 1.203e-08
+    Newton 3: scaled residual 8.878e-13
+  accepted: 3 Newton, error 7.74e-03, settlement 0.02587, max_pressure 3.083, base_pressure 3.083, cell calls 16880, 22486 s
+t = 6.65 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.441e-01
+    Newton 1: scaled residual 6.150e-04
+    Newton 2: scaled residual 1.137e-08
+    Newton 3: scaled residual 2.158e-11
+  accepted: 3 Newton, error 8.63e-03, settlement 0.02884, max_pressure 3.424, base_pressure 3.424, cell calls 17040, 22728 s
+t = 6.7 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.379e-01
+    Newton 1: scaled residual 5.681e-04
+    Newton 2: scaled residual 9.638e-09
+  accepted: 2 Newton, error 9.29e-03, settlement 0.03163, max_pressure 3.739, base_pressure 3.739, cell calls 17160, 22905 s
+  checkpoint at t = 6.7 s
+t = 6.75 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.284e-01
+    Newton 1: scaled residual 4.964e-04
+    Newton 2: scaled residual 7.322e-09
+  accepted: 2 Newton, error 9.72e-03, settlement 0.03418, max_pressure 4.022, base_pressure 4.022, cell calls 17280, 23090 s
+t = 6.8 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.157e-01
+    Newton 1: scaled residual 4.069e-04
+    Newton 2: scaled residual 4.888e-09
+  accepted: 2 Newton, error 9.91e-03, settlement 0.03643, max_pressure 4.264, base_pressure 4.264, cell calls 17400, 23259 s
+t = 6.85 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.001e-01
+    Newton 1: scaled residual 3.084e-04
+    Newton 2: scaled residual 2.758e-09
+  accepted: 2 Newton, error 9.87e-03, settlement 0.03832, max_pressure 4.46, base_pressure 4.46, cell calls 17520, 23429 s
+t = 6.9 s (dt = 0.05 s)
+    Newton 0: scaled residual 8.211e-02
+    Newton 1: scaled residual 2.108e-04
+    Newton 2: scaled residual 1.273e-09
+  accepted: 2 Newton, error 9.62e-03, settlement 0.03982, max_pressure 4.605, base_pressure 4.605, cell calls 17640, 23600 s
+t = 6.95 s (dt = 0.05 s)
+    Newton 0: scaled residual 6.208e-02
+    Newton 1: scaled residual 1.235e-04
+    Newton 2: scaled residual 4.356e-10
+  accepted: 2 Newton, error 9.18e-03, settlement 0.0409, max_pressure 4.696, base_pressure 4.696, cell calls 17760, 23769 s
+t = 7 s (dt = 0.05 s)
+    Newton 0: scaled residual 4.054e-02
+    Newton 1: scaled residual 5.516e-05
+    Newton 2: scaled residual 7.839e-11
+  accepted: 2 Newton, error 8.55e-03, settlement 0.04152, max_pressure 4.729, base_pressure 4.729, cell calls 17880, 23931 s
+t = 7.05 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.801e-02
+    Newton 1: scaled residual 1.236e-05
+    Newton 2: scaled residual 1.389e-11
+  accepted: 2 Newton, error 7.75e-03, settlement 0.04169, max_pressure 4.704, base_pressure 4.704, cell calls 18000, 24107 s
+t = 7.1 s (dt = 0.05 s)
+    Newton 0: scaled residual 4.945e-03
+    Newton 1: scaled residual 5.965e-06
+    Newton 2: scaled residual 2.328e-11
+  accepted: 2 Newton, error 6.81e-03, settlement 0.04139, max_pressure 4.621, base_pressure 4.621, cell calls 18120, 24270 s
+t = 7.15 s (dt = 0.05 s)
+    Newton 0: scaled residual 2.777e-02
+    Newton 1: scaled residual 1.688e-05
+    Newton 2: scaled residual 1.896e-11
+  accepted: 2 Newton, error 5.86e-03, settlement 0.04064, max_pressure 4.483, base_pressure 4.483, cell calls 18240, 24449 s
+t = 7.2 s (dt = 0.05 s)
+    Newton 0: scaled residual 4.990e-02
+    Newton 1: scaled residual 6.348e-05
+    Newton 2: scaled residual 1.245e-10
+  accepted: 2 Newton, error 5.49e-03, settlement 0.03944, max_pressure 4.293, base_pressure 4.293, cell calls 18360, 24621 s
+t = 7.25 s (dt = 0.05 s)
+    Newton 0: scaled residual 7.079e-02
+    Newton 1: scaled residual 1.343e-04
+    Newton 2: scaled residual 5.675e-10
+  accepted: 2 Newton, error 4.98e-03, settlement 0.03783, max_pressure 4.056, base_pressure 4.056, cell calls 18480, 24802 s
+  checkpoint at t = 7.25 s
+t = 7.3 s (dt = 0.05 s)
+    Newton 0: scaled residual 8.993e-02
+    Newton 1: scaled residual 2.224e-04
+    Newton 2: scaled residual 1.556e-09
+  accepted: 2 Newton, error 4.35e-03, settlement 0.03585, max_pressure 3.778, base_pressure 3.778, cell calls 18600, 24980 s
+t = 7.35 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.069e-01
+    Newton 1: scaled residual 3.191e-04
+    Newton 2: scaled residual 3.126e-09
+  accepted: 2 Newton, error 3.62e-03, settlement 0.03353, max_pressure 3.466, base_pressure 3.466, cell calls 18720, 25164 s
+t = 7.4 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.212e-01
+    Newton 1: scaled residual 4.148e-04
+    Newton 2: scaled residual 5.305e-09
+  accepted: 2 Newton, error 2.80e-03, settlement 0.03092, max_pressure 3.128, base_pressure 3.127, cell calls 18840, 25346 s
+t = 7.45 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.325e-01
+    Newton 1: scaled residual 5.002e-04
+    Newton 2: scaled residual 7.678e-09
+  accepted: 2 Newton, error 2.64e-03, settlement 0.02809, max_pressure 2.771, base_pressure 2.771, cell calls 18960, 25524 s
+t = 7.5 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.406e-01
+    Newton 1: scaled residual 5.671e-04
+    Newton 2: scaled residual 9.819e-09
+  accepted: 2 Newton, error 4.14e-03, settlement 0.02511, max_pressure 2.406, base_pressure 2.405, cell calls 19080, 25707 s
+t = 7.55 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.452e-01
+    Newton 1: scaled residual 6.089e-04
+    Newton 2: scaled residual 1.130e-08
+    Newton 3: scaled residual 5.396e-11
+  accepted: 3 Newton, error 5.58e-03, settlement 0.02204, max_pressure 2.04, base_pressure 2.04, cell calls 19240, 25950 s
+t = 7.6 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.462e-01
+    Newton 1: scaled residual 6.216e-04
+    Newton 2: scaled residual 1.146e-08
+    Newton 3: scaled residual 2.623e-10
+  accepted: 3 Newton, error 6.93e-03, settlement 0.01895, max_pressure 1.684, base_pressure 1.684, cell calls 19400, 26183 s
+t = 7.65 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.437e-01
+    Newton 1: scaled residual 6.040e-04
+    Newton 2: scaled residual 1.081e-08
+    Newton 3: scaled residual 3.282e-11
+  accepted: 3 Newton, error 8.14e-03, settlement 0.01593, max_pressure 1.346, base_pressure 1.345, cell calls 19560, 26414 s
+t = 7.7 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.376e-01
+    Newton 1: scaled residual 5.577e-04
+    Newton 2: scaled residual 9.284e-09
+  accepted: 2 Newton, error 9.17e-03, settlement 0.01304, max_pressure 1.034, base_pressure 1.033, cell calls 19680, 26593 s
+t = 7.75 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.281e-01
+    Newton 1: scaled residual 4.873e-04
+    Newton 2: scaled residual 7.037e-09
+  accepted: 2 Newton, error 9.97e-03, settlement 0.01037, max_pressure 1.007, base_pressure 0.7546, cell calls 19800, 26768 s
+  checkpoint at t = 7.75 s
+t = 7.8 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.155e-01
+    Newton 1: scaled residual 3.997e-04
+    Newton 2: scaled residual 4.691e-09
+  accepted: 2 Newton, error 1.05e-02, settlement 0.007989, max_pressure 1.162, base_pressure 0.5165, cell calls 19920, 26943 s
+t = 7.85 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.000e-01
+    Newton 1: scaled residual 3.033e-04
+    Newton 2: scaled residual 2.670e-09
+  accepted: 2 Newton, error 1.08e-02, settlement 0.005953, max_pressure 1.275, base_pressure 0.3246, cell calls 20040, 27127 s
+t = 7.9 s (dt = 0.05 s)
+    Newton 0: scaled residual 8.206e-02
+    Newton 1: scaled residual 2.076e-04
+    Newton 2: scaled residual 1.229e-09
+  accepted: 2 Newton, error 1.07e-02, settlement 0.004321, max_pressure 1.344, base_pressure 0.1833, cell calls 20160, 27308 s
+t = 7.95 s (dt = 0.05 s)
+    Newton 0: scaled residual 6.209e-02
+    Newton 1: scaled residual 1.219e-04
+    Newton 2: scaled residual 4.095e-10
+  accepted: 2 Newton, error 1.04e-02, settlement 0.003139, max_pressure 1.368, base_pressure 0.096, cell calls 20280, 27481 s
+t = 8 s (dt = 0.05 s)
+    Newton 0: scaled residual 4.057e-02
+    Newton 1: scaled residual 5.467e-05
+    Newton 2: scaled residual 7.564e-11
+  accepted: 2 Newton, error 9.72e-03, settlement 0.002442, max_pressure 1.346, base_pressure 0.06473, cell calls 20400, 27651 s
+t = 8.05 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.805e-02
+    Newton 1: scaled residual 1.243e-05
+    Newton 2: scaled residual 9.958e-12
+  accepted: 2 Newton, error 8.79e-03, settlement 0.00225, max_pressure 1.279, base_pressure 0.09017, cell calls 20520, 27819 s
+t = 8.1 s (dt = 0.05 s)
+    Newton 0: scaled residual 4.927e-03
+    Newton 1: scaled residual 5.306e-06
+    Newton 2: scaled residual 1.625e-11
+  accepted: 2 Newton, error 7.61e-03, settlement 0.002569, max_pressure 1.168, base_pressure 0.1717, cell calls 20640, 27988 s
+t = 8.15 s (dt = 0.05 s)
+    Newton 0: scaled residual 2.779e-02
+    Newton 1: scaled residual 1.701e-05
+    Newton 2: scaled residual 3.342e-11
+  accepted: 2 Newton, error 6.22e-03, settlement 0.00339, max_pressure 1.016, base_pressure 0.3073, cell calls 20760, 28147 s
+t = 8.2 s (dt = 0.05 s)
+    Newton 0: scaled residual 4.997e-02
+    Newton 1: scaled residual 6.358e-05
+    Newton 2: scaled residual 1.422e-10
+  accepted: 2 Newton, error 5.49e-03, settlement 0.004693, max_pressure 0.8265, base_pressure 0.4938, cell calls 20880, 28305 s
+t = 8.25 s (dt = 0.05 s)
+    Newton 0: scaled residual 7.093e-02
+    Newton 1: scaled residual 1.347e-04
+    Newton 2: scaled residual 5.672e-10
+  accepted: 2 Newton, error 4.98e-03, settlement 0.006441, max_pressure 0.727, base_pressure 0.7267, cell calls 21000, 28462 s
+t = 8.3 s (dt = 0.05 s)
+    Newton 0: scaled residual 9.014e-02
+    Newton 1: scaled residual 2.235e-04
+    Newton 2: scaled residual 1.545e-09
+  accepted: 2 Newton, error 4.36e-03, settlement 0.008585, max_pressure 1.001, base_pressure 1, cell calls 21120, 28631 s
+  checkpoint at t = 8.3 s
+t = 8.35 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.071e-01
+    Newton 1: scaled residual 3.214e-04
+    Newton 2: scaled residual 3.164e-09
+  accepted: 2 Newton, error 3.62e-03, settlement 0.01107, max_pressure 1.309, base_pressure 1.309, cell calls 21240, 28806 s
+t = 8.4 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.215e-01
+    Newton 1: scaled residual 4.188e-04
+    Newton 2: scaled residual 5.328e-09
+  accepted: 2 Newton, error 2.80e-03, settlement 0.01382, max_pressure 1.643, base_pressure 1.643, cell calls 21360, 28980 s
+t = 8.45 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.329e-01
+    Newton 1: scaled residual 5.062e-04
+    Newton 2: scaled residual 7.767e-09
+  accepted: 2 Newton, error 3.82e-03, settlement 0.01678, max_pressure 1.997, base_pressure 1.997, cell calls 21480, 29151 s
+t = 8.5 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.410e-01
+    Newton 1: scaled residual 5.750e-04
+    Newton 2: scaled residual 1.005e-08
+    Newton 3: scaled residual 4.621e-13
+  accepted: 3 Newton, error 5.31e-03, settlement 0.01985, max_pressure 2.361, base_pressure 2.361, cell calls 21640, 29376 s
+t = 8.55 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.456e-01
+    Newton 1: scaled residual 6.184e-04
+    Newton 2: scaled residual 1.154e-08
+    Newton 3: scaled residual 1.286e-13
+  accepted: 3 Newton, error 6.62e-03, settlement 0.02297, max_pressure 2.726, base_pressure 2.726, cell calls 21800, 29601 s
+t = 8.6 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.466e-01
+    Newton 1: scaled residual 6.321e-04
+    Newton 2: scaled residual 1.202e-08
+    Newton 3: scaled residual 1.125e-12
+  accepted: 3 Newton, error 7.73e-03, settlement 0.02605, max_pressure 3.083, base_pressure 3.083, cell calls 21960, 29829 s
+t = 8.65 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.440e-01
+    Newton 1: scaled residual 6.146e-04
+    Newton 2: scaled residual 1.126e-08
+    Newton 3: scaled residual 1.228e-10
+  accepted: 3 Newton, error 8.63e-03, settlement 0.02903, max_pressure 3.424, base_pressure 3.424, cell calls 22120, 30060 s
+t = 8.7 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.379e-01
+    Newton 1: scaled residual 5.677e-04
+    Newton 2: scaled residual 9.637e-09
+  accepted: 2 Newton, error 9.29e-03, settlement 0.03182, max_pressure 3.739, base_pressure 3.739, cell calls 22240, 30240 s
+t = 8.75 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.283e-01
+    Newton 1: scaled residual 4.960e-04
+    Newton 2: scaled residual 7.313e-09
+  accepted: 2 Newton, error 9.71e-03, settlement 0.03437, max_pressure 4.022, base_pressure 4.022, cell calls 22360, 30412 s
+t = 8.8 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.156e-01
+    Newton 1: scaled residual 4.066e-04
+    Newton 2: scaled residual 4.882e-09
+  accepted: 2 Newton, error 9.90e-03, settlement 0.03662, max_pressure 4.264, base_pressure 4.264, cell calls 22480, 30574 s
+  checkpoint at t = 8.8 s
+t = 8.85 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.001e-01
+    Newton 1: scaled residual 3.082e-04
+    Newton 2: scaled residual 2.797e-09
+  accepted: 2 Newton, error 9.87e-03, settlement 0.03851, max_pressure 4.46, base_pressure 4.46, cell calls 22600, 30738 s
+t = 8.9 s (dt = 0.05 s)
+    Newton 0: scaled residual 8.209e-02
+    Newton 1: scaled residual 2.106e-04
+    Newton 2: scaled residual 1.267e-09
+  accepted: 2 Newton, error 9.62e-03, settlement 0.04001, max_pressure 4.606, base_pressure 4.606, cell calls 22720, 30899 s
+t = 8.95 s (dt = 0.05 s)
+    Newton 0: scaled residual 6.207e-02
+    Newton 1: scaled residual 1.234e-04
+    Newton 2: scaled residual 4.274e-10
+  accepted: 2 Newton, error 9.17e-03, settlement 0.04108, max_pressure 4.696, base_pressure 4.696, cell calls 22840, 31062 s
+t = 9 s (dt = 0.05 s)
+    Newton 0: scaled residual 4.053e-02
+    Newton 1: scaled residual 5.510e-05
+    Newton 2: scaled residual 7.702e-11
+  accepted: 2 Newton, error 8.54e-03, settlement 0.04171, max_pressure 4.729, base_pressure 4.729, cell calls 22960, 31217 s
+t = 9.05 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.800e-02
+    Newton 1: scaled residual 1.234e-05
+    Newton 2: scaled residual 1.725e-11
+  accepted: 2 Newton, error 7.75e-03, settlement 0.04187, max_pressure 4.704, base_pressure 4.704, cell calls 23080, 31370 s
+t = 9.1 s (dt = 0.05 s)
+    Newton 0: scaled residual 4.956e-03
+    Newton 1: scaled residual 5.864e-06
+    Newton 2: scaled residual 1.793e-11
+  accepted: 2 Newton, error 6.80e-03, settlement 0.04157, max_pressure 4.621, base_pressure 4.621, cell calls 23200, 31524 s
+t = 9.15 s (dt = 0.05 s)
+    Newton 0: scaled residual 2.778e-02
+    Newton 1: scaled residual 1.692e-05
+    Newton 2: scaled residual 7.293e-12
+  accepted: 2 Newton, error 5.86e-03, settlement 0.04082, max_pressure 4.483, base_pressure 4.483, cell calls 23320, 31669 s
+t = 9.2 s (dt = 0.05 s)
+    Newton 0: scaled residual 4.990e-02
+    Newton 1: scaled residual 6.355e-05
+    Newton 2: scaled residual 1.243e-10
+  accepted: 2 Newton, error 5.49e-03, settlement 0.03962, max_pressure 4.293, base_pressure 4.293, cell calls 23440, 31816 s
+t = 9.25 s (dt = 0.05 s)
+    Newton 0: scaled residual 7.080e-02
+    Newton 1: scaled residual 1.344e-04
+    Newton 2: scaled residual 5.725e-10
+  accepted: 2 Newton, error 4.98e-03, settlement 0.03801, max_pressure 4.056, base_pressure 4.056, cell calls 23560, 31968 s
+t = 9.3 s (dt = 0.05 s)
+    Newton 0: scaled residual 8.994e-02
+    Newton 1: scaled residual 2.225e-04
+    Newton 2: scaled residual 1.558e-09
+  accepted: 2 Newton, error 4.36e-03, settlement 0.03603, max_pressure 3.778, base_pressure 3.778, cell calls 23680, 32121 s
+t = 9.35 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.069e-01
+    Newton 1: scaled residual 3.192e-04
+    Newton 2: scaled residual 3.197e-09
+  accepted: 2 Newton, error 3.62e-03, settlement 0.0337, max_pressure 3.466, base_pressure 3.466, cell calls 23800, 32283 s
+t = 9.4 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.212e-01
+    Newton 1: scaled residual 4.149e-04
+    Newton 2: scaled residual 5.307e-09
+  accepted: 2 Newton, error 2.80e-03, settlement 0.0311, max_pressure 3.128, base_pressure 3.127, cell calls 23920, 32444 s
+  checkpoint at t = 9.4 s
+t = 9.45 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.325e-01
+    Newton 1: scaled residual 5.004e-04
+    Newton 2: scaled residual 7.680e-09
+  accepted: 2 Newton, error 2.64e-03, settlement 0.02827, max_pressure 2.771, base_pressure 2.771, cell calls 24040, 32605 s
+t = 9.5 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.406e-01
+    Newton 1: scaled residual 5.673e-04
+    Newton 2: scaled residual 9.821e-09
+  accepted: 2 Newton, error 4.14e-03, settlement 0.02529, max_pressure 2.406, base_pressure 2.405, cell calls 24160, 32774 s
+t = 9.55 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.452e-01
+    Newton 1: scaled residual 6.091e-04
+    Newton 2: scaled residual 1.118e-08
+    Newton 3: scaled residual 6.838e-11
+  accepted: 3 Newton, error 5.58e-03, settlement 0.02221, max_pressure 2.04, base_pressure 2.04, cell calls 24320, 32997 s
+t = 9.6 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.462e-01
+    Newton 1: scaled residual 6.218e-04
+    Newton 2: scaled residual 1.169e-08
+    Newton 3: scaled residual 3.072e-11
+  accepted: 3 Newton, error 6.93e-03, settlement 0.01913, max_pressure 1.684, base_pressure 1.684, cell calls 24480, 33233 s
+t = 9.65 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.437e-01
+    Newton 1: scaled residual 6.042e-04
+    Newton 2: scaled residual 1.098e-08
+    Newton 3: scaled residual 4.415e-11
+  accepted: 3 Newton, error 8.14e-03, settlement 0.0161, max_pressure 1.346, base_pressure 1.345, cell calls 24640, 33459 s
+t = 9.7 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.376e-01
+    Newton 1: scaled residual 5.579e-04
+    Newton 2: scaled residual 9.287e-09
+  accepted: 2 Newton, error 9.16e-03, settlement 0.01322, max_pressure 1.034, base_pressure 1.033, cell calls 24760, 33634 s
+t = 9.75 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.281e-01
+    Newton 1: scaled residual 4.875e-04
+    Newton 2: scaled residual 7.039e-09
+  accepted: 2 Newton, error 9.96e-03, settlement 0.01055, max_pressure 1.063, base_pressure 0.7546, cell calls 24880, 33802 s
+t = 9.8 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.155e-01
+    Newton 1: scaled residual 3.999e-04
+    Newton 2: scaled residual 4.694e-09
+  accepted: 2 Newton, error 1.05e-02, settlement 0.008162, max_pressure 1.217, base_pressure 0.5166, cell calls 25000, 33971 s
+t = 9.85 s (dt = 0.05 s)
+    Newton 0: scaled residual 1.000e-01
+    Newton 1: scaled residual 3.035e-04
+    Newton 2: scaled residual 2.672e-09
+  accepted: 2 Newton, error 1.08e-02, settlement 0.006125, max_pressure 1.33, base_pressure 0.3246, cell calls 25120, 34133 s
+t = 9.9 s (dt = 0.05 s)
+    Newton 0: scaled residual 8.208e-02
+    Newton 1: scaled residual 2.078e-04
+    Newton 2: scaled residual 1.225e-09
+  accepted: 2 Newton, error 1.07e-02, settlement 0.004492, max_pressure 1.399, base_pressure 0.1833, cell calls 25240, 34292 s
+  checkpoint at t = 9.9 s
+t = 9.95 s (dt = 0.05 s)
+    Newton 0: scaled residual 6.210e-02
+    Newton 1: scaled residual 1.220e-04
+    Newton 2: scaled residual 4.103e-10
+  accepted: 2 Newton, error 1.04e-02, settlement 0.00331, max_pressure 1.422, base_pressure 0.09602, cell calls 25360, 34454 s
+t = 10 s (dt = 0.05 s)
+    Newton 0: scaled residual 4.059e-02
+    Newton 1: scaled residual 5.474e-05
+    Newton 2: scaled residual 7.675e-11
+  accepted: 2 Newton, error 9.71e-03, settlement 0.002613, max_pressure 1.4, base_pressure 0.06474, cell calls 25480, 34622 s
+  checkpoint at t = 10 s
+finished (t_max) at t = 10 s after 200 steps, 34624 s
+25480 cell solves, 46.24 s each
+Saved /users/hpcuser/periodic-ale-homogenisation/results/cyclic/20261026_201037/viscoelastic_P2/fe2.npz
+Run /users/hpcuser/periodic-ale-homogenisation/results/cyclic/20261026_201037/viscoelastic_P2/fe2.npz: status t_max

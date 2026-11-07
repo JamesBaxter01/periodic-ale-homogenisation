@@ -1,0 +1,100 @@
+Host node025.aire.lee.alces.network, job 9097074, 1 CPUs, commit 8bb1c2f: examples/multiscale/compare_cyclic.py /users/hpcuser/periodic-ale-homogenisation/results/cyclic/20261026_201037/elastic_P0.2 /users/hpcuser/periodic-ale-homogenisation/results/cyclic/20261026_201037/viscoelastic_P0.2 /users/hpcuser/periodic-ale-homogenisation/results/cyclic/20261026_201037/elastic_P2 /users/hpcuser/periodic-ale-homogenisation/results/cyclic/20261026_201037/viscoelastic_P2 --output /users/hpcuser/periodic-ale-homogenisation/results/cyclic/20261026_201037
+## elastic_P0.2: elastic skeleton, period 0.2 s, 5 cycles
+
+| Model | Cycle | Amplitude (mm) | Mean (mm) | Phase lag (deg) | Energy per cycle (mJ/m^2) |
+|---|---|---|---|---|---|
+| FE², history | 1 | 37.7422 | 19.7883 | 11.77 | 29.1319 |
+| FE², history | 2 | 35.6482 | 20.6016 | 10.50 | 25.3761 |
+| FE², history | 3 | 35.5584 | 20.8402 | 10.41 | 25.1192 |
+| FE², history | 4 | 35.5192 | 21.0087 | 10.36 | 25.0020 |
+| FE², history | 5 | 35.4934 | 21.1388 | 10.33 | 24.9248 |
+| FE², stationary cells | 1 | 41.2381 | 20.8990 | 0.18 | 0.4976 |
+| FE², stationary cells | 2 | 41.2169 | 21.0020 | 0.15 | 0.4089 |
+| FE², stationary cells | 3 | 41.2082 | 21.0810 | 0.13 | 0.3662 |
+| FE², stationary cells | 4 | 41.2037 | 21.1473 | 0.12 | 0.3403 |
+| Resolved | 1 | 37.4411 | 19.5962 | 11.44 | 28.1304 |
+| Resolved | 2 | 35.4295 | 20.3128 | 10.23 | 24.6005 |
+| Resolved | 3 | 35.3507 | 20.4945 | 10.15 | 24.3845 |
+| Resolved | 4 | 35.3168 | 20.6167 | 10.12 | 24.2895 |
+| Resolved | 5 | 35.2946 | 20.7067 | 10.10 | 24.2280 |
+
+| Model | Max settlement difference / resolved amplitude | Cells 1 to n-1, max |p - p_res| / traction | Top cell |
+|---|---|---|---|
+| FE², history | 1.43 % | 0.0047 | 0.0554 |
+| FE², stationary cells | 14.67 % | 0.0432 | 0.0606 |
+
+## viscoelastic_P0.2: viscoelastic skeleton, period 0.2 s, 5 cycles
+
+| Model | Cycle | Amplitude (mm) | Mean (mm) | Phase lag (deg) | Energy per cycle (mJ/m^2) |
+|---|---|---|---|---|---|
+| FE², history | 1 | 32.4807 | 18.0693 | 46.52 | 88.3109 |
+| FE², history | 2 | 25.5261 | 20.6637 | 45.44 | 71.2370 |
+| FE², history | 3 | 25.4030 | 20.9307 | 45.31 | 70.7491 |
+| FE², history | 4 | 25.3696 | 21.0982 | 45.26 | 70.5977 |
+| FE², history | 5 | 25.3497 | 21.2265 | 45.22 | 70.5053 |
+| FE², stationary cells | 1 | 41.2381 | 20.8990 | 0.18 | 0.4976 |
+| FE², stationary cells | 2 | 41.2169 | 21.0020 | 0.15 | 0.4089 |
+| FE², stationary cells | 3 | 41.2082 | 21.0810 | 0.13 | 0.3662 |
+| FE², stationary cells | 4 | 41.2037 | 21.1473 | 0.12 | 0.3403 |
+| Resolved | 1 | 32.2208 | 17.9114 | 46.31 | 87.3078 |
+| Resolved | 2 | 25.3603 | 20.3994 | 45.26 | 70.5619 |
+| Resolved | 3 | 25.2502 | 20.6184 | 45.15 | 70.1286 |
+| Resolved | 4 | 25.2220 | 20.7510 | 45.10 | 70.0007 |
+| Resolved | 5 | 25.2055 | 20.8508 | 45.07 | 69.9231 |
+
+| Model | Max settlement difference / resolved amplitude | Cells 1 to n-1, max |p - p_res| / traction | Top cell |
+|---|---|---|---|
+| FE², history | 1.35 % | 0.0035 | 0.0584 |
+| FE², stationary cells | 50.89 % | 0.0239 | 0.0539 |
+
+## elastic_P2: elastic skeleton, period 2 s, 5 cycles
+
+| Model | Cycle | Amplitude (mm) | Mean (mm) | Phase lag (deg) | Energy per cycle (mJ/m^2) |
+|---|---|---|---|---|---|
+| FE², history | 1 | 40.8842 | 21.0520 | 3.94 | 10.8428 |
+| FE², history | 2 | 40.0645 | 21.6267 | 3.34 | 9.1162 |
+| FE², history | 3 | 40.0040 | 21.8950 | 3.26 | 8.8969 |
+| FE², history | 4 | 39.9855 | 22.1062 | 3.22 | 8.8065 |
+| FE², history | 5 | 39.9754 | 22.2884 | 3.20 | 8.7505 |
+| FE², stationary cells | 1 | 41.6549 | 21.2214 | 0.88 | 2.4981 |
+| FE², stationary cells | 2 | 41.4890 | 21.6119 | 0.69 | 1.9366 |
+| FE², stationary cells | 3 | 41.4538 | 21.8757 | 0.62 | 1.7597 |
+| FE², stationary cells | 4 | 41.4386 | 22.0897 | 0.59 | 1.6655 |
+| FE², stationary cells | 5 | 41.4305 | 22.2746 | 0.57 | 1.6047 |
+| Resolved | 1 | 40.3312 | 20.7220 | 3.61 | 9.8014 |
+| Resolved | 2 | 39.6368 | 21.2371 | 3.10 | 8.3715 |
+| Resolved | 3 | 39.5848 | 21.4965 | 3.02 | 8.1677 |
+| Resolved | 4 | 39.5637 | 21.6980 | 2.98 | 8.0599 |
+| Resolved | 5 | 39.5496 | 21.8639 | 2.96 | 7.9845 |
+
+| Model | Max settlement difference / resolved amplitude | Cells 1 to n-1, max |p - p_res| / traction | Top cell |
+|---|---|---|---|
+| FE², history | 1.57 % | 0.0166 | 0.0685 |
+| FE², stationary cells | 4.06 % | 0.0303 | 0.0941 |
+
+## viscoelastic_P2: viscoelastic skeleton, period 2 s, 5 cycles
+
+| Model | Cycle | Amplitude (mm) | Mean (mm) | Phase lag (deg) | Energy per cycle (mJ/m^2) |
+|---|---|---|---|---|---|
+| FE², history | 1 | 40.7307 | 21.0309 | 8.66 | 23.5669 |
+| FE², history | 2 | 39.7124 | 21.6276 | 8.07 | 21.7859 |
+| FE², history | 3 | 39.6506 | 21.8988 | 7.99 | 21.5591 |
+| FE², history | 4 | 39.6316 | 22.1108 | 7.96 | 21.4703 |
+| FE², history | 5 | 39.6213 | 22.2935 | 7.94 | 21.4168 |
+| FE², stationary cells | 1 | 41.6549 | 21.2214 | 0.88 | 2.4981 |
+| FE², stationary cells | 2 | 41.4890 | 21.6119 | 0.69 | 1.9366 |
+| FE², stationary cells | 3 | 41.4538 | 21.8757 | 0.62 | 1.7597 |
+| FE², stationary cells | 4 | 41.4386 | 22.0897 | 0.59 | 1.6655 |
+| FE², stationary cells | 5 | 41.4305 | 22.2746 | 0.57 | 1.6047 |
+| Resolved | 1 | 40.1756 | 20.7051 | 8.34 | 22.4092 |
+| Resolved | 2 | 39.2773 | 21.2402 | 7.84 | 20.9310 |
+| Resolved | 3 | 39.2241 | 21.5022 | 7.76 | 20.7221 |
+| Resolved | 4 | 39.2027 | 21.7050 | 7.73 | 20.6168 |
+| Resolved | 5 | 39.1885 | 21.8721 | 7.70 | 20.5439 |
+
+| Model | Max settlement difference / resolved amplitude | Cells 1 to n-1, max |p - p_res| / traction | Top cell |
+|---|---|---|---|
+| FE², history | 1.56 % | 0.0164 | 0.0692 |
+| FE², stationary cells | 7.83 % | 0.0293 | 0.0954 |
+
+Wrote /users/hpcuser/periodic-ale-homogenisation/results/cyclic/20261026_201037/cyclic.md

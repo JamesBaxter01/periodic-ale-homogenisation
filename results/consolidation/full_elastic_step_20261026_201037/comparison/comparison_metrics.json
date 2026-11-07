@@ -1,0 +1,18 @@
+{
+  "common_end_time": 3933.0093364472978,
+  "fe2": "/users/hpcuser/periodic-ale-homogenisation/results/consolidation/full_elastic_step_20261026_201037/fe2.npz",
+  "resolved": "/users/hpcuser/periodic-ale-homogenisation/results/consolidation/full_elastic_step_20261026_201037/resolved.npz",
+  "settlement": {
+    "max_abs_difference": 0.0006455865336320518,
+    "relative_to_resolved_max": 0.008622054382732511
+  },
+  "cumulative_outflow": {
+    "max_abs_difference": 5.737427971841244e-06,
+    "relative_to_resolved_max": 0.016298182741344154
+  },
+  "cell_pressure": {
+    "max_abs_difference": 8.702320539601454,
+    "relative_to_resolved_max": 0.9751995952009312
+  },
+  "cell_pressure_after_twice_ramp": 0.9751995952009312
+}
