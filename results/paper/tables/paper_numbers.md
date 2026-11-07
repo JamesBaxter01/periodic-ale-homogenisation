@@ -26,7 +26,7 @@ Written by `examples/paper_numbers.py`.
 | Tangents sampled at t/T | 1/2, 1 | [0.5, 1.0] | yes |
 | Baseline h_max/ℓ | 0.09 | 0.09 | yes |
 | Baseline elements | 5912 | 5912 | yes |
-| Baseline unknowns (total degrees of freedom) | 43382 | 43382 | yes |
+| Baseline unknowns: active_dofs, the size of K_h (the saved total_dofs, 43382, also counts periodic copies and fixed values) | 29226 | not from a saved run | – |
 | Baseline steps N | 100 | 100 | yes |
 | Baseline Newton tolerance | 1e-8 | 1e-08 | yes |
 | Mesh-law ratio λ_m/μ_m | 5 | 5 | yes |
@@ -345,10 +345,10 @@ Written by `examples/paper_numbers.py`.
 | Quantity | Paper | Recomputed | Agrees |
 |---|---|---|---|
 | Replayed steps (elastic) | 415 | 415 | yes |
-| Replay time on one core, on this machine (elastic) | less than 1 s | 0.70 s | – |
+| Replay time on one core, on this machine (elastic) | less than 1 s | 0.71 s | – |
 | Replay against the saved solution, largest relative difference (elastic) | to the macroscopic Newton tolerance | 2.9e-06 | yes |
 | Replayed steps (viscoelastic) | 424 | 424 | yes |
-| Replay time on one core, on this machine (viscoelastic) | less than 1 s | 0.63 s | – |
+| Replay time on one core, on this machine (viscoelastic) | less than 1 s | 0.64 s | – |
 | Replay against the saved solution, largest relative difference (viscoelastic) | to the macroscopic Newton tolerance | 2.6e-08 | yes |
 | The Aire node: two 84-core AMD EPYC 9634 processors | as stated | not from a saved run | – |
 | FE² cell increment on one core (s, elastic) | 46 | 45.59 | yes |

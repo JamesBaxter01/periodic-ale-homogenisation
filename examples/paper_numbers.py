@@ -431,7 +431,7 @@ def verification(report):
     report.holds("Tangents sampled at t/T", "1/2, 1", str(config["tangent_fractions"]), config["tangent_fractions"] == [0.5, 1.0])
     report.number("Baseline h_max/ℓ", "0.09", base["maxh"])
     report.number("Baseline elements", "5912", baseline[0.2]["n_elements"])
-    report.number("Baseline unknowns (total degrees of freedom)", "43382", baseline[0.2]["total_dofs"])
+    report.noted("Baseline unknowns: active_dofs, the size of K_h (the saved total_dofs, 43382, also counts periodic copies and fixed values)", "29226")
     report.number("Baseline steps N", "100", base["steps"])
     report.number("Baseline Newton tolerance", "1e-8", base["newton_tolerance"], sig=1)
     report.number("Mesh-law ratio λ_m/μ_m", "5", config["discretisation"]["mesh_lame_lambda"] / config["discretisation"]["mesh_mu"])
