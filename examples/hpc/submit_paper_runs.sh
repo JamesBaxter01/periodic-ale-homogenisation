@@ -16,8 +16,9 @@
 #        had to be resumed, which cancels the jobs waiting for it
 #
 # Folders (all carry one date stamp; RERUN/folders.txt lists them, for --wave 2 and for rsync):
-#   cells          RERUN/cells/: figure3_biot.npz (Figure 3), figure4_cycles.npz (Figure 4, Table 3),
-#                  figure4_rates.npz (rate sweep, Section 5.2), figure4_stationary.npz (Figure 4, Table 3)
+#   cells          RERUN/cells/: figure3_biot.npz (Figure 3), figure4_cycles.npz (Figure 4),
+#                  figure4_rates.npz (nine-duration sweep), figure4_stationary.npz (Figure 4, Table 3);
+#                  the Table 3 sweep itself: examples/microscale/hpc/submit_figure4_criterion.sh
 #   verification   results/verification/combined_<stamp> (Tables 1-2, Section 4): verification/combined/hpc/submit.sh
 #   consolidation  results/consolidation/full_{elastic,viscoelastic}_step_<stamp> (Figure 6, Table 4) and
 #                  full_elastic_<stamp> (10 s ramp, Section 5.3.1): submit_consolidation.sh, FE² then resolved;

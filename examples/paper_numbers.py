@@ -1,7 +1,8 @@
 """Every number quoted in the text of Sections 4, 5.1, 5.2 and 5.3 of the paper, recomputed from the saved results.
 
-Press Run (or python run.py paper). No cell solves: it reads the verification analysis, the Figure 3-4 data, the FE² and
-resolved histories in results/, the Table 5 values and the cell replays, replays the step-load FE² runs from their stored
+Press Run (or python run.py paper). No cell solves: it reads the verification analysis, the Figure 3-4 data, the pulse
+sweep of Table 3, the FE² and resolved histories in results/ (cyclic: T = 0.2 and 2 s, and 20 and 200 s), the Table 5
+values and the cell replays, replays the step-load FE² runs from their stored
 responses (Section 5.3.3), and solves the closed-form Biot law on the two macroscale meshes of Section 5.3.1.
 
 Writes OUTPUT/paper_numbers.md with one row per number: what it is, the value as printed in the paper, the value
@@ -37,7 +38,8 @@ from multiscale.stationary_cell import STEPS  # noqa: E402
 from plot_consolidation_multiscale import load  # noqa: E402
 from plot_paper_cells import PANELS  # noqa: E402
 from plot_paper_consolidation import read  # noqa: E402
-from plot_paper_figures import SANDSTROM_ALPHA, SANDSTROM_K, departure, load_rates_4, load_stationary_4, stationary_at  # noqa: E402
+from plot_paper_figures import (SANDSTROM_ALPHA, SANDSTROM_K, TABLE_3_DURATIONS, criterion_departures,  # noqa: E402
+                                load_stationary_4, stationary_at)
 from replay_fe2 import problem_and_options, replay  # noqa: E402
 from resolved_refinement import change, load_resolved, truncated  # noqa: E402
 
@@ -54,11 +56,13 @@ RAMP = RESULTS / "consolidation" / "full_elastic_20261026_201037"
 REFINEMENT = RESULTS / "consolidation" / "refinement_20261026_201037"
 BASELINES = RESULTS / "consolidation" / "baselines_20261028"
 CYCLIC = RESULTS / "cyclic" / "20261026_201037"
+CYCLIC_LONG = RESULTS / "cyclic" / "20261108_220130"   # the same column at T = 20 and 200 s
 TABLE_5 = RESULTS / "paper" / "tables" / "table_5_consolidation_parameters.csv"
 OUTPUT = RESULTS / "paper" / "tables"
 FINE_ELEMENTS = 160               # the macroscale mesh that the baseline mesh is checked against, Section 5.3.1
 COINCIDE = 0.005                  # the two skeletons' settlements "coincide": relative difference below this
 PERIODS = (0.2, 2.0)
+LONG_PERIODS = (20.0, 200.0)
 SKELETONS = ("elastic", "viscoelastic")
 # ---------------------------------------------------------------------------
 
@@ -312,6 +316,14 @@ def cyclic(report, c_v):
                for key, case in cases.items()}
     meta = {key: load(CYCLIC / f"{key[0]}_P{key[1]:g}" / "fe2.npz")[1] for key in cases}
     stationary_meta = {period: load(CYCLIC / f"stationary_P{period:g}" / "fe2_stationary.npz")[1] for period in PERIODS}
+    # The same column at T = 20 and 200 s (Table 6, last four rows), and all four periods together
+    long_cases = {(skeleton, period): read_cyclic(CYCLIC_LONG / f"{skeleton}_P{period:g}")
+                  for skeleton in SKELETONS for period in LONG_PERIODS}
+    long_last = {key: {model: cycle_metrics(case, history, case["cycles"] - 1) for model, history in case["runs"].items()}
+                 for key, case in long_cases.items()}
+    long_against = {key: {model: differences(case, model) for model in ("history", "stationary")}
+                    for key, case in long_cases.items()}
+    every_last, every_against = {**last, **long_last}, {**against, **long_against}
 
     report.section("Section 5.3.2: set-up")
     first = meta["elastic", 2.0]
@@ -321,6 +333,20 @@ def cyclic(report, c_v):
                  for case in cases.values() for history in case["runs"].values())
     report.holds("Growth of the mean settlement after the first cycle, largest (mm)", "less than 0.7",
                  f"{1e3 * growth:.3f}", 1e3 * growth < 0.7)
+    long_growth = min(cycle_metrics(case, history, case["cycles"] - 1)["mean"] - cycle_metrics(case, history, 1)["mean"]
+                      for case in long_cases.values() for history in case["runs"].values())
+    report.holds("T = 20 and 200 s: still consolidating (growth of the mean settlement after the first cycle, smallest, mm)",
+                 "still consolidating", f"{1e3 * long_growth:.2f}", 1e3 * long_growth > 1.0)
+    work = []
+    for (skeleton, period), case in long_cases.items():
+        k = case["cycles"]
+        for model in ("history", "stationary"):
+            t, s = case["runs"][model]["time"], case["runs"][model]["settlement"]
+            work.append((period, model, case["traction"] / 2 * (np.interp(k * period, t, s) - np.interp((k - 1) * period, t, s))))
+    spread = max(max(w for p, m, w in work if p == period) / min(w for p, m, w in work if p == period) - 1
+                 for period in LONG_PERIODS)
+    report.holds("T = 20 and 200 s: work of the mean traction on the settlement over the last cycle, the same in FE² "
+                 "with either kind of cell (largest relative spread)", "the same", f"{100 * spread:.2f} %", spread < 0.01)
     report.number("Macroscopic residual, stationary run at T = 0.2 s", "1e-6",
                   stationary_meta[0.2]["newton"]["tolerance"], sig=1)
     others = {m["newton"]["tolerance"] for m in meta.values()} | {stationary_meta[2.0]["newton"]["tolerance"]}
@@ -337,14 +363,17 @@ def cyclic(report, c_v):
                  "far below", f"{residual:.2g} against {departure_size:.3f}", residual < 1e-3 * departure_size)
 
     report.section("Section 5.3.2: transient cells against the resolved column")
-    report.number("Settlement difference over all increments, of the resolved amplitude (%)", "1.6",
-                  100 * max(a["history"]["settlement"] for a in against.values()))
-    report.number("Pressure difference, cells 1 to 9, largest", "0.017", max(a["history"]["lower"] for a in against.values()))
-    report.number("Pressure difference, top cell, largest", "0.069", max(a["history"]["top"] for a in against.values()))
-    report.number("Last-cycle amplitude difference, largest (%)", "1.1",
-                  100 * max(abs(m["history"]["amplitude"] / m["resolved"]["amplitude"] - 1) for m in last.values()))
-    lag = max(abs(m["history"]["lag"] - m["resolved"]["lag"]) for m in last.values())
-    report.holds("Last-cycle phase lag difference, largest (degrees)", "within 0.25", f"{lag:.3f}", lag <= 0.25)
+    report.number("Settlement difference over all increments, of the resolved amplitude (%, all four periods)", "1.6",
+                  100 * max(a["history"]["settlement"] for a in every_against.values()))
+    report.number("Pressure difference, cells 1 to 9, largest (all four periods)", "0.021",
+                  max(a["history"]["lower"] for a in every_against.values()))
+    report.number("Pressure difference, top cell, largest (all four periods)", "0.081",
+                  max(a["history"]["top"] for a in every_against.values()))
+    report.number("Last-cycle amplitude difference, largest (%, all four periods)", "1.8",
+                  100 * max(abs(m["history"]["amplitude"] / m["resolved"]["amplitude"] - 1) for m in every_last.values()))
+    lag = max(abs(m["history"]["lag"] - m["resolved"]["lag"]) for m in every_last.values())
+    report.holds("Last-cycle phase lag difference, largest (degrees, all four periods)", "within 0.26", f"{lag:.3f}",
+                 round(lag, 2) <= 0.26)
     excess = {key: 1e3 * (m["history"]["energy"] - m["resolved"]["energy"]) for key, m in last.items()}
     report.number("Energy excess, smallest (mJ/m²)", "0.6", min(excess.values()))
     report.number("Energy excess, largest (mJ/m²)", "0.9", max(excess.values()))
@@ -362,6 +391,10 @@ def cyclic(report, c_v):
     report.number("Dissipation of λ_p, largest (mJ/m²)", "0.18", 1e3 * max(row[-1] for row in rows))
 
     report.section("Section 5.3.2: effect of skeleton viscosity (resolved)")
+    ratio = {period: every_last["viscoelastic", period]["resolved"]["energy"] / every_last["elastic", period]["resolved"]["energy"]
+             for period in (*PERIODS, *LONG_PERIODS)}
+    report.holds("Skeleton viscosity matters most at the shortest period (energy, viscoelastic over elastic, per period)",
+                 "shortest period", ", ".join(f"{p:g} s: × {r:.2f}" for p, r in ratio.items()), max(ratio, key=ratio.get) == 0.2)
     e, v = last["elastic", 0.2]["resolved"], last["viscoelastic", 0.2]["resolved"]
     report.number("T = 0.2 s, amplitude reduction (%)", "29", 100 * (1 - v["amplitude"] / e["amplitude"]))
     report.number("T = 0.2 s, lag, elastic (degrees)", "10", e["lag"])
@@ -375,15 +408,12 @@ def cyclic(report, c_v):
                  v["lag"] / e["lag"] > 2 and v["energy"] / e["energy"] > 2)
 
     report.section("Section 5.3.2: stationary cells against the resolved column")
-    for period, values in ((0.2, dict(amplitude=("17", "63"), settlement=("15", "51"), energy=("1.3", "0.5"))),
+    for period, values in ((0.2, dict(amplitude=("17", "63"), energy=("1.3", "0.5"))),
                            (2.0, dict(amplitude=("4.8", "5.7"), energy=("20", "8")))):
         for skeleton, k in zip(SKELETONS, (0, 1)):
             m = last[skeleton, period]
             report.number(f"T = {period:g} s, {skeleton}: amplitude above resolved (%)", values["amplitude"][k],
                           100 * (m["stationary"]["amplitude"] / m["resolved"]["amplitude"] - 1))
-            if "settlement" in values:
-                report.number(f"T = {period:g} s, {skeleton}: settlement difference, of the resolved amplitude (%)",
-                              values["settlement"][k], 100 * against[skeleton, period]["stationary"]["settlement"])
             report.number(f"T = {period:g} s, {skeleton}: energy, of the resolved (%)", values["energy"][k],
                           100 * m["stationary"]["energy"] / m["resolved"]["energy"])
     lags = [last[skeleton, 2.0]["stationary"]["lag"] / last[skeleton, 2.0]["resolved"]["lag"] for skeleton in SKELETONS]
@@ -393,6 +423,16 @@ def cyclic(report, c_v):
                for period in PERIODS}
     report.number("Elastic, energy missed at T = 2 s (%)", "80", missing[2.0])
     report.number("Elastic, energy missed at T = 0.2 s (%)", "99", missing[0.2])
+    for period, printed in ((20.0, ("25", "36")), (200.0, ("5", "6"))):
+        for skeleton, value in zip(SKELETONS, printed):
+            m = long_last[skeleton, period]
+            report.number(f"T = {period:g} s, {skeleton}: energy missed by stationary cells, of the resolved (%)", value,
+                          100 * (1 - m["stationary"]["energy"] / m["resolved"]["energy"]))
+    transient = [100 * (1 - m["history"]["energy"] / m["resolved"]["energy"]) for m in long_last.values()]
+    report.number("T = 20 and 200 s: energy missed by transient cells, smallest (%)", "2", min(transient))
+    report.number("T = 20 and 200 s: energy missed by transient cells, largest (%)", "4", max(transient))
+    report.number("T = 20 and 200 s: stationary settlement difference over all increments, largest, of the resolved "
+                  "amplitude (%)", "1.9", 100 * max(a["stationary"]["settlement"] for a in long_against.values()))
     return meta, stationary_meta
 
 
@@ -615,7 +655,8 @@ def pulse(report):
             gap = q - stationary_at(stationary, r[:, col["compression"]])[0]
             cases[solid, float(T)] = dict(rows=r, q=q, stress=stress, time=r[:, col["time"]], q_min=q.min(), q_max=q.max(),
                                           peak=stress.max(), peak_time=r[np.argmax(stress), col["time"]] / T,
-                                          tension=max(-stress.min(), 0.0), largest=abs(gap[np.argmax(np.abs(gap))]))
+                                          tension=max(-stress.min(), 0.0), largest=abs(gap[np.argmax(np.abs(gap))]),
+                                          end=gap[-1])
     e2, v2, e02, v02 = (cases[key] for key in (("elastic", 2.0), ("viscoelastic", 2.0), ("elastic", 0.2), ("viscoelastic", 0.2)))
     report.holds("T = 2 s: flux decreases less than the stationary cell (minima)", "less",
                  f"{e2['q_min']:.2f}, {v2['q_min']:.2f} against {q_s.min():.2f}", min(e2["q_min"], v2["q_min"]) > q_s.min())
@@ -630,23 +671,31 @@ def pulse(report):
     report.holds("T = 0.2 s: skeleton viscosity raises the peak stress (Pa)", "raises", f"{v02['peak']:.1f} against {e02['peak']:.1f}", v02["peak"] > e02["peak"])
     report.holds("T = 0.2 s: skeleton viscosity brings the peak earlier (t/T)", "earlier", f"{v02['peak_time']:.2f} against {e02['peak_time']:.2f}", v02["peak_time"] < e02["peak_time"])
     report.holds("T = 0.2 s: skeleton viscosity more than doubles the tension", "more than doubles", f"× {v02['tension'] / e02['tension']:.2f}", v02["tension"] > 2 * e02["tension"])
+    report.number("T = 0.2 s: peak stress, elastic (Pa)", "19.3", e02["peak"])
+    report.number("T = 0.2 s: peak stress, viscoelastic (Pa)", "23.7", v02["peak"])
+    report.number("T = 0.2 s: tension during unloading, elastic (Pa)", "3.1", e02["tension"])
+    report.number("T = 0.2 s: tension during unloading, viscoelastic (Pa)", "7.1", v02["tension"])
     report.holds("T = 0.2 s: flux far closer to the stationary cell with skeleton viscosity (largest departure)", "far closer",
                  f"{v02['largest']:.3f} against {e02['largest']:.3f}", v02["largest"] < 0.5 * e02["largest"])
     report.holds("T = 2 s: departure nearly the same for both skeletons", "nearly the same", f"{e2['largest']:.3f}, {v2['largest']:.3f}", abs(e2["largest"] - v2["largest"]) < 0.01)
     for name, case in (("elastic", e2), ("viscoelastic", v2)):
-        hold = case["time"] >= 2.0 - 1e-9
-        tau = -1 / np.polyfit(case["time"][hold], np.log(np.abs(case["q"][hold] - 1)), 1)[0]
-        report.number(f"Relaxation time of the flux departure in the hold (s, T = 2 s, {name})", "0.7", tau, within=0.1)
-        report.number(f"That time over the fluid viscous time ({name})", "35", tau / viscous, within=0.1)
-    rates = load_rates_4()["paths"]
-    report.number("Pulse durations of the sweep", "9", len(rates))
-    report.number("Shortest duration (s)", "0.2", min(p["period"] for p in rates))
-    report.number("Longest duration (s)", "20", max(p["period"] for p in rates))
-    flux = {p["period"]: departure(p["compression"], p["flux"], p["fluid_content"], stationary)[0] for p in rates}
-    up_to_2 = [value for period, value in flux.items() if period <= 2.0 + 1e-9]
-    report.number("Largest flux departure up to T = 2 s, smallest (%)", "6", 100 * min(up_to_2), sig=1)
-    report.number("Largest flux departure up to T = 2 s, largest (%)", "9", 100 * max(up_to_2), sig=1)
-    report.number("Largest flux departure at T = 20 s (%)", "1.3", 100 * flux[max(flux)])
+        report.number(f"T = 2 s, {name}: flux departure at the end of the hold", "-0.012", case["end"])
+    # Longer pulses: the criterion sweep of Table 3 (both skeletons, 0.2 to 200 s)
+    crit = criterion_departures()
+    at = lambda solid, T: next(v for (s, t), v in crit.items() if s == solid and np.isclose(t, T))
+    report.holds("Table 3 pulse durations (s), in the sweep", ", ".join(f"{T:g}" for T in TABLE_3_DURATIONS),
+                 ", ".join(f"{t:g}" for s, t in sorted(crit) if s == "elastic"),
+                 all(any(np.isclose(t, T) for s, t in crit) for T in TABLE_3_DURATIONS))
+    for solid in SKELETONS:
+        report.number(f"Flux departure at T = 20 s, {solid} (%)", "1.3", 100 * at(solid, 20.0)["flux"])
+    report.number("Energy dissipated per pulse at T = 20 s, elastic (%)", "5.8", 100 * at("elastic", 20.0)["energy"])
+    report.number("Energy dissipated per pulse at T = 20 s, viscoelastic (%)", "7.5", 100 * at("viscoelastic", 20.0)["energy"])
+    previous = max(t for s, t in crit if t < 200.0 - 1e-9)
+    longest = [100 * at(solid, 200.0)["energy"] for solid in SKELETONS]
+    before = [100 * at(solid, previous)["energy"] for solid in SKELETONS]
+    report.holds(f"Energy per pulse below 1 % only at T = 200 s (at 200 s; at {previous:.0f} s, the next shorter pulse)",
+                 "below 1% only at 200 s", ", ".join(f"{x:.2f}" for x in longest) + "; " + ", ".join(f"{x:.2f}" for x in before),
+                 max(longest) < 1 <= min(before))
     hold = e02["time"] >= 0.2 - 1e-9
     content, stress = e02["rows"][hold, col["fluid_content"]], e02["stress"][hold]
     report.number("Elastic, T = 0.2 s, hold: fluid content at its start", "0.238", content[0])

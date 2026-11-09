@@ -145,18 +145,20 @@ Written by `examples/paper_numbers.py`.
 | T = 0.2 s: skeleton viscosity raises the peak stress (Pa) | raises | 23.7 against 19.3 | yes |
 | T = 0.2 s: skeleton viscosity brings the peak earlier (t/T) | earlier | 0.36 against 0.46 | yes |
 | T = 0.2 s: skeleton viscosity more than doubles the tension | more than doubles | × 2.28 | yes |
+| T = 0.2 s: peak stress, elastic (Pa) | 19.3 | 19.278 | yes |
+| T = 0.2 s: peak stress, viscoelastic (Pa) | 23.7 | 23.705 | yes |
+| T = 0.2 s: tension during unloading, elastic (Pa) | 3.1 | 3.0939 | yes |
+| T = 0.2 s: tension during unloading, viscoelastic (Pa) | 7.1 | 7.0681 | yes |
 | T = 0.2 s: flux far closer to the stationary cell with skeleton viscosity (largest departure) | far closer | 0.064 against 0.353 | yes |
 | T = 2 s: departure nearly the same for both skeletons | nearly the same | 0.072, 0.067 | yes |
-| Relaxation time of the flux departure in the hold (s, T = 2 s, elastic) | 0.7 | 0.68688 | yes |
-| That time over the fluid viscous time (elastic) | 35 | 34.344 | yes |
-| Relaxation time of the flux departure in the hold (s, T = 2 s, viscoelastic) | 0.7 | 0.75239 | yes |
-| That time over the fluid viscous time (viscoelastic) | 35 | 37.62 | yes |
-| Pulse durations of the sweep | 9 | 9 | yes |
-| Shortest duration (s) | 0.2 | 0.2 | yes |
-| Longest duration (s) | 20 | 20 | yes |
-| Largest flux departure up to T = 2 s, smallest (%) | 6 | 6.459 | yes |
-| Largest flux departure up to T = 2 s, largest (%) | 9 | 8.741 | yes |
-| Largest flux departure at T = 20 s (%) | 1.3 | 1.3279 | yes |
+| T = 2 s, elastic: flux departure at the end of the hold | -0.012 | -0.011755 | yes |
+| T = 2 s, viscoelastic: flux departure at the end of the hold | -0.012 | -0.012484 | yes |
+| Table 3 pulse durations (s), in the sweep | 0.2, 2, 20, 200 | 0.2, 0.355656, 0.632456, 1.12468, 2, 3.55656, 6.32456, 11.2468, 20, 35.5656, 63.2456, 112.468, 200 | yes |
+| Flux departure at T = 20 s, elastic (%) | 1.3 | 1.3012 | yes |
+| Flux departure at T = 20 s, viscoelastic (%) | 1.3 | 1.3279 | yes |
+| Energy dissipated per pulse at T = 20 s, elastic (%) | 5.8 | 5.8075 | yes |
+| Energy dissipated per pulse at T = 20 s, viscoelastic (%) | 7.5 | 7.4508 | yes |
+| Energy per pulse below 1 % only at T = 200 s (at 200 s; at 112 s, the next shorter pulse) | below 1% only at 200 s | 0.62, 0.79; 1.11, 1.40 | yes |
 | Elastic, T = 0.2 s, hold: fluid content at its start | 0.238 | 0.23771 | yes |
 | Elastic, T = 0.2 s, hold: fluid content at its end | 0.252 | 0.25243 | yes |
 | Elastic, T = 0.2 s, hold: axial tension at its start (Pa) | 2.6 | 2.5923 | yes |
@@ -285,6 +287,8 @@ Written by `examples/paper_numbers.py`.
 | Cycles | 5 | 5 | yes |
 | Increments per cycle | 40 | 40 | yes |
 | Growth of the mean settlement after the first cycle, largest (mm) | less than 0.7 | 0.666 | yes |
+| T = 20 and 200 s: still consolidating (growth of the mean settlement after the first cycle, smallest, mm) | still consolidating | 1.99 | yes |
+| T = 20 and 200 s: work of the mean traction on the settlement over the last cycle, the same in FE² with either kind of cell (largest relative spread) | the same | 0.11 % | yes |
 | Macroscopic residual, stationary run at T = 0.2 s | 1e-6 | 1e-06 | yes |
 | Macroscopic residual, the other runs | 1e-8 | 1e-08 | yes |
 | Stationary run at T = 0.2 s: tolerance of its resumed segments | 1e-6 | 1e-06 | yes |
@@ -295,11 +299,11 @@ Written by `examples/paper_numbers.py`.
 
 | Quantity | Paper | Recomputed | Agrees |
 |---|---|---|---|
-| Settlement difference over all increments, of the resolved amplitude (%) | 1.6 | 1.5658 | yes |
-| Pressure difference, cells 1 to 9, largest | 0.017 | 0.016577 | yes |
-| Pressure difference, top cell, largest | 0.069 | 0.06917 | yes |
-| Last-cycle amplitude difference, largest (%) | 1.1 | 1.1043 | yes |
-| Last-cycle phase lag difference, largest (degrees) | within 0.25 | 0.249 | yes |
+| Settlement difference over all increments, of the resolved amplitude (%, all four periods) | 1.6 | 1.5658 | yes |
+| Pressure difference, cells 1 to 9, largest (all four periods) | 0.021 | 0.021032 | yes |
+| Pressure difference, top cell, largest (all four periods) | 0.081 | 0.080656 | yes |
+| Last-cycle amplitude difference, largest (%, all four periods) | 1.8 | 1.7864 | yes |
+| Last-cycle phase lag difference, largest (degrees, all four periods) | within 0.26 | 0.259 | yes |
 | Energy excess, smallest (mJ/m²) | 0.6 | 0.58219 | yes |
 | Energy excess, largest (mJ/m²) | 0.9 | 0.87296 | yes |
 | Relative energy excess, largest (%) | 10 | 9.5937 | yes |
@@ -315,6 +319,7 @@ Written by `examples/paper_numbers.py`.
 
 | Quantity | Paper | Recomputed | Agrees |
 |---|---|---|---|
+| Skeleton viscosity matters most at the shortest period (energy, viscoelastic over elastic, per period) | shortest period | 0.2 s: × 2.89, 2 s: × 2.57, 20 s: × 1.18, 200 s: × 1.01 | yes |
 | T = 0.2 s, amplitude reduction (%) | 29 | 28.585 | yes |
 | T = 0.2 s, lag, elastic (degrees) | 10 | 10.096 | yes |
 | T = 0.2 s, lag, viscoelastic (degrees) | 45 | 45.073 | yes |
@@ -327,10 +332,8 @@ Written by `examples/paper_numbers.py`.
 | Quantity | Paper | Recomputed | Agrees |
 |---|---|---|---|
 | T = 0.2 s, elastic: amplitude above resolved (%) | 17 | 16.735 | yes |
-| T = 0.2 s, elastic: settlement difference, of the resolved amplitude (%) | 15 | 14.668 | yes |
 | T = 0.2 s, elastic: energy, of the resolved (%) | 1.3 | 1.3311 | yes |
 | T = 0.2 s, viscoelastic: amplitude above resolved (%) | 63 | 63.461 | yes |
-| T = 0.2 s, viscoelastic: settlement difference, of the resolved amplitude (%) | 51 | 50.89 | yes |
 | T = 0.2 s, viscoelastic: energy, of the resolved (%) | 0.5 | 0.46122 | yes |
 | T = 2 s, elastic: amplitude above resolved (%) | 4.8 | 4.7558 | yes |
 | T = 2 s, elastic: energy, of the resolved (%) | 20 | 20.097 | yes |
@@ -339,6 +342,13 @@ Written by `examples/paper_numbers.py`.
 | T = 2 s, lag a fifth or less of the resolved | a fifth or less | 0.192, 0.074 | yes |
 | Elastic, energy missed at T = 2 s (%) | 80 | 79.903 | yes |
 | Elastic, energy missed at T = 0.2 s (%) | 99 | 98.669 | yes |
+| T = 20 s, elastic: energy missed by stationary cells, of the resolved (%) | 25 | 24.896 | yes |
+| T = 20 s, viscoelastic: energy missed by stationary cells, of the resolved (%) | 36 | 36.464 | yes |
+| T = 200 s, elastic: energy missed by stationary cells, of the resolved (%) | 5 | 5.3158 | yes |
+| T = 200 s, viscoelastic: energy missed by stationary cells, of the resolved (%) | 6 | 6.1339 | yes |
+| T = 20 and 200 s: energy missed by transient cells, smallest (%) | 2 | 1.7824 | yes |
+| T = 20 and 200 s: energy missed by transient cells, largest (%) | 4 | 4.2119 | yes |
+| T = 20 and 200 s: stationary settlement difference over all increments, largest, of the resolved amplitude (%) | 1.9 | 1.9129 | yes |
 
 ## Section 5.3.3: computational cost
 
@@ -348,7 +358,7 @@ Written by `examples/paper_numbers.py`.
 | Replay time on one core, on this machine (elastic) | less than 1 s | 0.71 s | – |
 | Replay against the saved solution, largest relative difference (elastic) | to the macroscopic Newton tolerance | 2.9e-06 | yes |
 | Replayed steps (viscoelastic) | 424 | 424 | yes |
-| Replay time on one core, on this machine (viscoelastic) | less than 1 s | 0.64 s | – |
+| Replay time on one core, on this machine (viscoelastic) | less than 1 s | 0.63 s | – |
 | Replay against the saved solution, largest relative difference (viscoelastic) | to the macroscopic Newton tolerance | 2.6e-08 | yes |
 | The Aire node: two 84-core AMD EPYC 9634 processors | as stated | not from a saved run | – |
 | FE² cell increment on one core (s, elastic) | 46 | 45.59 | yes |

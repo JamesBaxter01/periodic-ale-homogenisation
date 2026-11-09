@@ -13,7 +13,9 @@ were not equilibrated, are skipped. Writes to OUTPUT, in each of FORMATS, one fi
 
 FE² lines, resolved markers, one colour per solid (as the consolidation figure); stationary cells grey.
 Also writes the LaTeX (OUTPUT/figure_8_cyclic.tex): CAPTION below, filled from the runs' metadata, and Table 6
-(TABLES/table_6_cyclic.tex): the settlement amplitude, phase lag and energy per cycle of each model over the last cycle.
+(TABLES/table_6_cyclic.tex): the settlement amplitude, phase lag and energy per cycle of each model over the last cycle,
+at the periods of STUDY (0.2 and 2 s, also in the figure) and of LONG_STUDY (20 and 200 s, the same column and
+cells, submit_cyclic.sh --periods "20 200").
 """
 
 import argparse
@@ -56,10 +58,12 @@ CAPTION = (r"Cyclic consolidation under the traction $<<half>>\,\mathrm{Pa}\,[1-
            r"whose enclosed area is the energy dissipated per cycle. Lines: FE$^2$ with transient cells; markers: "
            r"resolved FSI; one colour per skeleton.<<stationary>>")
 STATIONARY_CAPTION = r" Grey dashed: FE$^2$ with stationary cells."
-TABLE_PERIODS = (0.2, 2.0)           # Table 6, in this order
+TABLE_PERIODS = (0.2, 2.0, 20.0, 200.0)   # Table 6, in this order; each read from STUDY or LONG_STUDY
+LONG_STUDY = ROOT / "results" / "cyclic" / "20261108_220130"   # the longer periods, T = 20 and 200 s
 TABLE_CAPTION = (r"Last-cycle settlement amplitude, phase lag behind the traction and energy dissipated per cycle under "
-                 r"cyclic consolidation (Figure~\ref{fig:cyclic}). One stationary run serves both skeletons at each "
-                 r"period, since stationary cells have no skeleton viscosity.")
+                 r"cyclic consolidation (Figure~\ref{fig:cyclic} for $T=0.2$ and $2\,\mathrm s$). One stationary run "
+                 r"serves both skeletons at each period, since stationary cells have no skeleton viscosity. At $T=20$ "
+                 r"and $200\,\mathrm s$ the energy also includes work done on the continuing settlement.")
 # ---------------------------------------------------------------------------
 
 LABELS = ("Elastic", "Viscoelastic")
@@ -78,9 +82,9 @@ def stationary_run(study, period):
     return run if len(run["time"]) > 1 else None
 
 
-def read(study):
+def read(study, periods=PERIODS):
     cases, meta = {}, None
-    for period in PERIODS:
+    for period in periods:
         for skeleton in SKELETONS:
             folder = Path(study) / f"{skeleton}_P{period:g}"
             run, meta_run, _ = fe2_history(folder / "fe2.npz")
@@ -192,12 +196,17 @@ def latex(cases, meta):
               f"examples/multiscale/plot_paper_cyclic.py from {tex.relative(STUDY, ROOT)}")
 
 
-def table_6(cases, meta):
-    """TABLES/table_6_cyclic.tex: each model over the last cycle, one row per skeleton and period."""
+def table_6(meta):
+    """TABLES/table_6_cyclic.tex: each model over the last cycle, one row per skeleton and period, each period
+    read from whichever of STUDY and LONG_STUDY holds it."""
     traction, cycles = meta["macro"]["traction"], meta["cyclic"]["cycles"]
+    cases = {}
+    for period in TABLE_PERIODS:
+        study = next(s for s in (STUDY, LONG_STUDY) if (Path(s) / f"elastic_P{period:g}").is_dir())
+        cases.update(read(study, (period,))[0])
     units = r"(mm) & ($^\circ$) & ($\mathrm{mJ\,m^{-2}}$)"
-    lines = [r"\begin{table}[pos=htb]", rf"    \caption{{{TABLE_CAPTION}}}", r"    \label{tab:cyclic}", r"    \centering",
-             r"    \small", r"    \renewcommand{\arraystretch}{1.2}",
+    lines = [r"\begin{table}[pos=tb]", rf"    \caption{{{TABLE_CAPTION}}}", r"    \label{tab:cyclic}", r"    \centering",
+             r"    \small", r"    \renewcommand{\arraystretch}{1.0}",
              r"    \begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}llrrrrrrrrr@{}}", r"        \toprule",
              r"        & & \multicolumn{3}{c}{Resolved} & \multicolumn{3}{c}{FE$^2$, transient cells} & "
              r"\multicolumn{3}{c}{FE$^2$, stationary cells}\\",
@@ -214,7 +223,8 @@ def table_6(cases, meta):
             lines.append("        " + " & ".join(cells) + r"\\")
     lines += [r"        \bottomrule", r"    \end{tabular*}", r"\end{table}"]
     tex.write(TABLES / "table_6_cyclic.tex", "\n".join(lines) + "\n",
-              f"examples/multiscale/plot_paper_cyclic.py from {tex.relative(STUDY, ROOT)}")
+              f"examples/multiscale/plot_paper_cyclic.py from {tex.relative(STUDY, ROOT)} and "
+              f"{tex.relative(LONG_STUDY, ROOT)}")
 
 
 def main():
@@ -228,7 +238,7 @@ def main():
     with plt.rc_context(STYLE):
         figures(cases, meta)
     latex(cases, meta)
-    table_6(cases, meta)
+    table_6(meta)
 
 
 if __name__ == "__main__":

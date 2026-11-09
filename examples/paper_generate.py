@@ -7,7 +7,7 @@ Press Run (or python run.py paper). Runs, in order, each paper script on its def
 1. plot_paper_geometry.py         Figure 1 (scales), Figure 2 (reference cell), Figure 5 (consolidation set-up)
                                   (figure_1_scales.tex, figure_2_cell.tex, figure_5_setup.tex); needs NGSolve and PyVista (fem environment)
 2. plot_paper_figures.py          Figures 3-4 and Table 3, single cell (figure_3_biot.tex, figure_4_cycles.tex,
-                                  table_3_pulse.tex)
+                                  table_3_criterion.tex, from the 0.2-200 s pulse sweep)
 3. plot_paper_consolidation.py    Figure 6, step-load consolidation (figure_6_consolidation.tex)
 4. consolidation_parameter_table  Table 5, response derivatives (table_5_consolidation_parameters.tex), rebuilt
                                   from the saved .csv; --solve recomputes the cell states (about 8 min), reruns the
@@ -16,7 +16,8 @@ Press Run (or python run.py paper). Runs, in order, each paper script on its def
    consolidation_error_table      Table 4, FE² against resolved differences (table_4_consolidation_errors.tex)
 5. plot_paper_cells.py            Figure 7, a consolidation cell at three times (figure_7_cells.tex), from the
                                   replayed cell (consolidation_cell_replay.py, about an hour, not rerun here)
-   plot_paper_cyclic.py           Figure 8 and Table 6, cyclic consolidation (figure_8_cyclic.tex, table_6_cyclic.tex)
+   plot_paper_cyclic.py           Figure 8 and Table 6, cyclic consolidation (figure_8_cyclic.tex, table_6_cyclic.tex;
+                                  Table 6 also from the T = 20 and 200 s runs)
 6. paper_tables.py                Tables 1-2, verification (table_1_verification_errors.tex,
                                   table_2_verification_tangent_balance.tex)
 7. paper_numbers.py               every number in the text of Sections 4 and 5, against the value printed in the paper

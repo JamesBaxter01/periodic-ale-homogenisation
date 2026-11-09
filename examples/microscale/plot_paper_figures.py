@@ -8,9 +8,11 @@ panels, caption and label) to OUTPUT/figure_<n>_<name>.tex: the captions are the
 templates below, filled with the settings saved with the data (paper_latex.py). A missing data
 file is skipped.
 
-Also writes TABLES/table_3_pulse.tex, the pulse of Figure 4 in numbers (flux and stress extremes, the
-departure from the stationary cell), and prints, for the pulse at the durations of DATA/figure4_rates
-(Section 5.2), the largest flux departure from the stationary cell over the pulse and hold.
+Also writes TABLES/table_3_criterion.tex: the departure of the cell from the stationary cell (flux,
+axial stress, energy dissipated per pulse) at the pulse durations TABLE_3_DURATIONS, from the sweep of
+the same pulse over 0.2 to 200 s in DATA/CRITERION_4 (figure4_cycles.py --criterion, both solids). It
+also prints, for the earlier nine-duration sweep DATA/figure4_rates (viscoelastic, 0.2 to 20 s, which the
+criterion sweep reproduces), the largest flux departure from the stationary cell over the pulse and hold.
 
 From the command line (run.py plot): plot_paper_figures.py [DATA] [--output DIR] [--format FMT].
 """
@@ -90,12 +92,15 @@ CAPTION_4 = (r"Flux <<flux_panels>> and axial nominal stress $-\overline P_{33}$
 STATIONARY_4 = "figure4_stationary.npz"
 STATIONARY_CAPTION_4 = r" Grey: stationary cell."
 LABELS_4 = {2.0: ("fig:flux-long", "fig:stress-long"), 0.2: ("fig:flux-short", "fig:stress-short")}
-CAPTION_TABLE_3 = (r"The compression pulse of Figure~\ref{fig:compression_cycle} in numbers. Flux $Q/Q_{\mathrm{initial}}$: "
-                   r"minimum and maximum. Axial stress $-\overline P_{33}$: peak, its time and the largest tension. "
-                   r"Departure: flux less that of the stationary cell at the same compression, largest over the pulse "
-                   r"and hold, and at the end of the hold ($t=<<end>>$).")
-# The pulse of Figure 4 at many durations (viscoelastic solid), for the departures quoted in Section 5.2
-# (figure4_cycles.py --rates).
+# Table 3: the pulse of Figure 4 at thirteen durations from 0.2 to 200 s, both solids (figure4_cycles.py
+# --criterion; one file per solid, figure4_criterion_<solid>.npz), and the durations shown.
+CRITERION_4 = "criterion_20261108_153003"
+TABLE_3_DURATIONS = (0.2, 2.0, 20.0, 200.0)
+CAPTION_TABLE_3 = (r"Departure of the single cell from the stationary response, in per cent. Flux: largest departure, "
+                   r"relative to the initial flux. Stress: largest departure of the axial stress, relative to the "
+                   r"stationary peak. Energy: dissipated per pulse, relative to the work needed to compress the "
+                   r"stationary cell.")
+# The earlier sweep of the pulse at nine durations (viscoelastic solid, figure4_cycles.py --rates).
 RATES_4 = "figure4_rates"
 # ---------------------------------------------------------------------------
 
@@ -230,41 +235,66 @@ def figure_4(a):
             save(fig, f"figure_4_{name}_T{T:g}s")
 
 
-def table_3(a):
-    """TABLES/table_3_pulse.tex: per duration and solid, and for the stationary cell, the extremes of Figure 3."""
+def criterion_departures():
+    """Departures of the transient cell from the stationary cell in the criterion sweep (DATA/CRITERION_4), as
+    fractions, keyed by (solid, T), or None if the data are missing:
+      flux    max |Q/Q0 - Q_st/Q_st,0| over the pulse and hold, the stationary cell read at the same compression;
+      stress  max |P33 - P33_st| over the pulse and hold, over the stationary cell's peak |P33|;
+      energy  the work dissipated over the pulse, over the work needed to compress the stationary cell (which
+              dissipates none)."""
+    from scipy.interpolate import CubicSpline
+
     stationary = load_stationary_4()
-    if stationary is None:
-        print("Skipped table_3_pulse: no stationary cell data")
+    folder = DATA / CRITERION_4
+    if stationary is None or not folder.is_dir():
+        print(f"Skipped the criterion sweep: no stationary cell data or no {folder}")
+        return None
+    c_s = stationary["compression"]
+    stress_s = CubicSpline(c_s, stationary["stress"][:, 2, 2])
+    peak = np.max(np.abs(stationary["stress"][:, 2, 2]))
+    load_c = np.linspace(0.0, c_s.max(), 401)
+    stored = np.trapezoid(-stress_s(load_c), load_c)
+    out = {}
+    for path in sorted(folder.glob("figure4_criterion_*.npz")):
+        solid = path.stem.removeprefix("figure4_criterion_")
+        if solid not in SOLID_COLOURS:  # figure4_criterion_steps40: the time-step check
+            continue
+        with np.load(path, allow_pickle=False) as d:
+            rows, durations = d["rows"], d["durations"]
+            col = {str(name): i for i, name in enumerate(d["columns"])}
+        for j, T in enumerate(durations):
+            r = rows[rows[:, col["duration_index"]] == j]
+            c, stress = r[:, col["compression"]], r[:, col["P33"]]
+            q = r[:, col["Q1"]] / r[0, col["Q1"]]
+            pulse = r[:, col["stage"]] == 0
+            out[solid, float(T)] = dict(flux=float(np.max(np.abs(q - stationary_at(stationary, c)[0]))),
+                                        stress=float(np.max(np.abs(stress - stress_s(c))) / peak),
+                                        energy=float(np.trapezoid(-stress[pulse], c[pulse]) / stored))
+    return out
+
+
+def table_3():
+    """TABLES/table_3_criterion.tex: flux, stress and energy departures (per cent) at TABLE_3_DURATIONS."""
+    departures = criterion_departures()
+    if departures is None:
         return
-    col = {str(name): i for i, name in enumerate(a["columns"])}
-    c = stationary["compression"]
-    q_s, s_s = stationary["flux"][:, 0] / stationary["flux"][0, 0], -stationary["stress"][:, 2, 2]
-    fmt = lambda x, d: f"${x:.{d}f}$"
-    lines = [rf"Stationary cell & -- & {fmt(q_s.min(), 2)} & {fmt(q_s.max(), 2)} & {fmt(s_s.max(), 1)} & "
-             rf"{fmt(0.5, 2)} & {fmt(max(-s_s.min(), 0.0), 2)} & -- & -- \\", r"\addlinespace"]
-    for j, T in enumerate(a["durations"]):
-        for m, solid in enumerate(str(n).capitalize() for n in a["materials"]):
-            r = a["rows"][(a["rows"][:, col["material"]] == m) & (a["rows"][:, col["duration_index"]] == j)]
-            initial = a["initial_flux"][(a["initial_flux"][:, 0] == m) & (a["initial_flux"][:, 1] == j), 2].item()
-            q, stress = r[:, col["Q1"]] / initial, -r[:, col["P33"]]
-            gap = q - stationary_at(stationary, r[:, col["compression"]])[0]
-            worst = gap[np.argmax(np.abs(gap))]
-            lines.append(rf"{solid} & {tex.quantity(T, 's')} & {fmt(q.min(), 2)} & {fmt(q.max(), 2)} & "
-                         rf"{fmt(stress.max(), 1)} & {fmt(r[np.argmax(stress), col['time']] / T, 2)} & "
-                         rf"{fmt(max(-stress.min(), 0.0), 2)} & {fmt(worst, 3)} & {fmt(gap[-1], 3)} \\")
-        lines.append(r"\addlinespace")
-    end = r[-1, col["time"]] / a["durations"][-1]
-    caption = tex.fill(CAPTION_TABLE_3, end=f"{tex.number(end)}T")
+    percent = lambda x: f"{100 * x:.1f}" if 100 * x >= 1 else f"{100 * x:.2f}"
+    rows = []
+    for T in TABLE_3_DURATIONS:
+        cells = [f"{T:g}"]
+        for solid in ("elastic", "viscoelastic"):
+            d = next(v for (s, t), v in departures.items() if s == solid and np.isclose(t, T))
+            cells += [percent(d["flux"]), percent(d["stress"]), percent(d["energy"])]
+        rows.append(" & ".join(cells) + r" \\")
     text = "\n".join([
-        r"\begin{table}[pos=htb]", r"\centering", rf"\caption{{{caption}}}", r"\label{tab:pulse}", r"\small",
-        r"\begin{tabular}{llrrrrrrr}", r"\toprule",
-        r" & & \multicolumn{2}{c}{Flux} & \multicolumn{3}{c}{Axial stress} & \multicolumn{2}{c}{Departure} \\",
-        r"\cmidrule(lr){3-4} \cmidrule(lr){5-7} \cmidrule(l){8-9}",
-        r"Skeleton & $T$ & min & max & peak (Pa) & $t/T$ & tension (Pa) & largest & end \\", r"\midrule",
-        *lines[:-1], r"\bottomrule", r"\end{tabular}", r"\end{table}"]) + "\n"
-    TABLES.mkdir(parents=True, exist_ok=True)
-    tex.write(TABLES / "table_3_pulse.tex", text,
-              f"examples/microscale/plot_paper_figures.py from {tex.relative(DATA, ROOT)}")
+        r"\begin{table}[pos=htb]", r"\centering", rf"\caption{{{CAPTION_TABLE_3}}}", r"\label{tab:criterion}",
+        r"\small", r"\setlength{\tabcolsep}{1.1em}", r"\begin{tabular}{@{}lcccccc@{}}", r"\toprule",
+        r" & \multicolumn{3}{c}{Elastic skeleton} & \multicolumn{3}{c}{Viscoelastic skeleton} \\",
+        r"\cmidrule(lr){2-4} \cmidrule(l){5-7}",
+        r"$T$ (s) & Flux & Stress & Energy & Flux & Stress & Energy \\", r"\midrule",
+        *rows, r"\bottomrule", r"\end{tabular}", r"\end{table}"]) + "\n"
+    tex.write(TABLES / "table_3_criterion.tex", text,
+              f"examples/microscale/plot_paper_figures.py from {tex.relative(DATA / CRITERION_4, ROOT)}")
 
 
 def load_rates_4():
@@ -384,8 +414,7 @@ def main():
             if data is not None:
                 draw(data)
                 latex(data)
-                if name == "figure4_cycles":
-                    table_3(data)
+        table_3()
         rates = load_rates_4()
         if rates is not None:
             rates_summary(rates)
