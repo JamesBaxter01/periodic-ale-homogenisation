@@ -5,6 +5,9 @@
 #   bash examples/multiscale/hpc/submit_cyclic.sh --smoke    coarse cells, one cycle, a few minutes per job
 #                                     (SMOKE=1 in the environment is the same)
 #   bash examples/multiscale/hpc/submit_cyclic.sh --folder DIR   the study folder (default below)
+#   bash examples/multiscale/hpc/submit_cyclic.sh --periods "20 200" --skeletons elastic
+#                                     other periods or skeletons than PERIODS and SKELETONS below (the history
+#                                     criterion runs: long periods, compared with the cell sweep of Figure 4)
 #   bash examples/multiscale/hpc/submit_cyclic.sh --stationary-only FOLDER
 #                                     (re)run only the stationary-cell FE² runs in an existing study FOLDER,
 #                                     then its comparisons and summary
@@ -46,6 +49,8 @@ while [[ $# -gt 0 ]]; do
         --check) CHECK=true; shift ;;
         --folder) FOLDER="${2:?--folder needs a directory}"; shift 2 ;;
         --stationary-only) ONLY_STATIONARY=true; FOLDER="$(cd "${2:?study folder}" && pwd)"; shift 2 ;;
+        --periods) PERIODS="${2:?--periods needs a list, e.g. \"20 200\"}"; shift 2 ;;
+        --skeletons) SKELETONS="${2:?--skeletons needs a list, e.g. elastic}"; shift 2 ;;
         --smoke) MODE=--smoke; CYCLES=1; STEPS="--steps-per-cycle 8"; TIME_FE2="02:00:00"; TIME_RESOLVED="02:00:00"; TIME_MARGIN=10; CPUS_FE2=8; MEM_FE2="32G"; shift ;;
         *) echo "Unknown option $1" >&2; exit 2 ;;
     esac

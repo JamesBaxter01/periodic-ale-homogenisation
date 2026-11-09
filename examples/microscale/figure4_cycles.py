@@ -4,6 +4,10 @@ Press Run. Saves results/paper/figure4_cycles.npz; plot it with plot_paper_figur
 --rates runs the same pulse at the nine durations of the Section 5.2 rate sweep (RATES: viscoelastic
 solid only, every step sampled) and saves results/paper/figure4_rates.npz instead; plot_paper_figures.py
 prints its largest flux departures from the stationary cell.
+--criterion extends that sweep to both solids and thirteen durations from 0.2 to 200 s (CRITERION),
+to find the pulse duration beyond which the stationary cell suffices; --criterion-check repeats its
+T = 2 and 20 s pulses with 40 steps per pulse, the increments per cycle of the cyclic column
+(CRITERION_CHECK). Slurm, one job per solid: examples/microscale/hpc/submit_figure4_criterion.sh.
 
 For the elastic and the viscoelastic solid:
 1. hold the cell at F = I under PRESSURE_GRADIENT, in steps of SETTLE_DT, until the
@@ -70,6 +74,13 @@ SMOKE = dict(DURATIONS=[0.2], STEPS=2, COMPRESSION=0.001, SAMPLE_EVERY=1, CHECK_
 # --rates: the rate sweep of Section 5.2, nine durations from 0.2 to 20 s, viscoelastic solid, every step.
 RATES = dict(DURATIONS=np.geomspace(0.2, 20.0, 9).tolist(), SOLIDS=["viscoelastic"], SAMPLE_EVERY=1,
              NAME="figure4_rates")
+# --criterion: the rate sweep over three decades, 0.2 to 200 s (its first nine durations are those of
+# RATES), both solids, every step sampled.
+CRITERION = dict(DURATIONS=np.geomspace(0.2, 200.0, 13).tolist(), SOLIDS=["elastic", "viscoelastic"],
+                 SAMPLE_EVERY=1, NAME="figure4_criterion")
+# --criterion-check: two of those pulses at 40 steps per pulse, the cyclic column's increments per cycle.
+CRITERION_CHECK = dict(DURATIONS=[2.0, 20.0], STEPS=40, SOLIDS=["elastic", "viscoelastic"], SAMPLE_EVERY=1,
+                       NAME="figure4_criterion_steps40")
 
 MATERIALS = {"elastic": (0.0, 0.0), "viscoelastic": (ETA_S, ZETA_S)}
 COLUMNS = ["material", "duration_index", "time", "compression", "Q1", "Q2", "Q3", "fluid_content",
@@ -195,5 +206,9 @@ def main():
 
 
 if __name__ == "__main__":
-    command_line(globals(), SMOKE, {"rates": ("the Section 5.2 rate sweep (RATES), saved as figure4_rates.npz", RATES)})
+    command_line(globals(), SMOKE, {
+        "rates": ("the Section 5.2 rate sweep (RATES), saved as figure4_rates.npz", RATES),
+        "criterion": ("both solids, 0.2 to 200 s (CRITERION), saved as figure4_criterion.npz", CRITERION),
+        "criterion-check": ("T = 2 and 20 s at 40 steps per pulse (CRITERION_CHECK), saved as "
+                            "figure4_criterion_steps40.npz", CRITERION_CHECK)})
     main()

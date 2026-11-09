@@ -1,0 +1,91 @@
+Host calder-cpu002, job 847832, 4 CPUs, commit edff39c: examples/microscale/figure4_cycles.py --threads 4 --output /users/hpcuser/periodic-ale-homogenisation-public/results/paper/criterion_20261108_153003 --criterion-check
+elastic: settling in steps of 0.02 s
+    settling: t = 0.22 s, largest change 8.50e-01
+    settling: t = 0.42 s, largest change 7.21e-02
+    settling: t = 0.62 s, largest change 2.53e-02
+    settling: t = 0.82 s, largest change 1.13e-02
+    settling: t = 1.02 s, largest change 5.44e-03
+    settling: t = 1.22 s, largest change 2.71e-03
+    settling: t = 1.42 s, largest change 1.38e-03
+    settling: t = 1.62 s, largest change 7.09e-04
+    settling: t = 1.82 s, largest change 3.68e-04
+    settling: t = 2.02 s, largest change 1.92e-04
+    settling: t = 2.22 s, largest change 1.01e-04
+    settling: t = 2.42 s, largest change 5.31e-05
+    settling: t = 2.62 s, largest change 2.86e-05
+    settling: t = 2.82 s, largest change 1.53e-05
+    settling: t = 3.02 s, largest change 7.26e-06
+    settling: t = 3.22 s, largest change 9.35e-07
+    settling: t = 3.42 s, largest change 1.09e-05
+    settling: t = 3.62 s, largest change 7.68e-06
+    settling: t = 3.82 s, largest change 9.32e-06
+    settling: t = 4.02 s, largest change 8.40e-06
+    settled after 4.02 s (375.6 s)
+elastic, T = 2 s:
+    pulse: step 10/60, t = 0.5 s, compression 10.00%, 3.50 s/step, about 175 s left
+    pulse: step 20/60, t = 1 s, compression 20.00%, 3.47 s/step, about 139 s left
+    pulse: step 30/60, t = 1.5 s, compression 10.00%, 3.47 s/step, about 104 s left
+    pulse: step 40/60, t = 2 s, compression 0.00%, 3.44 s/step, about 69 s left
+    pulse: step 50/60, t = 2.5 s, compression 0.00%, 3.41 s/step, about 34 s left
+    pulse: step 60/60, t = 3 s, compression 0.00%, 3.37 s/step, about 0 s left
+    pulse and recovery: 202.3 s
+elastic, T = 20 s:
+    pulse: step 10/60, t = 5 s, compression 10.00%, 3.69 s/step, about 184 s left
+    pulse: step 20/60, t = 10 s, compression 20.00%, 3.86 s/step, about 154 s left
+    pulse: step 30/60, t = 15 s, compression 10.00%, 3.93 s/step, about 118 s left
+    pulse: step 40/60, t = 20 s, compression 0.00%, 3.81 s/step, about 76 s left
+    pulse: step 50/60, t = 25 s, compression 0.00%, 3.67 s/step, about 37 s left
+    pulse: step 60/60, t = 30 s, compression 0.00%, 3.42 s/step, about 0 s left
+    pulse and recovery: 205.5 s
+viscoelastic: settling in steps of 0.02 s
+    settling: t = 0.22 s, largest change 6.73e-01
+    settling: t = 0.42 s, largest change 1.14e-01
+    settling: t = 0.62 s, largest change 3.07e-02
+    settling: t = 0.82 s, largest change 1.32e-02
+    settling: t = 1.02 s, largest change 6.53e-03
+    settling: t = 1.22 s, largest change 3.41e-03
+    settling: t = 1.42 s, largest change 1.83e-03
+    settling: t = 1.62 s, largest change 9.96e-04
+    settling: t = 1.82 s, largest change 5.49e-04
+    settling: t = 2.02 s, largest change 3.04e-04
+    settling: t = 2.22 s, largest change 1.70e-04
+    settling: t = 2.42 s, largest change 9.51e-05
+    settling: t = 2.62 s, largest change 5.35e-05
+    settling: t = 2.82 s, largest change 2.84e-05
+    settling: t = 3.02 s, largest change 1.84e-05
+    settling: t = 3.22 s, largest change 7.91e-06
+    settling: t = 3.42 s, largest change 8.17e-06
+    settling: t = 3.62 s, largest change 3.63e-06
+    settled after 3.62 s (356.9 s)
+viscoelastic, T = 2 s:
+    pulse: step 10/60, t = 0.5 s, compression 10.00%, 3.72 s/step, about 186 s left
+    pulse: step 20/60, t = 1 s, compression 20.00%, 3.65 s/step, about 146 s left
+    pulse: step 30/60, t = 1.5 s, compression 10.00%, 3.64 s/step, about 109 s left
+    pulse: step 40/60, t = 2 s, compression 0.00%, 3.60 s/step, about 72 s left
+    pulse: step 50/60, t = 2.5 s, compression 0.00%, 3.57 s/step, about 36 s left
+    pulse: step 60/60, t = 3 s, compression 0.00%, 3.54 s/step, about 0 s left
+    pulse and recovery: 212.3 s
+viscoelastic, T = 20 s:
+    pulse: step 10/60, t = 5 s, compression 10.00%, 3.91 s/step, about 195 s left
+    pulse: step 20/60, t = 10 s, compression 20.00%, 4.12 s/step, about 165 s left
+    pulse: step 30/60, t = 15 s, compression 10.00%, 4.14 s/step, about 124 s left
+    pulse: step 40/60, t = 20 s, compression 0.00%, 4.09 s/step, about 82 s left
+    pulse: step 50/60, t = 25 s, compression 0.00%, 3.94 s/step, about 39 s left
+    pulse: step 60/60, t = 30 s, compression 0.00%, 3.68 s/step, about 0 s left
+    pulse and recovery: 220.6 s
+
+Profiling summary, all histories
+stage                                              seconds   share
+------------------------------------------------------------------
+Timesteps                                          1556.50   99.4%
+  Newton tangent assembly                           333.75   21.3%
+  Newton GMRES                                      478.76   30.6%
+  Residual evaluation and line search               305.10   19.5%
+  Proxy refresh (residual metric, PC proxies)       160.81   10.3%
+  State and mesh update                             217.86   13.9%
+Homogenisation                                        8.11    0.5%
+  Outputs (stress, fluid content, flux)               8.11    0.5%
+Final mesh quality                                    0.00    0.0%
+------------------------------------------------------------------
+FSI total                                          1565.35  100.0%
+Saved /users/hpcuser/periodic-ale-homogenisation-public/results/paper/criterion_20261108_153003/figure4_criterion_steps40.npz  (26.9 min)

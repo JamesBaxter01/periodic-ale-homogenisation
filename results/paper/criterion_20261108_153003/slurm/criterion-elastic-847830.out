@@ -1,0 +1,260 @@
+Host calder-cpu008, job 847830, 4 CPUs, commit edff39c: examples/microscale/figure4_cycles.py --threads 4 --output /users/hpcuser/periodic-ale-homogenisation-public/results/paper/criterion_20261108_153003 --criterion --solids elastic
+elastic: settling in steps of 0.02 s
+    settling: t = 0.22 s, largest change 8.50e-01
+    settling: t = 0.42 s, largest change 7.21e-02
+    settling: t = 0.62 s, largest change 2.53e-02
+    settling: t = 0.82 s, largest change 1.13e-02
+    settling: t = 1.02 s, largest change 5.44e-03
+    settling: t = 1.22 s, largest change 2.71e-03
+    settling: t = 1.42 s, largest change 1.38e-03
+    settling: t = 1.62 s, largest change 7.09e-04
+    settling: t = 1.82 s, largest change 3.68e-04
+    settling: t = 2.02 s, largest change 1.92e-04
+    settling: t = 2.22 s, largest change 1.01e-04
+    settling: t = 2.42 s, largest change 5.31e-05
+    settling: t = 2.62 s, largest change 2.86e-05
+    settling: t = 2.82 s, largest change 1.53e-05
+    settling: t = 3.02 s, largest change 7.26e-06
+    settling: t = 3.22 s, largest change 9.35e-07
+    settling: t = 3.42 s, largest change 1.09e-05
+    settling: t = 3.62 s, largest change 7.68e-06
+    settling: t = 3.82 s, largest change 9.32e-06
+    settling: t = 4.02 s, largest change 8.40e-06
+    settled after 4.02 s (358.0 s)
+elastic, T = 0.2 s:
+    pulse: step 10/150, t = 0.02 s, compression 1.91%, 3.52 s/step, about 493 s left
+    pulse: step 20/150, t = 0.04 s, compression 6.91%, 3.44 s/step, about 447 s left
+    pulse: step 30/150, t = 0.06 s, compression 13.09%, 3.43 s/step, about 411 s left
+    pulse: step 40/150, t = 0.08 s, compression 18.09%, 3.44 s/step, about 378 s left
+    pulse: step 50/150, t = 0.1 s, compression 20.00%, 3.44 s/step, about 344 s left
+    pulse: step 60/150, t = 0.12 s, compression 18.09%, 3.43 s/step, about 309 s left
+    pulse: step 70/150, t = 0.14 s, compression 13.09%, 3.43 s/step, about 274 s left
+    pulse: step 80/150, t = 0.16 s, compression 6.91%, 3.42 s/step, about 240 s left
+    pulse: step 90/150, t = 0.18 s, compression 1.91%, 3.42 s/step, about 205 s left
+    pulse: step 100/150, t = 0.2 s, compression 0.00%, 3.42 s/step, about 171 s left
+    pulse: step 110/150, t = 0.22 s, compression 0.00%, 3.41 s/step, about 137 s left
+    pulse: step 120/150, t = 0.24 s, compression 0.00%, 3.41 s/step, about 102 s left
+    pulse: step 130/150, t = 0.26 s, compression 0.00%, 3.41 s/step, about 68 s left
+    pulse: step 140/150, t = 0.28 s, compression 0.00%, 3.41 s/step, about 34 s left
+    pulse: step 150/150, t = 0.3 s, compression 0.00%, 3.40 s/step, about 0 s left
+    pulse and recovery: 510.4 s
+elastic, T = 0.355656 s:
+    pulse: step 10/150, t = 0.03557 s, compression 1.91%, 3.53 s/step, about 494 s left
+    pulse: step 20/150, t = 0.07113 s, compression 6.91%, 3.44 s/step, about 448 s left
+    pulse: step 30/150, t = 0.1067 s, compression 13.09%, 3.44 s/step, about 412 s left
+    pulse: step 40/150, t = 0.1423 s, compression 18.09%, 3.44 s/step, about 378 s left
+    pulse: step 50/150, t = 0.1778 s, compression 20.00%, 3.43 s/step, about 343 s left
+    pulse: step 60/150, t = 0.2134 s, compression 18.09%, 3.43 s/step, about 308 s left
+    pulse: step 70/150, t = 0.249 s, compression 13.09%, 3.42 s/step, about 273 s left
+    pulse: step 80/150, t = 0.2845 s, compression 6.91%, 3.42 s/step, about 239 s left
+    pulse: step 90/150, t = 0.3201 s, compression 1.91%, 3.42 s/step, about 205 s left
+    pulse: step 100/150, t = 0.3557 s, compression 0.00%, 3.41 s/step, about 171 s left
+    pulse: step 110/150, t = 0.3912 s, compression 0.00%, 3.41 s/step, about 136 s left
+    pulse: step 120/150, t = 0.4268 s, compression 0.00%, 3.40 s/step, about 102 s left
+    pulse: step 130/150, t = 0.4624 s, compression 0.00%, 3.40 s/step, about 68 s left
+    pulse: step 140/150, t = 0.4979 s, compression 0.00%, 3.39 s/step, about 34 s left
+    pulse: step 150/150, t = 0.5335 s, compression 0.00%, 3.38 s/step, about 0 s left
+    pulse and recovery: 507.4 s
+elastic, T = 0.632456 s:
+    pulse: step 10/150, t = 0.06325 s, compression 1.91%, 3.50 s/step, about 490 s left
+    pulse: step 20/150, t = 0.1265 s, compression 6.91%, 3.43 s/step, about 445 s left
+    pulse: step 30/150, t = 0.1897 s, compression 13.09%, 3.41 s/step, about 410 s left
+    pulse: step 40/150, t = 0.253 s, compression 18.09%, 3.41 s/step, about 375 s left
+    pulse: step 50/150, t = 0.3162 s, compression 20.00%, 3.40 s/step, about 340 s left
+    pulse: step 60/150, t = 0.3795 s, compression 18.09%, 3.43 s/step, about 308 s left
+    pulse: step 70/150, t = 0.4427 s, compression 13.09%, 3.41 s/step, about 273 s left
+    pulse: step 80/150, t = 0.506 s, compression 6.91%, 3.41 s/step, about 239 s left
+    pulse: step 90/150, t = 0.5692 s, compression 1.91%, 3.40 s/step, about 204 s left
+    pulse: step 100/150, t = 0.6325 s, compression 0.00%, 3.42 s/step, about 171 s left
+    pulse: step 110/150, t = 0.6957 s, compression 0.00%, 3.41 s/step, about 136 s left
+    pulse: step 120/150, t = 0.7589 s, compression 0.00%, 3.40 s/step, about 102 s left
+    pulse: step 130/150, t = 0.8222 s, compression 0.00%, 3.39 s/step, about 68 s left
+    pulse: step 140/150, t = 0.8854 s, compression 0.00%, 3.38 s/step, about 34 s left
+    pulse: step 150/150, t = 0.9487 s, compression 0.00%, 3.37 s/step, about 0 s left
+    pulse and recovery: 504.9 s
+elastic, T = 1.12468 s:
+    pulse: step 10/150, t = 0.1125 s, compression 1.91%, 3.56 s/step, about 499 s left
+    pulse: step 20/150, t = 0.2249 s, compression 6.91%, 3.45 s/step, about 448 s left
+    pulse: step 30/150, t = 0.3374 s, compression 13.09%, 3.41 s/step, about 409 s left
+    pulse: step 40/150, t = 0.4499 s, compression 18.09%, 3.40 s/step, about 374 s left
+    pulse: step 50/150, t = 0.5623 s, compression 20.00%, 3.40 s/step, about 340 s left
+    pulse: step 60/150, t = 0.6748 s, compression 18.09%, 3.41 s/step, about 307 s left
+    pulse: step 70/150, t = 0.7873 s, compression 13.09%, 3.40 s/step, about 272 s left
+    pulse: step 80/150, t = 0.8997 s, compression 6.91%, 3.39 s/step, about 237 s left
+    pulse: step 90/150, t = 1.012 s, compression 1.91%, 3.38 s/step, about 203 s left
+    pulse: step 100/150, t = 1.125 s, compression 0.00%, 3.37 s/step, about 168 s left
+    pulse: step 110/150, t = 1.237 s, compression 0.00%, 3.36 s/step, about 134 s left
+    pulse: step 120/150, t = 1.35 s, compression 0.00%, 3.34 s/step, about 100 s left
+    pulse: step 130/150, t = 1.462 s, compression 0.00%, 3.33 s/step, about 67 s left
+    pulse: step 140/150, t = 1.575 s, compression 0.00%, 3.32 s/step, about 33 s left
+    pulse: step 150/150, t = 1.687 s, compression 0.00%, 3.31 s/step, about 0 s left
+    pulse and recovery: 496.5 s
+elastic, T = 2 s:
+    pulse: step 10/150, t = 0.2 s, compression 1.91%, 3.29 s/step, about 460 s left
+    pulse: step 20/150, t = 0.4 s, compression 6.91%, 3.28 s/step, about 426 s left
+    pulse: step 30/150, t = 0.6 s, compression 13.09%, 3.29 s/step, about 395 s left
+    pulse: step 40/150, t = 0.8 s, compression 18.09%, 3.30 s/step, about 363 s left
+    pulse: step 50/150, t = 1 s, compression 20.00%, 3.33 s/step, about 333 s left
+    pulse: step 60/150, t = 1.2 s, compression 18.09%, 3.33 s/step, about 300 s left
+    pulse: step 70/150, t = 1.4 s, compression 13.09%, 3.33 s/step, about 267 s left
+    pulse: step 80/150, t = 1.6 s, compression 6.91%, 3.33 s/step, about 233 s left
+    pulse: step 90/150, t = 1.8 s, compression 1.91%, 3.31 s/step, about 199 s left
+    pulse: step 100/150, t = 2 s, compression 0.00%, 3.31 s/step, about 165 s left
+    pulse: step 110/150, t = 2.2 s, compression 0.00%, 3.29 s/step, about 132 s left
+    pulse: step 120/150, t = 2.4 s, compression 0.00%, 3.28 s/step, about 98 s left
+    pulse: step 130/150, t = 2.6 s, compression 0.00%, 3.27 s/step, about 65 s left
+    pulse: step 140/150, t = 2.8 s, compression 0.00%, 3.26 s/step, about 33 s left
+    pulse: step 150/150, t = 3 s, compression 0.00%, 3.25 s/step, about 0 s left
+    pulse and recovery: 487.1 s
+elastic, T = 3.55656 s:
+    pulse: step 10/150, t = 0.3557 s, compression 1.91%, 3.54 s/step, about 495 s left
+    pulse: step 20/150, t = 0.7113 s, compression 6.91%, 3.42 s/step, about 444 s left
+    pulse: step 30/150, t = 1.067 s, compression 13.09%, 3.39 s/step, about 407 s left
+    pulse: step 40/150, t = 1.423 s, compression 18.09%, 3.39 s/step, about 373 s left
+    pulse: step 50/150, t = 1.778 s, compression 20.00%, 3.40 s/step, about 340 s left
+    pulse: step 60/150, t = 2.134 s, compression 18.09%, 3.40 s/step, about 306 s left
+    pulse: step 70/150, t = 2.49 s, compression 13.09%, 3.39 s/step, about 272 s left
+    pulse: step 80/150, t = 2.845 s, compression 6.91%, 3.39 s/step, about 237 s left
+    pulse: step 90/150, t = 3.201 s, compression 1.91%, 3.37 s/step, about 202 s left
+    pulse: step 100/150, t = 3.557 s, compression 0.00%, 3.36 s/step, about 168 s left
+    pulse: step 110/150, t = 3.912 s, compression 0.00%, 3.35 s/step, about 134 s left
+    pulse: step 120/150, t = 4.268 s, compression 0.00%, 3.33 s/step, about 100 s left
+    pulse: step 130/150, t = 4.624 s, compression 0.00%, 3.32 s/step, about 66 s left
+    pulse: step 140/150, t = 4.979 s, compression 0.00%, 3.30 s/step, about 33 s left
+    pulse: step 150/150, t = 5.335 s, compression 0.00%, 3.29 s/step, about 0 s left
+    pulse and recovery: 494.1 s
+elastic, T = 6.32456 s:
+    pulse: step 10/150, t = 0.6325 s, compression 1.91%, 3.44 s/step, about 481 s left
+    pulse: step 20/150, t = 1.265 s, compression 6.91%, 3.36 s/step, about 437 s left
+    pulse: step 30/150, t = 1.897 s, compression 13.09%, 3.34 s/step, about 401 s left
+    pulse: step 40/150, t = 2.53 s, compression 18.09%, 3.34 s/step, about 367 s left
+    pulse: step 50/150, t = 3.162 s, compression 20.00%, 3.36 s/step, about 336 s left
+    pulse: step 60/150, t = 3.795 s, compression 18.09%, 3.38 s/step, about 304 s left
+    pulse: step 70/150, t = 4.427 s, compression 13.09%, 3.38 s/step, about 270 s left
+    pulse: step 80/150, t = 5.06 s, compression 6.91%, 3.37 s/step, about 236 s left
+    pulse: step 90/150, t = 5.692 s, compression 1.91%, 3.37 s/step, about 202 s left
+    pulse: step 100/150, t = 6.325 s, compression 0.00%, 3.36 s/step, about 168 s left
+    pulse: step 110/150, t = 6.957 s, compression 0.00%, 3.34 s/step, about 134 s left
+    pulse: step 120/150, t = 7.589 s, compression 0.00%, 3.33 s/step, about 100 s left
+    pulse: step 130/150, t = 8.222 s, compression 0.00%, 3.31 s/step, about 66 s left
+    pulse: step 140/150, t = 8.854 s, compression 0.00%, 3.26 s/step, about 33 s left
+    pulse: step 150/150, t = 9.487 s, compression 0.00%, 3.18 s/step, about 0 s left
+    pulse and recovery: 477.4 s
+elastic, T = 11.2468 s:
+    pulse: step 10/150, t = 1.125 s, compression 1.91%, 3.44 s/step, about 481 s left
+    pulse: step 20/150, t = 2.249 s, compression 6.91%, 3.36 s/step, about 437 s left
+    pulse: step 30/150, t = 3.374 s, compression 13.09%, 3.34 s/step, about 401 s left
+    pulse: step 40/150, t = 4.499 s, compression 18.09%, 3.34 s/step, about 368 s left
+    pulse: step 50/150, t = 5.623 s, compression 20.00%, 3.37 s/step, about 337 s left
+    pulse: step 60/150, t = 6.748 s, compression 18.09%, 3.39 s/step, about 305 s left
+    pulse: step 70/150, t = 7.873 s, compression 13.09%, 3.39 s/step, about 271 s left
+    pulse: step 80/150, t = 8.997 s, compression 6.91%, 3.38 s/step, about 236 s left
+    pulse: step 90/150, t = 10.12 s, compression 1.91%, 3.37 s/step, about 202 s left
+    pulse: step 100/150, t = 11.25 s, compression 0.00%, 3.36 s/step, about 168 s left
+    pulse: step 110/150, t = 12.37 s, compression 0.00%, 3.35 s/step, about 134 s left
+    pulse: step 120/150, t = 13.5 s, compression 0.00%, 3.31 s/step, about 99 s left
+    pulse: step 130/150, t = 14.62 s, compression 0.00%, 3.22 s/step, about 64 s left
+    pulse: step 140/150, t = 15.75 s, compression 0.00%, 3.14 s/step, about 31 s left
+    pulse: step 150/150, t = 16.87 s, compression 0.00%, 3.07 s/step, about 0 s left
+    pulse and recovery: 460.2 s
+elastic, T = 20 s:
+    pulse: step 10/150, t = 2 s, compression 1.91%, 3.49 s/step, about 488 s left
+    pulse: step 20/150, t = 4 s, compression 6.91%, 3.40 s/step, about 442 s left
+    pulse: step 30/150, t = 6 s, compression 13.09%, 3.39 s/step, about 406 s left
+    pulse: step 40/150, t = 8 s, compression 18.09%, 3.39 s/step, about 373 s left
+    pulse: step 50/150, t = 10 s, compression 20.00%, 3.42 s/step, about 342 s left
+    pulse: step 60/150, t = 12 s, compression 18.09%, 3.44 s/step, about 309 s left
+    pulse: step 70/150, t = 14 s, compression 13.09%, 3.43 s/step, about 275 s left
+    pulse: step 80/150, t = 16 s, compression 6.91%, 3.42 s/step, about 240 s left
+    pulse: step 90/150, t = 18 s, compression 1.91%, 3.41 s/step, about 205 s left
+    pulse: step 100/150, t = 20 s, compression 0.00%, 3.40 s/step, about 170 s left
+    pulse: step 110/150, t = 22 s, compression 0.00%, 3.37 s/step, about 135 s left
+    pulse: step 120/150, t = 24 s, compression 0.00%, 3.27 s/step, about 98 s left
+    pulse: step 130/150, t = 26 s, compression 0.00%, 3.18 s/step, about 64 s left
+    pulse: step 140/150, t = 28 s, compression 0.00%, 3.09 s/step, about 31 s left
+    pulse: step 150/150, t = 30 s, compression 0.00%, 2.94 s/step, about 0 s left
+    pulse and recovery: 441.4 s
+elastic, T = 35.5656 s:
+    pulse: step 10/150, t = 3.557 s, compression 1.91%, 3.64 s/step, about 510 s left
+    pulse: step 20/150, t = 7.113 s, compression 6.91%, 3.54 s/step, about 460 s left
+    pulse: step 30/150, t = 10.67 s, compression 13.09%, 3.52 s/step, about 422 s left
+    pulse: step 40/150, t = 14.23 s, compression 18.09%, 3.52 s/step, about 387 s left
+    pulse: step 50/150, t = 17.78 s, compression 20.00%, 3.57 s/step, about 357 s left
+    pulse: step 60/150, t = 21.34 s, compression 18.09%, 3.61 s/step, about 325 s left
+    pulse: step 70/150, t = 24.9 s, compression 13.09%, 3.62 s/step, about 289 s left
+    pulse: step 80/150, t = 28.45 s, compression 6.91%, 3.62 s/step, about 253 s left
+    pulse: step 90/150, t = 32.01 s, compression 1.91%, 3.62 s/step, about 217 s left
+    pulse: step 100/150, t = 35.57 s, compression 0.00%, 3.62 s/step, about 181 s left
+    pulse: step 110/150, t = 39.12 s, compression 0.00%, 3.55 s/step, about 142 s left
+    pulse: step 120/150, t = 42.68 s, compression 0.00%, 3.44 s/step, about 103 s left
+    pulse: step 130/150, t = 46.24 s, compression 0.00%, 3.28 s/step, about 66 s left
+    pulse: step 140/150, t = 49.79 s, compression 0.00%, 3.13 s/step, about 31 s left
+    pulse: step 150/150, t = 53.35 s, compression 0.00%, 3.00 s/step, about 0 s left
+    pulse and recovery: 449.3 s
+elastic, T = 63.2456 s:
+    pulse: step 10/150, t = 6.325 s, compression 1.91%, 3.89 s/step, about 545 s left
+    pulse: step 20/150, t = 12.65 s, compression 6.91%, 3.80 s/step, about 494 s left
+    pulse: step 30/150, t = 18.97 s, compression 13.09%, 3.77 s/step, about 453 s left
+    pulse: step 40/150, t = 25.3 s, compression 18.09%, 3.77 s/step, about 415 s left
+    pulse: step 50/150, t = 31.62 s, compression 20.00%, 3.80 s/step, about 380 s left
+    pulse: step 60/150, t = 37.95 s, compression 18.09%, 3.81 s/step, about 343 s left
+    pulse: step 70/150, t = 44.27 s, compression 13.09%, 3.80 s/step, about 304 s left
+    pulse: step 80/150, t = 50.6 s, compression 6.91%, 3.79 s/step, about 266 s left
+    pulse: step 90/150, t = 56.92 s, compression 1.91%, 3.79 s/step, about 227 s left
+    pulse: step 100/150, t = 63.25 s, compression 0.00%, 3.77 s/step, about 189 s left
+    pulse: step 110/150, t = 69.57 s, compression 0.00%, 3.68 s/step, about 147 s left
+    pulse: step 120/150, t = 75.89 s, compression 0.00%, 3.50 s/step, about 105 s left
+    pulse: step 130/150, t = 82.22 s, compression 0.00%, 3.30 s/step, about 66 s left
+    pulse: step 140/150, t = 88.54 s, compression 0.00%, 3.12 s/step, about 31 s left
+    pulse: step 150/150, t = 94.87 s, compression 0.00%, 2.97 s/step, about 0 s left
+    pulse and recovery: 445.9 s
+elastic, T = 112.468 s:
+    pulse: step 10/150, t = 11.25 s, compression 1.91%, 4.02 s/step, about 563 s left
+    pulse: step 20/150, t = 22.49 s, compression 6.91%, 3.94 s/step, about 512 s left
+    pulse: step 30/150, t = 33.74 s, compression 13.09%, 3.91 s/step, about 469 s left
+    pulse: step 40/150, t = 44.99 s, compression 18.09%, 3.91 s/step, about 430 s left
+    pulse: step 50/150, t = 56.23 s, compression 20.00%, 3.94 s/step, about 394 s left
+    pulse: step 60/150, t = 67.48 s, compression 18.09%, 3.94 s/step, about 355 s left
+    pulse: step 70/150, t = 78.73 s, compression 13.09%, 3.92 s/step, about 313 s left
+    pulse: step 80/150, t = 89.97 s, compression 6.91%, 3.89 s/step, about 272 s left
+    pulse: step 90/150, t = 101.2 s, compression 1.91%, 3.86 s/step, about 232 s left
+    pulse: step 100/150, t = 112.5 s, compression 0.00%, 3.84 s/step, about 192 s left
+    pulse: step 110/150, t = 123.7 s, compression 0.00%, 3.72 s/step, about 149 s left
+    pulse: step 120/150, t = 135 s, compression 0.00%, 3.51 s/step, about 105 s left
+    pulse: step 130/150, t = 146.2 s, compression 0.00%, 3.32 s/step, about 66 s left
+    pulse: step 140/150, t = 157.5 s, compression 0.00%, 3.17 s/step, about 32 s left
+    pulse: step 150/150, t = 168.7 s, compression 0.00%, 3.05 s/step, about 0 s left
+    pulse and recovery: 457.9 s
+elastic, T = 200 s:
+    pulse: step 10/150, t = 20 s, compression 1.91%, 3.92 s/step, about 548 s left
+    pulse: step 20/150, t = 40 s, compression 6.91%, 3.79 s/step, about 493 s left
+    pulse: step 30/150, t = 60 s, compression 13.09%, 3.76 s/step, about 451 s left
+    pulse: step 40/150, t = 80 s, compression 18.09%, 3.76 s/step, about 414 s left
+    pulse: step 50/150, t = 100 s, compression 20.00%, 3.80 s/step, about 380 s left
+    pulse: step 60/150, t = 120 s, compression 18.09%, 3.82 s/step, about 344 s left
+    pulse: step 70/150, t = 140 s, compression 13.09%, 3.81 s/step, about 305 s left
+    pulse: step 80/150, t = 160 s, compression 6.91%, 3.80 s/step, about 266 s left
+    pulse: step 90/150, t = 180 s, compression 1.91%, 3.79 s/step, about 227 s left
+    pulse: step 100/150, t = 200 s, compression 0.00%, 3.78 s/step, about 189 s left
+    pulse: step 110/150, t = 220 s, compression 0.00%, 3.63 s/step, about 145 s left
+    pulse: step 120/150, t = 240 s, compression 0.00%, 3.43 s/step, about 103 s left
+    pulse: step 130/150, t = 260 s, compression 0.00%, 3.27 s/step, about 65 s left
+    pulse: step 140/150, t = 280 s, compression 0.00%, 3.14 s/step, about 31 s left
+    pulse: step 150/150, t = 300 s, compression 0.00%, 3.02 s/step, about 0 s left
+    pulse and recovery: 453.4 s
+
+Profiling summary, all histories
+stage                                              seconds   share
+------------------------------------------------------------------
+Timesteps                                          6464.03   99.2%
+  Newton tangent assembly                          1483.35   22.8%
+  Newton GMRES                                     2387.10   36.6%
+  Residual evaluation and line search              1200.51   18.4%
+  Proxy refresh (residual metric, PC proxies)       464.99    7.1%
+  State and mesh update                             693.27   10.6%
+Homogenisation                                       46.47    0.7%
+  Outputs (stress, fluid content, flux)              46.47    0.7%
+Final mesh quality                                    0.00    0.0%
+------------------------------------------------------------------
+FSI total                                          6514.76  100.0%
+Saved /users/hpcuser/periodic-ale-homogenisation-public/results/paper/criterion_20261108_153003/figure4_criterion_elastic.npz  (109.3 min)

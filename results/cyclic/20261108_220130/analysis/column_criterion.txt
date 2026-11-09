@@ -1,0 +1,35 @@
+case                       T (s) model         W_osc     loop   drift     amp    lag   (mJ/m^2, mm, deg)
+elastic_P0.2                 0.2 history      24.628   24.925   0.119  35.382  10.33
+elastic_P0.2                 0.2 stationary    0.186    0.323   0.054  41.079   0.11
+elastic_P0.2                 0.2 resolved     24.026   24.228   0.081  35.195  10.10
+elastic_P2                   2.0 history       8.325    8.751   0.170  39.864   3.20
+elastic_P2                   2.0 stationary    1.175    1.605   0.172  41.251   0.57
+elastic_P2                   2.0 resolved      7.608    7.985   0.151  39.439   2.96
+viscoelastic_P0.2            0.2 history      70.220   70.506   0.115  25.292  45.22
+viscoelastic_P0.2            0.2 stationary    0.186    0.323   0.054  41.079   0.11
+viscoelastic_P0.2            0.2 resolved     69.703   69.924   0.088  25.149  45.07
+viscoelastic_P2              2.0 history      20.990   21.417   0.171  39.473   7.94
+viscoelastic_P2              2.0 stationary    1.175    1.605   0.172  41.251   0.57
+viscoelastic_P2              2.0 resolved     20.164   20.544   0.152  39.051   7.70
+elastic_P20                 20.0 history       5.818    7.173   0.542  42.051   2.49
+elastic_P20                 20.0 stationary    4.172    5.529   0.543  42.127   1.92
+elastic_P20                 20.0 resolved      6.106    7.362   0.502  41.331   2.60
+elastic_P200               200.0 history      13.291   15.915   1.049  45.014   5.17
+elastic_P200               200.0 stationary   13.107   15.732   1.050  45.013   5.11
+elastic_P200               200.0 resolved     14.018   16.615   1.039  44.757   5.42
+viscoelastic_P20            20.0 history       7.191    8.547   0.542  42.024   2.97
+viscoelastic_P20            20.0 stationary    4.172    5.529   0.543  42.127   1.92
+viscoelastic_P20            20.0 resolved      7.445    8.702   0.503  41.307   3.08
+viscoelastic_P200          200.0 history      13.438   16.062   1.050  45.012   5.21
+viscoelastic_P200          200.0 stationary   13.107   15.732   1.050  45.013   5.11
+viscoelastic_P200          200.0 resolved     14.162   16.760   1.039  44.756   5.47
+
+case                       T (s)   missed  hist exc  max|s_st-s_h|/amp  lag diff
+elastic_P0.2                 0.2    99.2%     +2.5%             15.39%     10.22
+elastic_P2                   2.0    84.6%     +9.4%              3.30%      2.64
+elastic_P20                 20.0    31.7%     -4.7%              0.52%      0.57
+elastic_P200               200.0     6.5%     -5.2%              0.06%      0.06
+viscoelastic_P0.2            0.2    99.7%     +0.7%             66.74%     45.11
+viscoelastic_P2              2.0    94.2%     +4.1%              7.48%      7.37
+viscoelastic_P20            20.0    44.0%     -3.4%              0.94%      1.05
+viscoelastic_P200          200.0     7.4%     -5.1%              0.10%      0.11

@@ -22,7 +22,9 @@ def command_line(settings, smoke, modes=None):
     --smoke applies the script's SMOKE settings (coarse mesh, tiny loads) and saves under
     results/paper_smoke/ unless --output is given; --output DIR sets the folder for the .npz;
     --threads N overrides THREADS. ``modes`` ({name: (help, settings)}) adds an option --name for
-    each, applying its settings before --smoke. ``settings`` is the script's globals().
+    each, applying its settings before --smoke. In a script with SOLIDS, --solids A [B ...] runs only
+    those solids and appends them to NAME, so that one job per solid saves its own file.
+    ``settings`` is the script's globals().
     """
     import argparse
 
@@ -32,15 +34,21 @@ def command_line(settings, smoke, modes=None):
     p.add_argument("--smoke", action="store_true", help="coarse, small-load functionality check")
     p.add_argument("--output", type=Path, help=f"folder for the .npz (default {DATA})")
     p.add_argument("--threads", type=int, help="NGSolve threads (default THREADS)")
+    if "SOLIDS" in settings:
+        p.add_argument("--solids", nargs="+", choices=list(settings.get("MATERIALS", settings["SOLIDS"])),
+                       help="run only these solids (default SOLIDS), saved as <NAME>_<solids>.npz")
     for name, (text, _) in (modes or {}).items():
         p.add_argument(f"--{name}", action="store_true", help=text)
     a = p.parse_args()
     for name, (_, values) in (modes or {}).items():
-        if getattr(a, name):
+        if getattr(a, name.replace("-", "_")):
             settings.update(values)
     if a.smoke:
         settings.update(smoke)
         DATA = ROOT / "results" / "paper_smoke"
+    if getattr(a, "solids", None):
+        settings["SOLIDS"] = a.solids
+        settings["NAME"] = f"{settings['NAME']}_{'_'.join(a.solids)}"
     if a.output:
         DATA = a.output
     if a.threads:
