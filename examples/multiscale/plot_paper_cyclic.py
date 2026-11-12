@@ -12,6 +12,9 @@ were not equilibrated, are skipped. Writes to OUTPUT, in each of FORMATS, one fi
   dissipated per cycle and unit area).
 
 FE² lines, resolved markers, one colour per solid (as the consolidation figure); stationary cells grey.
+With --annotated (or ANNOTATE = True) it draws only the figure, to figure_8_<kind>_T<T>s_annotated: the FE²
+transient-cell loops shaded (energy dissipated per cycle), and in the settlement panels the phase lag of each
+skeleton's FE² settlement behind the last traction peak, as an arrow labelled in degrees (Table 6).
 Also writes the LaTeX (OUTPUT/figure_8_cyclic.tex): CAPTION below, filled from the runs' metadata, and Table 6
 (TABLES/table_6_cyclic.tex): the settlement amplitude, phase lag and energy per cycle of each model over the last cycle,
 at the periods of STUDY (0.2 and 2 s, also in the figure) and of LONG_STUDY (20 and 200 s, the same column and
@@ -36,7 +39,8 @@ for path in (ROOT, ROOT / "examples" / "microscale", ROOT / "examples" / "multis
 
 import paper_latex as tex  # noqa: E402
 from compare_cyclic import cycle_metrics, fe2_history, load_at  # noqa: E402
-from plot_paper_figures import FIGSIZE, LINEWIDTH, MARKERSIZE, STYLE, finish, solid_colour  # noqa: E402
+from plot_paper_figures import (ANNOTATION_FONTSIZE, FIGSIZE, LINEWIDTH, MARKERSIZE, SHADE_ALPHA, STYLE,  # noqa: E402
+                                finish, solid_colour)
 
 # ---------------------------------------------------------------------------
 # Settings: edit here and press Run.
@@ -45,6 +49,8 @@ STUDY = ROOT / "results" / "cyclic" / "20261026_201037"
 OUTPUT = ROOT / "results" / "paper" / "figures"
 TABLES = ROOT / "results" / "paper" / "tables"
 FORMATS = ["pdf"]
+ANNOTATE = False                     # shaded loops and lag arrows, to <name>_annotated
+LAG_ROWS = (0.07, 0.15)              # annotated: heights of the lag arrows above the highest peak, per skeleton, as a fraction of it
 SKELETONS = ("elastic", "viscoelastic")
 PERIODS = (2.0, 0.2)                 # one row each, as Figure 4
 STATIONARY_STYLE = dict(color="0.25", linewidth=LINEWIDTH * 0.75, linestyle=(0, (4, 2)))  # stationary cells
@@ -101,6 +107,7 @@ def save(fig, name):
     if name != LEGEND_PANEL and fig.axes[0].get_legend() is not None:
         fig.axes[0].get_legend().remove()
     OUTPUT.mkdir(parents=True, exist_ok=True)
+    name += "_annotated" if ANNOTATE else ""
     for extension in FORMATS:
         fig.savefig(OUTPUT / f"{name}.{extension}")
         print(f"  {OUTPUT / f'{name}.{extension}'}")
@@ -127,6 +134,8 @@ def figures(cases, meta):
                 run = cases[skeleton, T]
                 x, y = _xy(kind, run["history"], case, cycles)
                 ax.plot(x, y, color=palette[i], linewidth=LINEWIDTH, zorder=2)
+                if ANNOTATE and kind == "loop":  # the enclosed area: energy dissipated per cycle
+                    ax.fill(x, y, color=palette[i], alpha=SHADE_ALPHA, linewidth=0, zorder=1)
                 x, y = _xy(kind, run["resolved"], case, cycles, markers=True)
                 ax.plot(x, y, color=palette[i], linestyle="none", marker=markers[i], markersize=MARKERSIZE,
                         markerfacecolor="white", markeredgewidth=1.5, zorder=3)
@@ -135,6 +144,8 @@ def figures(cases, meta):
                                            markersize=MARKERSIZE, markerfacecolor="white", markeredgewidth=1.5),
                                 f"{LABELS[i]}, resolved"))
             if kind == "settlement":
+                if ANNOTATE:
+                    lag_arrows(ax, cases, case, cycles, palette)
                 ax.set_xlabel(r"Normalised time $t/T$")
                 ax.set_ylabel("Settlement (mm)")
                 if f"figure_8_{kind}_T{T:g}s" == LEGEND_PANEL:  # headroom for the legend above the cycles
@@ -144,6 +155,24 @@ def figures(cases, meta):
                 ax.set_ylabel("Traction (Pa)")
             finish(ax, *zip(*handles), loc="upper center", ncol=2)
             save(fig, f"figure_8_{kind}_T{T:g}s")
+
+
+def lag_arrows(ax, cases, case, cycles, palette):
+    """The phase lag of each skeleton's FE² settlement behind the last traction peak (t/T = cycles - 1/2): a dotted
+    line at the traction peak and, above the curves, an arrow from it to t/T + lag/360 labelled with the lag."""
+    T, peak = case["period"], cycles - 0.5
+    runs = [cases[k, T]["history"] for k in SKELETONS] + [cases["stationary", T]] * (cases["stationary", T] is not None)
+    top = max(1e3 * np.max(run["settlement"]) for run in runs)
+    ax.set_ylim(top=max(ax.get_ylim()[1], top * (1 + LAG_ROWS[-1] + 0.07)))
+    ax.axvline(peak, color="0.6", linewidth=0.8, linestyle=":", zorder=0)
+    for i, skeleton in enumerate(SKELETONS):
+        lag = cycle_metrics(case, cases[skeleton, T]["history"], cycles - 1)["lag"]
+        y, end = top * (1 + LAG_ROWS[i]), peak + lag / 360
+        ax.annotate("", xy=(end, y), xytext=(peak, y), zorder=5,
+                    arrowprops=dict(arrowstyle="-|>,head_length=0.3,head_width=0.15", color=palette[i], linewidth=1.2,
+                                    shrinkA=0, shrinkB=0))
+        ax.text(end + 0.04, y, rf"${lag:.0f}^\circ$", color=palette[i], fontsize=ANNOTATION_FONTSIZE, ha="left",
+                va="center")
 
 
 def _xy(kind, run, case, cycles, markers=False):
@@ -228,15 +257,19 @@ def table_6(meta):
 
 
 def main():
-    global STUDY
+    global STUDY, ANNOTATE
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("study", nargs="?", type=Path, help=f"study folder (default {STUDY})")
+    parser.add_argument("--annotated", action="store_true", help="only the figure, annotated, to <name>_annotated")
     args = parser.parse_args()
+    ANNOTATE = ANNOTATE or args.annotated
     if args.study:
         STUDY = args.study.resolve()
     cases, meta = read(STUDY)
     with plt.rc_context(STYLE):
         figures(cases, meta)
+    if ANNOTATE:
+        return
     latex(cases, meta)
     table_6(meta)
 

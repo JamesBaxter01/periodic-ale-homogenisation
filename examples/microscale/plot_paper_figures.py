@@ -14,7 +14,10 @@ the same pulse over 0.2 to 200 s in DATA/CRITERION_4 (figure4_cycles.py --criter
 also prints, for the earlier nine-duration sweep DATA/figure4_rates (viscoelastic, 0.2 to 20 s, which the
 criterion sweep reproduces), the largest flux departure from the stationary cell over the pulse and hold.
 
-From the command line (run.py plot): plot_paper_figures.py [DATA] [--output DIR] [--format FMT].
+With --annotated (or ANNOTATE = True) it draws only Figure 4, with the departure from the stationary cell shaded
+and the hold labelled, to figure_4_<flux|stress>_T<T>s_annotated; nothing else is written.
+
+From the command line (run.py plot): plot_paper_figures.py [DATA] [--output DIR] [--format FMT] [--annotated].
 """
 
 import json
@@ -38,6 +41,7 @@ DATA = ROOT / "results" / "paper"
 OUTPUT = ROOT / "results" / "paper" / "figures"
 TABLES = ROOT / "results" / "paper" / "tables"
 FORMATS = ["pdf"]
+ANNOTATE = False   # Figure 4 only, shaded departure from the stationary cell, to <name>_annotated
 
 STYLE = {
     "font.family": "serif",
@@ -59,6 +63,8 @@ LINEWIDTH = 3.0   # every data line in the paper figures (also used by plot_pape
 MARKERSIZE = 6.0  # every data marker
 SOLID_COLOURS = {"elastic": 0.08, "viscoelastic": 0.5}   # viridis positions: dark purple, teal
 MARKER_STEPS = 5  # Figure 4: saved steps between markers on one curve (0.1 T at 100 steps per pulse)
+SHADE_ALPHA = 0.15  # annotated figures: translucent fill in the solid's colour
+ANNOTATION_FONTSIZE = 12
 # The panels that keep a legend; each figure's legend covers all of its panels in the paper.
 LEGENDS = {"figure_3_biot_fixed", "figure_4_flux_T2s"}
 
@@ -122,8 +128,9 @@ def save(fig, name):
             if ax.get_legend() is not None:
                 ax.get_legend().remove()
     OUTPUT.mkdir(parents=True, exist_ok=True)
+    suffix = "_annotated" if ANNOTATE else ""
     for extension in FORMATS:
-        path = OUTPUT / f"{name}.{extension}"
+        path = OUTPUT / f"{name}{suffix}.{extension}"
         fig.savefig(path, bbox_inches=None)
         print(f"  {path}")
     plt.close(fig)
@@ -193,8 +200,17 @@ def load_stationary_4():
         return {key: d[key] for key in ("compression", "flux", "fluid_content", "stress")}
 
 
+def stationary_4(stationary, name, compression):
+    """The stationary cell's Q/Q0 or -P33 at the given compressions (linear in its continuation grid)."""
+    if name == "flux":
+        return np.interp(compression, stationary["compression"], stationary["flux"][:, 0]) / stationary["flux"][0, 0]
+    return -np.interp(compression, stationary["compression"], stationary["stress"][:, 2, 2])
+
+
 def figure_4(a):
-    """For each duration, one figure of normalised flux and one of the axial nominal stress against t/T."""
+    """For each duration, one figure of normalised flux and one of the axial nominal stress against t/T. With
+    ANNOTATE, the gap between each solid's curve and the stationary cell is shaded in the solid's colour and the
+    hold after the vertical end-of-pulse line is labelled."""
     col = {str(name): i for i, name in enumerate(a["columns"])}
     stationary = load_stationary_4()
     # The two materials nearly coincide at long T: the elastic dash is drawn over the viscoelastic line, and
@@ -214,16 +230,18 @@ def figure_4(a):
                 y = rows[:, col["Q1"]] / initial if name == "flux" else -rows[:, col["P33"]]
                 curve(ax, rows[:, col["time"]] / T, y, colour[material], material, label=label,
                       markevery=slice(first, None, MARKER_STEPS), **style)
+                if ANNOTATE and stationary is not None:  # departure from the stationary cell, at the same compression
+                    ax.fill_between(rows[:, col["time"]] / T, y, stationary_4(stationary, name, rows[:, col["compression"]]),
+                                    color=colour[material], alpha=SHADE_ALPHA, linewidth=0, zorder=0)
             if stationary is not None:
                 # read at the compression of each saved step
                 rows = a["rows"][(a["rows"][:, col["material"]] == 0) & (a["rows"][:, col["duration_index"]] == j)]
-                c = rows[:, col["compression"]]
-                if name == "flux":
-                    y = np.interp(c, stationary["compression"], stationary["flux"][:, 0]) / stationary["flux"][0, 0]
-                else:
-                    y = -np.interp(c, stationary["compression"], stationary["stress"][:, 2, 2])
+                y = stationary_4(stationary, name, rows[:, col["compression"]])
                 ax.plot(rows[:, col["time"]] / T, y, color="0.55", linewidth=2.0, zorder=1, label="Stationary cell")
             ax.axvline(1.0, color="0.6", linewidth=0.8, linestyle="--", zorder=1)
+            if ANNOTATE:  # in the empty corner: below the flux curves, above the stress curves
+                ax.text(1.03, 0.05 if name == "flux" else 0.93, "hold", transform=ax.get_xaxis_transform(),
+                        ha="left", va="center", fontsize=ANNOTATION_FONTSIZE, color="0.35")
             ax.set_xlabel(r"Normalised time $t/T$")
             if name == "flux":
                 ax.axhline(1.0, color="0.6", linewidth=0.8, linestyle="--", zorder=1)
@@ -393,12 +411,14 @@ def latex_figure_4(a):
 def main():
     import argparse
 
-    global DATA, OUTPUT, FORMATS
+    global DATA, OUTPUT, FORMATS, ANNOTATE
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     p.add_argument("data", nargs="?", type=Path, help=f"folder with the .npz files (default {DATA})")
     p.add_argument("--output", type=Path, help=f"folder for the figures (default {OUTPUT})")
     p.add_argument("--format", choices=["pdf", "png", "svg"], help=f"one format (default {FORMATS})")
+    p.add_argument("--annotated", action="store_true", help="only Figure 4, annotated, to <name>_annotated")
     a = p.parse_args()
+    ANNOTATE = ANNOTATE or a.annotated
     if a.data:
         DATA = a.data
         if not a.output:
@@ -408,6 +428,11 @@ def main():
     if a.format:
         FORMATS = [a.format]
     with plt.rc_context(STYLE):
+        if ANNOTATE:
+            data = load("figure4_cycles")
+            if data is not None:
+                figure_4(data)
+            return
         for name, draw, latex in (("figure3_biot", figure_3, latex_figure_3),
                                   ("figure4_cycles", figure_4, latex_figure_4)):
             data = load(name)
