@@ -12,9 +12,9 @@ were not equilibrated, are skipped. Writes to OUTPUT, in each of FORMATS, one fi
   dissipated per cycle and unit area).
 
 FE² lines, resolved markers, one colour per solid (as the consolidation figure); stationary cells grey.
-With --annotated (or ANNOTATE = True) it draws only the figure, to figure_8_<kind>_T<T>s_annotated: the FE²
-transient-cell loops shaded (energy dissipated per cycle), and in the settlement panels the phase lag of each
-skeleton's FE² settlement behind the last traction peak, as an arrow labelled in degrees (Table 6).
+Annotated as in the paper: the FE² transient-cell loops shaded (energy dissipated per cycle), and in the
+settlement panels the phase lag of each skeleton's FE² settlement behind the last traction peak, as an arrow
+labelled in degrees (Table 6). --plain (or ANNOTATE = False) draws the figure without them.
 Also writes the LaTeX (OUTPUT/figure_8_cyclic.tex): CAPTION below, filled from the runs' metadata, and Table 6
 (TABLES/table_6_cyclic.tex): the settlement amplitude, phase lag and energy per cycle of each model over the last cycle,
 at the periods of STUDY (0.2 and 2 s, also in the figure) and of LONG_STUDY (20 and 200 s, the same column and
@@ -49,7 +49,7 @@ STUDY = ROOT / "results" / "cyclic" / "20261026_201037"
 OUTPUT = ROOT / "results" / "paper" / "figures"
 TABLES = ROOT / "results" / "paper" / "tables"
 FORMATS = ["pdf"]
-ANNOTATE = False                     # shaded loops and lag arrows, to <name>_annotated
+ANNOTATE = True                      # shaded loops and lag arrows, as in the paper
 LAG_ROWS = (0.07, 0.15)              # annotated: heights of the lag arrows above the highest peak, per skeleton, as a fraction of it
 SKELETONS = ("elastic", "viscoelastic")
 PERIODS = (2.0, 0.2)                 # one row each, as Figure 4
@@ -60,9 +60,11 @@ LEGEND_PANEL = "figure_8_settlement_T2s"
 LEGEND_HEADROOM = 1.45            # its y range is stretched by this factor to keep the legend clear of the curves
 LATEX_NAME = "figure_8_cyclic"
 CAPTION = (r"Cyclic consolidation under the traction $<<half>>\,\mathrm{Pa}\,[1-\cos(2\pi t/T)]$ (<<rows>>). "
-           r"<<settlement_panels>>~Top settlement; <<loop_panels>>~traction against settlement over the last cycle, "
-           r"whose enclosed area is the energy dissipated per cycle. Lines: FE$^2$ with transient cells; markers: "
-           r"resolved FSI; one colour per skeleton.<<stationary>>")
+           r"<<settlement_panels>>~Top settlement; <<loop_panels>>~traction against settlement over the last cycle. "
+           r"Lines: FE$^2$ with transient cells; markers: resolved FSI; one colour per skeleton.<<stationary>>"
+           r"<<annotations>>")
+ANNOTATION_CAPTION = (r" Shaded loops: energy dissipated per cycle; arrows in <<settlement_panels>>: phase lag of the "
+                      r"FE$^2$ settlement behind the last traction peak (dotted).")
 STATIONARY_CAPTION = r" Grey dashed: FE$^2$ with stationary cells."
 TABLE_PERIODS = (0.2, 2.0, 20.0, 200.0)   # Table 6, in this order; each read from STUDY or LONG_STUDY
 LONG_STUDY = ROOT / "results" / "cyclic" / "20261108_220130"   # the longer periods, T = 20 and 200 s
@@ -107,7 +109,6 @@ def save(fig, name):
     if name != LEGEND_PANEL and fig.axes[0].get_legend() is not None:
         fig.axes[0].get_legend().remove()
     OUTPUT.mkdir(parents=True, exist_ok=True)
-    name += "_annotated" if ANNOTATE else ""
     for extension in FORMATS:
         fig.savefig(OUTPUT / f"{name}.{extension}")
         print(f"  {OUTPUT / f'{name}.{extension}'}")
@@ -210,9 +211,10 @@ def latex(cases, meta):
     letters = "abcdefgh"
     rows = "; ".join(f"{('top', 'bottom')[j]}, {tex.quantity(T, 's').replace('$', '$T=', 1)}"
                      for j, T in enumerate(PERIODS))
+    settlement_panels = "(" + ", ".join(letters[2 * j] for j in range(len(PERIODS))) + ")"
+    annotations = ANNOTATION_CAPTION.replace("<<settlement_panels>>", settlement_panels) if ANNOTATE else ""
     caption = tex.fill(CAPTION, half=tex.number(meta["macro"]["traction"] / 2), cycles=tex.words(cyclic["cycles"]),
-                       steps=cyclic["steps_per_cycle"],
-                       settlement_panels="(" + ", ".join(letters[2 * j] for j in range(len(PERIODS))) + ")",
+                       steps=cyclic["steps_per_cycle"], settlement_panels=settlement_panels, annotations=annotations,
                        loop_panels="(" + ", ".join(letters[2 * j + 1] for j in range(len(PERIODS))) + ")",
                        rows=rows, eta_s=tex.number(cell["eta_s"]), zeta_s=tex.number(cell["zeta_s"]),
                        stationary=stationary_caption(cases))
@@ -260,16 +262,14 @@ def main():
     global STUDY, ANNOTATE
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("study", nargs="?", type=Path, help=f"study folder (default {STUDY})")
-    parser.add_argument("--annotated", action="store_true", help="only the figure, annotated, to <name>_annotated")
+    parser.add_argument("--plain", action="store_true", help="the figure without the shaded loops and lag arrows")
     args = parser.parse_args()
-    ANNOTATE = ANNOTATE or args.annotated
+    ANNOTATE = ANNOTATE and not args.plain
     if args.study:
         STUDY = args.study.resolve()
     cases, meta = read(STUDY)
     with plt.rc_context(STYLE):
         figures(cases, meta)
-    if ANNOTATE:
-        return
     latex(cases, meta)
     table_6(meta)
 

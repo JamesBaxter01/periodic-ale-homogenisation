@@ -8,6 +8,9 @@ Press Run (or python run.py paper). Runs, in order, each paper script on its def
                                   (figure_1_scales.tex, figure_2_cell.tex, figure_5_setup.tex); needs NGSolve and PyVista (fem environment)
 2. plot_paper_figures.py          Figures 3-4 and Table 3, single cell (figure_3_biot.tex, figure_4_cycles.tex,
                                   table_3_criterion.tex, from the 0.2-200 s pulse sweep)
+   pore_field_summary.py          Section 5.2 mechanism check, the Figure 4 pulse split by mechanism
+                                  (pore_fields.md, from the saved run of figure4_pore_fields.py; --solve does not
+                                  rerun it: python run.py pore-fields, about 50 min)
 3. plot_paper_consolidation.py    Figure 6, step-load consolidation (figure_6_consolidation.tex)
 4. consolidation_parameter_table  Table 5, response derivatives (table_5_consolidation_parameters.tex), rebuilt
                                   from the saved .csv; --solve recomputes the cell states (about 8 min), reruns the
@@ -41,6 +44,7 @@ def steps(solve):
     return [
         ("Figures 1, 2 and 5: scales, cell and consolidation set-up", [multiscale / "plot_paper_geometry.py"]),
         ("Figures 3-4 and Table 3", [ROOT / "examples" / "microscale" / "plot_paper_figures.py"]),
+        ("Section 5.2 mechanism check", [ROOT / "examples" / "microscale" / "pore_field_summary.py"]),
         ("Figure 6, consolidation", [multiscale / "plot_paper_consolidation.py"]),
         ("Table 5, response derivatives", [multiscale / "consolidation_parameter_table.py", *table]),
         *biot,

@@ -10,6 +10,7 @@ COMMANDS={
     'figure3': ('examples/microscale/figure3_biot.py', 'Paper Figure 3 data: secant Biot coefficients'),
     'figure4': ('examples/microscale/figure4_cycles.py', 'Paper Figure 4 data: compression pulse, flow and recovery'),
     'figure4-stationary': ('examples/microscale/figure4_stationary.py', 'Paper Figure 4 stationary cell (grey line)'),
+    'pore-fields': ('examples/microscale/figure4_pore_fields.py', 'Section 5.2 mechanism check: the Figure 4 pulse split by mechanism (about 50 min)'),
     'plot': ('examples/microscale/plot_paper_figures.py', 'Draw paper Figures 3–4 and Table 3 and their LaTeX from saved data'),
     'consolidation-fe2': ('examples/multiscale/consolidation_multiscale.py', 'FE² consolidation with the multiscale coupling'),
     'consolidation-resolved': ('examples/multiscale/consolidation_resolved.py', 'Fully resolved consolidation column (FE² reference)'),

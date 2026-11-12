@@ -14,10 +14,10 @@ the same pulse over 0.2 to 200 s in DATA/CRITERION_4 (figure4_cycles.py --criter
 also prints, for the earlier nine-duration sweep DATA/figure4_rates (viscoelastic, 0.2 to 20 s, which the
 criterion sweep reproduces), the largest flux departure from the stationary cell over the pulse and hold.
 
-With --annotated (or ANNOTATE = True) it draws only Figure 4, with the departure from the stationary cell shaded
-and the hold labelled, to figure_4_<flux|stress>_T<T>s_annotated; nothing else is written.
+Figure 4 is annotated as in the paper: the departure of each solid from the stationary cell is shaded and the hold
+labelled. --plain (or ANNOTATE = False) draws it without the annotations.
 
-From the command line (run.py plot): plot_paper_figures.py [DATA] [--output DIR] [--format FMT] [--annotated].
+From the command line (run.py plot): plot_paper_figures.py [DATA] [--output DIR] [--format FMT] [--plain].
 """
 
 import json
@@ -41,7 +41,7 @@ DATA = ROOT / "results" / "paper"
 OUTPUT = ROOT / "results" / "paper" / "figures"
 TABLES = ROOT / "results" / "paper" / "tables"
 FORMATS = ["pdf"]
-ANNOTATE = False   # Figure 4 only, shaded departure from the stationary cell, to <name>_annotated
+ANNOTATE = True    # Figure 4: shaded departure from the stationary cell and the hold labelled, as in the paper
 
 STYLE = {
     "font.family": "serif",
@@ -97,6 +97,7 @@ CAPTION_4 = (r"Flux <<flux_panels>> and axial nominal stress $-\overline P_{33}$
 # Grey line in every Figure 4 panel: the stationary cell (figure4_stationary.py), if its data exist.
 STATIONARY_4 = "figure4_stationary.npz"
 STATIONARY_CAPTION_4 = r" Grey: stationary cell."
+SHADING_CAPTION_4 = r"; shading: departure from it."
 LABELS_4 = {2.0: ("fig:flux-long", "fig:stress-long"), 0.2: ("fig:flux-short", "fig:stress-short")}
 # Table 3: the pulse of Figure 4 at thirteen durations from 0.2 to 200 s, both solids (figure4_cycles.py
 # --criterion; one file per solid, figure4_criterion_<solid>.npz), and the durations shown.
@@ -128,9 +129,8 @@ def save(fig, name):
             if ax.get_legend() is not None:
                 ax.get_legend().remove()
     OUTPUT.mkdir(parents=True, exist_ok=True)
-    suffix = "_annotated" if ANNOTATE else ""
     for extension in FORMATS:
-        path = OUTPUT / f"{name}{suffix}.{extension}"
+        path = OUTPUT / f"{name}.{extension}"
         fig.savefig(path, bbox_inches=None)
         print(f"  {path}")
     plt.close(fig)
@@ -398,7 +398,8 @@ def latex_figure_4(a):
                        stress_panels="(" + ", ".join(letters[2 * j + 1] for j in range(len(durations))) + ")",
                        rows=rows[0].upper() + rows[1:], steps=s["steps"], eta_s=tex.number(s["eta_s"]),
                        zeta_s=tex.number(s["zeta_s"]),
-                       stationary=STATIONARY_CAPTION_4 if load_stationary_4() is not None else "")
+                       stationary=(STATIONARY_CAPTION_4[:-1] + SHADING_CAPTION_4 if ANNOTATE else STATIONARY_CAPTION_4)
+                       if load_stationary_4() is not None else "")
     panels = []
     for T in durations:
         flux_label, stress_label = LABELS_4.get(T, (f"fig:flux-T{T:g}", f"fig:stress-T{T:g}"))
@@ -416,9 +417,9 @@ def main():
     p.add_argument("data", nargs="?", type=Path, help=f"folder with the .npz files (default {DATA})")
     p.add_argument("--output", type=Path, help=f"folder for the figures (default {OUTPUT})")
     p.add_argument("--format", choices=["pdf", "png", "svg"], help=f"one format (default {FORMATS})")
-    p.add_argument("--annotated", action="store_true", help="only Figure 4, annotated, to <name>_annotated")
+    p.add_argument("--plain", action="store_true", help="Figure 4 without the shading and hold label")
     a = p.parse_args()
-    ANNOTATE = ANNOTATE or a.annotated
+    ANNOTATE = ANNOTATE and not a.plain
     if a.data:
         DATA = a.data
         if not a.output:
@@ -428,11 +429,6 @@ def main():
     if a.format:
         FORMATS = [a.format]
     with plt.rc_context(STYLE):
-        if ANNOTATE:
-            data = load("figure4_cycles")
-            if data is not None:
-                figure_4(data)
-            return
         for name, draw, latex in (("figure3_biot", figure_3, latex_figure_3),
                                   ("figure4_cycles", figure_4, latex_figure_4)):
             data = load(name)

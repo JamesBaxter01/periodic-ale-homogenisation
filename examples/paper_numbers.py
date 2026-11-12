@@ -408,17 +408,13 @@ def cyclic(report, c_v):
                  v["lag"] / e["lag"] > 2 and v["energy"] / e["energy"] > 2)
 
     report.section("Section 5.3.2: stationary cells against the resolved column")
-    for period, values in ((0.2, dict(amplitude=("17", "63"), energy=("1.3", "0.5"))),
-                           (2.0, dict(amplitude=("4.8", "5.7"), energy=("20", "8")))):
+    for period, values in ((0.2, dict(amplitude=("17", "63"), energy=("1.3", "0.5"))),):
         for skeleton, k in zip(SKELETONS, (0, 1)):
             m = last[skeleton, period]
             report.number(f"T = {period:g} s, {skeleton}: amplitude above resolved (%)", values["amplitude"][k],
                           100 * (m["stationary"]["amplitude"] / m["resolved"]["amplitude"] - 1))
             report.number(f"T = {period:g} s, {skeleton}: energy, of the resolved (%)", values["energy"][k],
                           100 * m["stationary"]["energy"] / m["resolved"]["energy"])
-    lags = [last[skeleton, 2.0]["stationary"]["lag"] / last[skeleton, 2.0]["resolved"]["lag"] for skeleton in SKELETONS]
-    report.holds("T = 2 s, lag a fifth or less of the resolved", "a fifth or less", ", ".join(f"{x:.3f}" for x in lags),
-                 max(lags) <= 0.2)
     missing = {period: 100 * (1 - last["elastic", period]["stationary"]["energy"] / last["elastic", period]["resolved"]["energy"])
                for period in PERIODS}
     report.number("Elastic, energy missed at T = 2 s (%)", "80", missing[2.0])
@@ -686,10 +682,13 @@ def pulse(report):
     report.holds("Table 3 pulse durations (s), in the sweep", ", ".join(f"{T:g}" for T in TABLE_3_DURATIONS),
                  ", ".join(f"{t:g}" for s, t in sorted(crit) if s == "elastic"),
                  all(any(np.isclose(t, T) for s, t in crit) for T in TABLE_3_DURATIONS))
-    for solid in SKELETONS:
-        report.number(f"Flux departure at T = 20 s, {solid} (%)", "1.3", 100 * at(solid, 20.0)["flux"])
-    report.number("Energy dissipated per pulse at T = 20 s, elastic (%)", "5.8", 100 * at("elastic", 20.0)["energy"])
-    report.number("Energy dissipated per pulse at T = 20 s, viscoelastic (%)", "7.5", 100 * at("viscoelastic", 20.0)["energy"])
+    falls = [at(solid, 20.0)[k] / at(solid, 200.0)[k] for solid in SKELETONS for k in ("stress", "energy")]
+    report.holds("From T = 20 to 200 s the departures of stress and energy fall nearly tenfold (ratios)", "nearly tenfold",
+                 ", ".join(f"{x:.1f}" for x in falls), all(8 <= x <= 10.5 for x in falls))
+    largest = [at(solid, T)["energy"] > max(at(solid, T)["flux"], at(solid, T)["stress"]) for solid, T in crit]
+    report.holds("The energy departure remains the largest (every pulse of the sweep)", "largest", f"{sum(largest)} of {len(largest)}",
+                 all(largest))
+    pore_fields(report)
     previous = max(t for s, t in crit if t < 200.0 - 1e-9)
     longest = [100 * at(solid, 200.0)["energy"] for solid in SKELETONS]
     before = [100 * at(solid, previous)["energy"] for solid in SKELETONS]
@@ -702,6 +701,36 @@ def pulse(report):
     report.number("Elastic, T = 0.2 s, hold: fluid content at its end", "0.252", content[-1])
     report.number("Elastic, T = 0.2 s, hold: axial tension at its start (Pa)", "2.6", -stress[0])
     report.number("Elastic, T = 0.2 s, hold: axial tension at its end (Pa)", "0.42", -stress[-1])
+
+
+def pore_fields(report):
+    """Section 5.2 mechanism statements, from the pore-field check (figure4_pore_fields.py, pore_field_summary.py)."""
+    files = sorted((PAPER / "pore_fields_20261112_180711").glob("figure4_pore_fields*.npz"))
+    if not files:
+        report.noted("Section 5.2 mechanism (pore-field check)", "pores hold more fluid; walls stiffened",
+                     "no pore-field run saved")
+        return
+    d = np.load(files[0], allow_pickle=True)
+    cols, rows = list(d["columns"]), d["rows"]
+    s = np.load(PAPER / "figure4_stationary.npz", allow_pickle=True)
+    case = {}
+    for m, material in enumerate(d["materials"]):
+        for j, T in enumerate(d["durations"]):
+            r = rows[(rows[:, 0] == m) & (rows[:, 1] == j)]
+            excess = r[:, cols.index("fluid_content")] - np.interp(r[:, cols.index("compression")], s["compression"],
+                                                                    s["fluid_content"])
+            step = r[:, cols.index("step")]
+            case[str(material), float(T)] = dict(excess=excess, step=step,
+                                                 pf=r[step == 25][0, cols.index("pf_max")] - r[step == 25][0, cols.index("pf_min")])
+    loading = [case[m, 2.0]["excess"][(case[m, 2.0]["step"] >= 10) & (case[m, 2.0]["step"] <= 45)].min() for m in SKELETONS]
+    report.holds("T = 2 s: the pores still hold more fluid than in the stationary cell while loading (smallest excess, t/T 0.1-0.45)",
+                 "hold more fluid", ", ".join(f"{x:+.4f}" for x in loading), min(loading) > 0)
+    e, v = case["elastic", 0.2], case["viscoelastic", 0.2]
+    report.holds("T = 0.2 s: with skeleton viscosity the pores keep closer to their stationary shape (largest fluid-content "
+                 "departure)", "closer", f"{np.abs(v['excess']).max():.4f} against {np.abs(e['excess']).max():.4f}",
+                 np.abs(v["excess"]).max() < np.abs(e["excess"]).max())
+    report.holds("T = 0.2 s: the walls resist the pressure that drives the pore flow (pore-pressure range at t/T = 0.25)",
+                 "stiffens the pore walls", f"{v['pf']:.3g} against {e['pf']:.3g}", v["pf"] > e["pf"])
 
 
 def log_text(folder, pattern):

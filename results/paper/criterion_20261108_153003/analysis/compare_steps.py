@@ -11,7 +11,7 @@ from pathlib import Path
 
 import numpy as np
 
-PAPER = Path("/Users/jamesbaxter/Documents/University/PhD/Code/periodic-ale-homogenisation/results/paper")
+PAPER = Path(__file__).resolve().parents[2]  # results/paper
 st = np.load(PAPER / "figure4_stationary.npz")
 EPS_S, Q_S, P_S = st["compression"], st["flux"][:, 0] / st["flux"][0, 0], st["stress"][:, 2, 2]
 

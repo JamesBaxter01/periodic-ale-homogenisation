@@ -154,10 +154,11 @@ Written by `examples/paper_numbers.py`.
 | T = 2 s, elastic: flux departure at the end of the hold | -0.012 | -0.011755 | yes |
 | T = 2 s, viscoelastic: flux departure at the end of the hold | -0.012 | -0.012484 | yes |
 | Table 3 pulse durations (s), in the sweep | 0.2, 2, 20, 200 | 0.2, 0.355656, 0.632456, 1.12468, 2, 3.55656, 6.32456, 11.2468, 20, 35.5656, 63.2456, 112.468, 200 | yes |
-| Flux departure at T = 20 s, elastic (%) | 1.3 | 1.3012 | yes |
-| Flux departure at T = 20 s, viscoelastic (%) | 1.3 | 1.3279 | yes |
-| Energy dissipated per pulse at T = 20 s, elastic (%) | 5.8 | 5.8075 | yes |
-| Energy dissipated per pulse at T = 20 s, viscoelastic (%) | 7.5 | 7.4508 | yes |
+| From T = 20 to 200 s the departures of stress and energy fall nearly tenfold (ratios) | nearly tenfold | 9.2, 9.3, 9.5, 9.4 | yes |
+| The energy departure remains the largest (every pulse of the sweep) | largest | 26 of 26 | yes |
+| T = 2 s: the pores still hold more fluid than in the stationary cell while loading (smallest excess, t/T 0.1-0.45) | hold more fluid | +0.0015, +0.0016 | yes |
+| T = 0.2 s: with skeleton viscosity the pores keep closer to their stationary shape (largest fluid-content departure) | closer | 0.0235 against 0.0243 | yes |
+| T = 0.2 s: the walls resist the pressure that drives the pore flow (pore-pressure range at t/T = 0.25) | stiffens the pore walls | 0.417 against 0.123 | yes |
 | Energy per pulse below 1 % only at T = 200 s (at 200 s; at 112 s, the next shorter pulse) | below 1% only at 200 s | 0.62, 0.79; 1.11, 1.40 | yes |
 | Elastic, T = 0.2 s, hold: fluid content at its start | 0.238 | 0.23771 | yes |
 | Elastic, T = 0.2 s, hold: fluid content at its end | 0.252 | 0.25243 | yes |
@@ -335,11 +336,6 @@ Written by `examples/paper_numbers.py`.
 | T = 0.2 s, elastic: energy, of the resolved (%) | 1.3 | 1.3311 | yes |
 | T = 0.2 s, viscoelastic: amplitude above resolved (%) | 63 | 63.461 | yes |
 | T = 0.2 s, viscoelastic: energy, of the resolved (%) | 0.5 | 0.46122 | yes |
-| T = 2 s, elastic: amplitude above resolved (%) | 4.8 | 4.7558 | yes |
-| T = 2 s, elastic: energy, of the resolved (%) | 20 | 20.097 | yes |
-| T = 2 s, viscoelastic: amplitude above resolved (%) | 5.7 | 5.7211 | yes |
-| T = 2 s, viscoelastic: energy, of the resolved (%) | 8 | 7.8109 | yes |
-| T = 2 s, lag a fifth or less of the resolved | a fifth or less | 0.192, 0.074 | yes |
 | Elastic, energy missed at T = 2 s (%) | 80 | 79.903 | yes |
 | Elastic, energy missed at T = 0.2 s (%) | 99 | 98.669 | yes |
 | T = 20 s, elastic: energy missed by stationary cells, of the resolved (%) | 25 | 24.896 | yes |
@@ -358,7 +354,7 @@ Written by `examples/paper_numbers.py`.
 | Replay time on one core, on this machine (elastic) | less than 1 s | 0.71 s | – |
 | Replay against the saved solution, largest relative difference (elastic) | to the macroscopic Newton tolerance | 2.9e-06 | yes |
 | Replayed steps (viscoelastic) | 424 | 424 | yes |
-| Replay time on one core, on this machine (viscoelastic) | less than 1 s | 0.63 s | – |
+| Replay time on one core, on this machine (viscoelastic) | less than 1 s | 0.65 s | – |
 | Replay against the saved solution, largest relative difference (viscoelastic) | to the macroscopic Newton tolerance | 2.6e-08 | yes |
 | The Aire node: two 84-core AMD EPYC 9634 processors | as stated | not from a saved run | – |
 | FE² cell increment on one core (s, elastic) | 46 | 45.59 | yes |
