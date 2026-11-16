@@ -1,18 +1,25 @@
 cff-version: 1.2.0
-message: "Please cite the accompanying paper when using this code or data. The publication DOI will be added when available."
+message: "If you use this software or data, please cite it as below. The code is under the MIT licence; data, figures and documentation under CC BY 4.0 (LICENSE-DATA.md)."
 type: software
 title: "Code for: Transient pore-resolved computational homogenisation of visco-hyperelastic porous materials"
+version: v1.0.0
+date-released: 2026-11-16
 authors:
   - family-names: Baxter Chapman
     given-names: James
+    affiliation: "School of Mathematics, University of Leeds"
   - family-names: Walkley
     given-names: Mark
+    affiliation: "School of Computer Science, University of Leeds"
   - family-names: Head
     given-names: David
+    affiliation: "School of Computer Science, University of Leeds"
   - family-names: Yang
     given-names: Shufan
+    affiliation: "School of Mechanical Engineering, University of Leeds"
   - family-names: de Boer
     given-names: Gregory
+    affiliation: "School of Mechanical Engineering, University of Leeds"
 keywords:
   - computational homogenisation
   - fluid-structure interaction
@@ -20,6 +27,4 @@ keywords:
   - arbitrary Lagrangian-Eulerian
   - finite elements
 repository-code: "https://github.com/JamesBaxter01/periodic-ale-homogenisation"
-license:
-  - MIT
-  - CC-BY-4.0
+license: MIT
