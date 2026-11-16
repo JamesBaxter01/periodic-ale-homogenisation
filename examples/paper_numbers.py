@@ -302,6 +302,8 @@ def consolidation(report):
     report.number("Biot law, largest settlement difference (%)", "57", 100 * baseline["settlement"][0])
     report.number("Drained lateral permeability below rest (%)", "35",
                   100 * (1 - rests["k_lateral"][3] / rests["k_lateral"][0]))
+    report.number("Undrained axial permeability above rest, largest of the Table 5 states at t = 10 s (%)", "23",
+                  100 * (max(rests["k_axial"][1:3]) / rests["k_axial"][0] - 1))
     axial = abs(rests["k_axial"][3] / rests["k_axial"][0] - 1)
     report.holds("Drained axial permeability against rest", "within 1 %", f"{100 * axial:.2f} %", axial <= 0.01)
     return c_v

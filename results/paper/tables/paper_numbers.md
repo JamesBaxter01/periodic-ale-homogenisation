@@ -279,6 +279,7 @@ Written by `examples/paper_numbers.py`.
 | FE², drained volume difference (%) | 1.63 | 1.6298 | yes |
 | Biot law, largest settlement difference (%) | 57 | 57.378 | yes |
 | Drained lateral permeability below rest (%) | 35 | 34.797 | yes |
+| Undrained axial permeability above rest, largest of the Table 5 states at t = 10 s (%) | 23 | 22.633 | yes |
 | Drained axial permeability against rest | within 1 % | 0.65 % | yes |
 
 ## Section 5.3.2: set-up
@@ -351,10 +352,10 @@ Written by `examples/paper_numbers.py`.
 | Quantity | Paper | Recomputed | Agrees |
 |---|---|---|---|
 | Replayed steps (elastic) | 415 | 415 | yes |
-| Replay time on one core, on this machine (elastic) | less than 1 s | 0.71 s | – |
+| Replay time on one core, on this machine (elastic) | less than 1 s | 0.70 s | – |
 | Replay against the saved solution, largest relative difference (elastic) | to the macroscopic Newton tolerance | 2.9e-06 | yes |
 | Replayed steps (viscoelastic) | 424 | 424 | yes |
-| Replay time on one core, on this machine (viscoelastic) | less than 1 s | 0.65 s | – |
+| Replay time on one core, on this machine (viscoelastic) | less than 1 s | 0.64 s | – |
 | Replay against the saved solution, largest relative difference (viscoelastic) | to the macroscopic Newton tolerance | 2.6e-08 | yes |
 | The Aire node: two 84-core AMD EPYC 9634 processors | as stated | not from a saved run | – |
 | FE² cell increment on one core (s, elastic) | 46 | 45.59 | yes |

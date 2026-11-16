@@ -84,6 +84,8 @@ state = result["restart_state"]                       # pass as initial_state to
 
 `FSISession` keeps the cell, its forms and compiled code across calls, for sequences of steps such as an FE² run. Parameters and returned entries are described in the docstrings of `FSI` and `FSISession` in `periodic_fsi/api.py`.
 
+The linear-solver settings of the paper (Section 3) are set in `periodic_fsi/linear.py`: GMRES for the Newton systems in `ReusableNewtonKSP`, its block-triangular field-split preconditioner (one algebraic multigrid V-cycle on the velocity and mesh blocks, scaled mass matrices for the pressure Schur complements) in `ReusablePETScBlockPC`, and the MUMPS factorisation reused for the tangent in `PETScMUMPSSolver`.
+
 ## Reproducing the paper
 
 Every figure and table of the paper is drawn from the data in `results/` by the scripts below. `python run.py paper` regenerates all of them with their LaTeX floats and recomputes every number quoted in the text of Sections 4 and 5, comparing each with the value printed in the paper (about a minute, no cell solves); the comparison is in `results/paper/tables/paper_numbers.md`. With `--solve` it also recomputes the Table 5 cell states, the history-free Biot laws and the solid compression of Section 5.1. Each script keeps its settings at the top and runs without arguments.
@@ -128,13 +130,16 @@ Jobs stop at a checkpoint before their wall-time limit and resume from it; a res
 
 | Folder | Contents |
 |---|---|
-| `results/paper/` | Figures 3–4 data (`.npz`), every paper figure (PDF), Table 5 values, and `tables/paper_numbers.md`, the numbers in the text against the paper |
+| `results/paper/` | Figures 3–4 data (`.npz`), the Section 5.1 solid compression (`figure3_solid_compression.json`), every paper figure (PDF), Table 5 values, and `tables/paper_numbers.md`, the numbers in the text against the paper |
+| `results/paper/criterion_20261108_153003/` | The Figure 4 pulse at thirteen durations from 0.2 to 200 s, for both skeletons (Table 3) |
+| `results/paper/pore_fields_20261112_180711/` | Section 5.2 mechanism check: the Figure 4 pulse split by mechanism (`figure4_pore_fields.npz`, summary `pore_fields.md`) |
 | `results/verification/combined_20261026_201037/analysis/` | Verification errors, orders, tangent and balance diagnostics, figures |
 | `results/consolidation/full_{elastic,viscoelastic}_step_20261026_201037/` | FE² (`fe2.npz`) and resolved (`resolved.npz`, mesh) step-load consolidation, comparison metrics, Slurm logs |
 | `results/consolidation/full_elastic_20261026_201037/` | The same for a 10 s ramp load (elastic skeleton) |
 | `results/consolidation/refinement_20261026_201037/` | Resolved step-load reference on a finer mesh (`mesh/`) and with halved time steps (`time/`), with `refinement_summary.md` |
 | `results/consolidation/baselines_20261028/` | History-free Biot laws (linear and finite-strain) on the step-load column, compared in `baselines.md` |
-| `results/cyclic/20261026_201037/` | Cyclic consolidation: FE² (`fe2.npz`) and resolved (`resolved.npz`) for each skeleton and period, comparison summaries, Slurm logs |
+| `results/cyclic/20261026_201037/` | Cyclic consolidation at T = 0.2 and 2 s: FE² (`fe2.npz`) and resolved (`resolved.npz`) for each skeleton and period, FE² on stationary cells (`stationary_P*`), comparison summaries, Slurm logs |
+| `results/cyclic/20261108_220130/` | The same at T = 20 and 200 s (Table 6) |
 
 FE² and resolved restart checkpoints (about 1 GB per run) and the raw verification histories are not included. The crosses in the Biot figure are approximate readings from Sandström et al. (2016), Figure 5(b), [doi:10.1016/j.cma.2016.05.021](https://doi.org/10.1016/j.cma.2016.05.021).
 
