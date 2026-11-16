@@ -1,5 +1,7 @@
 # Periodic ALE–FSI computational homogenisation
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24285015.svg)](https://doi.org/10.5281/zenodo.24285015)
+
 Code and data for **Transient pore-resolved computational homogenisation of visco-hyperelastic porous materials**, by James Baxter Chapman, Mark Walkley, David Head, Shufan Yang and Gregory de Boer.
 
 A periodic cell of a visco-hyperelastic solid skeleton and a Stokes pore fluid is solved with a monolithic arbitrary Lagrangian–Eulerian (ALE) fluid–structure interaction formulation. The cell returns the homogenised stress, fluid content and flux, with their consistent 13×13 tangent, for use as a material point in FE² macroscale problems. A fully resolved solver, built from the same equations, provides the reference for the FE² results.
@@ -150,4 +152,4 @@ FE² and resolved restart checkpoints (about 1 GB per run) and the raw verificat
 
 ## Citation
 
-Please cite the paper when using this code or data; `CITATION.cff` holds the citation metadata.
+Please cite the paper when using this code or data; `CITATION.cff` holds the citation metadata. The code and data are archived on Zenodo: version v1.0.0, the version of the paper as submitted, is [doi:10.5281/zenodo.24285016](https://doi.org/10.5281/zenodo.24285016), and [doi:10.5281/zenodo.24285015](https://doi.org/10.5281/zenodo.24285015) always resolves to the latest version.

@@ -4,6 +4,7 @@ type: software
 title: "Code for: Transient pore-resolved computational homogenisation of visco-hyperelastic porous materials"
 version: v1.0.0
 date-released: 2026-11-16
+doi: 10.5281/zenodo.24285015
 authors:
   - family-names: Baxter Chapman
     given-names: James
